@@ -1,24 +1,28 @@
-# Project Name
+# 3D Unity Game for Children
 
-![Team Photo](Insert a Team Photo URL here)
-[*how?*](https://help.github.com/articles/about-readmes/#relative-links-and-image-paths-in-readme-files)
+![Team_Selfie](https://user-images.githubusercontent.com/59535829/192889399-115d7143-0f5a-488e-93a6-5884dcd9c3d0.jpg)
 
 TODO: short project description, some sample screenshots or mockups
 
 ## Architecture
 
-TODO:  descriptions of code organization and tools and libraries used
+Game Engine: Unity
 
 ## Setup
 
-TODO: how to get the project dev environment up and running, npm install etc
+N/A
 
 ## Deployment
 
-TODO: how to deploy the project
+N/A
 
 ## Authors
 
-TODO: list of authors
+
+* Avi Dixit
+* Kewen Huang
+* Kaihao Tian
+* Yuchuan Ma
+* Michael Canche
 
 ## Acknowledgments
