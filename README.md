@@ -1,8 +1,8 @@
-# 3D Unity Game for Children
+# Farm Frenzy
 
 ![Team_Selfie](https://user-images.githubusercontent.com/59535829/192889399-115d7143-0f5a-488e-93a6-5884dcd9c3d0.jpg)
 
-TODO: short project description, some sample screenshots or mockups
+This is a fun, goofy physics based local co-op game made for general audiences. 
 
 ## Architecture
 
