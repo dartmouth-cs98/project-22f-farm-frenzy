@@ -6,7 +6,9 @@ TODO: short project description, some sample screenshots or mockups
 
 ## Architecture
 
-Game Engine: Unity
+Tech Stack:
+- Modeling and design: Maya
+- Game Engine: Unity (Version LTS Release 2021.3.11f1)
 
 ## Setup
 
@@ -17,7 +19,6 @@ N/A
 N/A
 
 ## Authors
-
 
 * Avi Dixit
 * Kewen Huang
