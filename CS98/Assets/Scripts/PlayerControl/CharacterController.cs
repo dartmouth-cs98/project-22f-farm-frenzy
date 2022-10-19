@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 using CartoonFX;
 
 [RequireComponent(typeof(CharacterController))]
-public class PlayerController : MonoBehaviour
+public class PlayerController1 : MonoBehaviour
 {
     [SerializeField]
     private float playerSpeed = 2.0f;
