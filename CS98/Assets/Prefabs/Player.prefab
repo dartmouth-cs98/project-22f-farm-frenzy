@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8085967570150898051}
   - component: {fileID: 8085967570150898050}
   - component: {fileID: 8085967570150898049}
+  - component: {fileID: 1786943305251773602}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -53,6 +54,8 @@ MonoBehaviour:
   jumpHeight: 1
   gravityValue: -9.81
   dashingValue: 10
+  jumpFX: {fileID: 0}
+  pushPower: 2
 --- !u!114 &8085967570150898053
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65,7 +68,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: cde0cec3f5bdfe645b515386c612ee16, type: 3}
+  m_Actions: {fileID: -944628639613478452, guid: cde0cec3f5bdfe645b515386c612ee16,
+    type: 3}
   m_NotificationBehavior: 2
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
@@ -108,7 +112,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 141433446842962273, guid: 9fe8f8b3288e45a44af36ff8aa04486e, type: 3}
+      - m_Target: {fileID: 141433446842962273, guid: 9fe8f8b3288e45a44af36ff8aa04486e,
+          type: 3}
         m_TargetAssemblyTypeName: CartoonFX.CFXR_Effect, CFXRRuntime
         m_MethodName: Animate
         m_Mode: 4
@@ -224,3 +229,15 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1786943305251773602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8085967570150898048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0f6abbe56e1d0947b1c11f3be0d4f3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
