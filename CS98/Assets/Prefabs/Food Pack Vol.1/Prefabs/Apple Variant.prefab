@@ -87,6 +87,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Apple Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8510cb82483a10a47a8d2db243c4f439,
+        type: 3}
+      propertyPath: m_TagString
+      value: object
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: 8510cb82483a10a47a8d2db243c4f439,
+        type: 3}
+      propertyPath: m_TagString
+      value: object
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8510cb82483a10a47a8d2db243c4f439, type: 3}
 --- !u!1 &7689023025826030491 stripped

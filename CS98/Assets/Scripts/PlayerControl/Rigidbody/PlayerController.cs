@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using CartoonFX;
+using System;
 
 public class PlayerController : MonoBehaviour
 {
     public Rigidbody rb;
     public float speed, maxForce, jumpForce;
-    public Vector2 move;
+    public Vector2 move = new Vector2(0,0);
     public bool grounded;
 
 
@@ -19,7 +20,14 @@ public class PlayerController : MonoBehaviour
 
     public void OnMove(InputAction.CallbackContext context)
     {
-        move = context.ReadValue<Vector2>();
+        if(move != context.ReadValue<Vector2>()) {
+            move = context.ReadValue<Vector2>();
+
+            Vector3 newPosition = new Vector3(-move.y, 0.0f, move.x);
+            transform.LookAt(newPosition + transform.position);
+        }
+        
+
     }
 
     public void OnJump(InputAction.CallbackContext context)
@@ -34,21 +42,22 @@ public class PlayerController : MonoBehaviour
 
     public void Move()
     {
+
         Vector3 currentVelocity = rb.velocity;
         Vector3 targetVelocity = new Vector3(move.x, 0, move.y);
         targetVelocity *= speed;
 
-        //Align direction
+        //Align direction (Do not use if rotating character manually, otherwise movement gets messed up)
         //targetVelocity = transform.TransformDirection(targetVelocity);
 
         //Calculate forces
         Vector3 velocityChange = (targetVelocity - currentVelocity);
         velocityChange = new Vector3(velocityChange.x, 0, velocityChange.z);
-        print(velocityChange);
         //Clamp forces
-        //Vector3.ClampMagnitude(velocityChange, maxForce);
+        Vector3.ClampMagnitude(velocityChange, maxForce);
+        rb.AddForce(velocityChange, ForceMode.VelocityChange);
 
-        rb.AddForce(velocityChange, ForceMode.Force);
+
     }
 
     public void Jump()
@@ -86,5 +95,6 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         Move();
+
     }
 }
