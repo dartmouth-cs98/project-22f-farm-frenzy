@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class CameraMultiTarget : MonoBehaviour
 {
-	public float Pitch;
+	public float Pitch = 25.0f;
 	public float Yaw;
 	public float Roll;
 	public float PaddingLeft;
 	public float PaddingRight;
-	public float PaddingUp;
-	public float PaddingDown;
-	public float MoveSmoothTime = 0.19f;
+	public float PaddingUp = 9.0f;
+	public float PaddingDown = 7.0f;
+	public float MoveSmoothTime = 0.1f;
 
 	private Camera _camera;
-	private GameObject[] _targets = new GameObject[0];
+	public GameObject[] _targets = new GameObject[0];
 	private DebugProjection _debugProjection;
 
 	enum DebugProjection { DISABLE, IDENTITY, ROTATED }
