@@ -1,0 +1,298 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1734540687839101081
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1734540687839101080}
+  m_Layer: 0
+  m_Name: Apple
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1734540687839101080
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1734540687839101081}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 6, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1734540688540855092}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1734540688361979571
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1734540688361979581}
+  - component: {fileID: 1734540688361979570}
+  m_Layer: 0
+  m_Name: SpawnerManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1734540688361979581
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1734540688361979571}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1734540688579912919}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1734540688361979570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1734540688361979571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4afc28022c0166243898ba12433050de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  showInInspector: 000000
+  isActive: 010100
+  descriptions:
+  - Carrot Spawner
+  - Apple Spawner
+  - 
+  spawnPositions:
+  - {fileID: 1734540688575650692}
+  - {fileID: 1734540687839101080}
+  - {fileID: 0}
+  prefabsToSpawn:
+  - {fileID: 2891027336764736118, guid: d69096fa688a95d4ba3f1024228d882d, type: 3}
+  - {fileID: 1673419676564822850, guid: 676d7e90eec75af4fa92978888e95424, type: 3}
+  - {fileID: 0}
+  waitForMessage: 
+  startSpawnDelays:
+  - 1
+  - 1
+  - 0
+  spawnDelays:
+  - 0
+  - 0
+  - 0
+  useRandomDelay: 010100
+  minSpawnDelay:
+  - 2
+  - 2
+  - 0
+  maxSpawnDelay:
+  - 5
+  - 5
+  - 0
+  spawnCounter: 000000000000000000000000
+  actionAt: 000000
+  value: 000000000000000000000000
+  stop: 000000
+  sendMessage: 000000
+  receivers:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  messages:
+  - 
+  - 
+  - 
+  useIndexParameter: 000000
+  destroyPrefabs: 000000
+  timeToLive:
+  - 0
+  - 0
+  - 0
+  countDestroyed: 000000
+  prefabsRemaining: 000000000000000000000000
+  continueSpawningAt: 000000
+  destroyedValue: 000000000000000000000000
+  waitForStartCommand: 000000
+  advancedSettings: 000000
+  offsetSettings: 010100
+  spawnOffsets:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  useRandomOffset: 010100
+  minOffsets:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  maxOffsets:
+  - {x: 10, y: 1, z: 10}
+  - {x: 10, y: 1, z: 10}
+  - {x: 0, y: 0, z: 0}
+  spawnRotations:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  useRandomRotation: 010100
+  minRotation:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  maxRotation:
+  - {x: 180, y: 5, z: 180}
+  - {x: 180, y: 5, z: 180}
+  - {x: 0, y: 0, z: 0}
+  spawnEntities:
+  - {fileID: 1734540688575650693}
+  - {fileID: 1734540688575650693}
+  - {fileID: 0}
+  readyToSpawn: 000000
+  delayTimer:
+  - 0
+  - 0
+  - 0
+  usePrefabsDatabase: 000000
+  useRandomOrder: 000000
+  databasePrefabs:
+  - {fileID: 7605828112583931470, guid: 6e39fefe7de01244db9be74da407e96f, type: 3}
+  - {fileID: 3659149714105360204, guid: 6adf6eabf4e9d5b41a521ca2dbe9a8da, type: 3}
+  - {fileID: 102715628639000447, guid: dba99c6cf39f73f4a836d946d54a605b, type: 3}
+  - {fileID: 7605828112583931470, guid: 6e39fefe7de01244db9be74da407e96f, type: 3}
+  - {fileID: 102715628639000447, guid: dba99c6cf39f73f4a836d946d54a605b, type: 3}
+  - {fileID: 0}
+  tagIndex: 000000000000000000000000010000000100000000000000
+  prefabTags:
+  - 1
+  - 2
+  selectedTags:
+  - 
+  - 
+  - 
+  selectedTagIndex: 000000000000000000000000
+  drawGizmos: 1
+  activeSpawnerColor: {r: 0.11273074, g: 1, b: 0, a: 1}
+  inactiveSpawnerColor: {r: 1, g: 0, b: 0.15699196, a: 1}
+  storedSpawnerID: 
+  storedIndex: 0
+  lastPrefabSpawned:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  db_prefabsOfTag: []
+  db_lastIndex: 000000000000000000000000
+  callbackScript: {fileID: 0}
+  debugMode: 0
+--- !u!1 &1734540688540855093
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1734540688540855092}
+  m_Layer: 0
+  m_Name: SeedSpawners
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1734540688540855092
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1734540688540855093}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1734540688575650692}
+  - {fileID: 1734540687839101080}
+  m_Father: {fileID: 1734540688579912919}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1734540688575650693
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1734540688575650692}
+  m_Layer: 0
+  m_Name: Carrot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1734540688575650692
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1734540688575650693}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 6, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1734540688540855092}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1734540688579912916
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1734540688579912919}
+  m_Layer: 0
+  m_Name: '[Spawners]'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1734540688579912919
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1734540688579912916}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1734540688540855092}
+  m_Father: {fileID: 1734540688361979581}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

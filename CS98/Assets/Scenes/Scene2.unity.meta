@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:CS98/Assets/Scenes/Scene2.unity.meta
 guid: 0aee6677e9c71a74eaffcfdf82f9dc97
+========
+guid: 1b8d251f9af63b746bf2f7ffe00ebb9b
+>>>>>>>> main:CS98/Assets/TextMesh Pro/Documentation/TextMesh Pro User Guide 2016.pdf.meta
 DefaultImporter:
   externalObjects: {}
   userData: 
