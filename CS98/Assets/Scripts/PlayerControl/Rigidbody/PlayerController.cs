@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
         if(move != context.ReadValue<Vector2>()) {
             move = context.ReadValue<Vector2>();
 
-            Vector3 newPosition = new Vector3(-move.y, 0.0f, move.x);
+            Vector3 newPosition = new Vector3(move.x, 0.0f, move.y);
             transform.LookAt(newPosition + transform.position);
         }
         
