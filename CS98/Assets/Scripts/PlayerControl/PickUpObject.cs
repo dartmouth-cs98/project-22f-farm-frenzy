@@ -22,6 +22,7 @@ public class PickUpObject : MonoBehaviour
         if (context.action.triggered && canpickup && !hasItem) // if you enter thecollider of the objecct
         {
             ObjectIwantToPickUp.GetComponent<Rigidbody>().isKinematic = true;   //makes the rigidbody not be acted upon by forces
+            (ObjectIwantToPickUp.GetComponent(typeof(Collider)) as Collider).isTrigger = false;
             ObjectIwantToPickUp.transform.position = myHands.transform.position; // sets the position of the object to your hand position
             ObjectIwantToPickUp.transform.parent = myHands.transform; //makes the object become a child of the parent so that it moves with the hands
             hasItem = true;
