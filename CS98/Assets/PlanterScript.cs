@@ -10,15 +10,35 @@ public class PlanterScript : MonoBehaviour
     public GameObject[] growables;
     bool spaceAvailable = true;
 
+    float amplitude = 0.005f;
+    float frequency = 1f;
+    Vector3 posOffset = new Vector3();
+    Vector3 tempPos = new Vector3();
+
+    [SerializeField]
+    private GameObject growFX;
+
+
     private void FixedUpdate()
     {
         if(EnteringObject)
         {
+            print("EnteringObject");
             if(EnteringObject.transform.parent != this.transform)
             {
                 spaceAvailable = true;
                 CancelInvoke();
                 EnteringObject = null;
+            }
+            else
+            {
+                EnteringObject.transform.Rotate(new Vector3(0f, Time.deltaTime * 60, 0f), Space.World);
+
+                // Float up/down with a Sin()
+                tempPos = posOffset;
+                tempPos.y += Mathf.Sin(Time.fixedTime * Mathf.PI * frequency) * amplitude;
+
+                EnteringObject.transform.position = EnteringObject.transform.position + tempPos;
             }
         }
 
@@ -29,6 +49,8 @@ public class PlanterScript : MonoBehaviour
     {
         if (other.gameObject.tag == "object" && spaceAvailable) //on the object you want to pick up set the tag to be anything, in this case "object"
         {
+            print("OnTriggerEnter");
+
             EnteringObject = other.gameObject;
 
             // Check if object is not held
@@ -59,9 +81,19 @@ public class PlanterScript : MonoBehaviour
             newObj.transform.parent = EnteringObject.transform.parent;
             newObj.transform.position = EnteringObject.transform.position;
             if (EnteringObject) { Destroy(EnteringObject); }
-            spaceAvailable = true; // Holding something
+            EnteringObject = newObj;
+            (EnteringObject.GetComponent(typeof(Collider)) as Collider).isTrigger = true;
+            EnteringObject.GetComponent<Rigidbody>().isKinematic = true;   //makes the rigidbody not be acted upon by forces
+            spaceAvailable = false; // Holding something
+            playGrowFX();
         }
         
 
+    }
+
+    void playGrowFX()
+    {
+        growFX.GetComponent<ParticleSystem>().Stop();
+        growFX.GetComponent<ParticleSystem>().Play();
     }
 }
