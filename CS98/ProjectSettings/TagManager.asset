@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Enemy
   - object
+  - Planter
+  - Hand
+  - Scorable
   layers:
   - Default
   - TransparentFX

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 167108108}
   m_Layer: 0
   m_Name: HandTransform
-  m_TagString: Untagged
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

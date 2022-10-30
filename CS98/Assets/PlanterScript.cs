@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class PlanterScript : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class PlanterScript : MonoBehaviour
             {
                 spaceAvailable = true;
                 CancelInvoke();
+                EnteringObject = null;
             }
         }
 
@@ -30,7 +32,14 @@ public class PlanterScript : MonoBehaviour
             EnteringObject = other.gameObject;
 
             // Check if object is not held
-            if(EnteringObject.transform.parent == null && spaceAvailable)
+            if(EnteringObject.transform.parent)
+            {
+                if (EnteringObject.transform.parent.tag == "Hand")
+                {
+                    return;
+                }
+            }
+            if(spaceAvailable)
             {
                 EnteringObject.transform.parent = this.transform;
                 EnteringObject.transform.position = this.transform.position + (new Vector3(0, 1, 0));
