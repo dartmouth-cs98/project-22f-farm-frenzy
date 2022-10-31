@@ -22,8 +22,10 @@ public class PlayerController : MonoBehaviour
     {
         if(move != context.ReadValue<Vector2>()) {
             move = context.ReadValue<Vector2>();
-
-            Vector3 newPosition = new Vector3(move.x, 0.0f, move.y);
+            
+            // Normal Map: x, y
+            // Current Map: y, -x
+            Vector3 newPosition = new Vector3(move.y, 0.0f, -move.x);
             transform.LookAt(newPosition + transform.position);
         }
         
@@ -44,7 +46,9 @@ public class PlayerController : MonoBehaviour
     {
 
         Vector3 currentVelocity = rb.velocity;
-        Vector3 targetVelocity = new Vector3(move.x, 0, move.y);
+        // Normal Map: x, y
+        // Current Map: y, -x
+        Vector3 targetVelocity = new Vector3(move.y, 0, -move.x);
         targetVelocity *= speed;
 
         //Align direction (Do not use if rotating character manually, otherwise movement gets messed up)
