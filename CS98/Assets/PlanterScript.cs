@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
-
 public class PlanterScript : MonoBehaviour
 {
 
@@ -77,7 +76,7 @@ public class PlanterScript : MonoBehaviour
     {
         if(EnteringObject.transform.parent == this.transform)
         {
-            GameObject newObj = Instantiate(growables[0]);
+            GameObject newObj = Instantiate(growables[Random.Range(0, growables.Length)]);
             newObj.transform.parent = EnteringObject.transform.parent;
             newObj.transform.position = EnteringObject.transform.position;
             if (EnteringObject) { Destroy(EnteringObject); }
