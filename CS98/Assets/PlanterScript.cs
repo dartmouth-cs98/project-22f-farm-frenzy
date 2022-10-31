@@ -68,7 +68,7 @@ public class PlanterScript : MonoBehaviour
                 (EnteringObject.GetComponent(typeof(Collider)) as Collider).isTrigger = true;
                 EnteringObject.GetComponent<Rigidbody>().isKinematic = true;   //makes the rigidbody not be acted upon by forces
                 spaceAvailable = false; // Holding something
-                Invoke("finishGrowing", 2);//this will happen after 2 seconds
+                Invoke("finishGrowing", 2);
             }
         }
     }
