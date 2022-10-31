@@ -48,7 +48,6 @@ public class PlanterScript : MonoBehaviour
     {
         if (other.gameObject.tag == "object" && spaceAvailable) //on the object you want to pick up set the tag to be anything, in this case "object"
         {
-            print("OnTriggerEnter");
 
             EnteringObject = other.gameObject;
 
