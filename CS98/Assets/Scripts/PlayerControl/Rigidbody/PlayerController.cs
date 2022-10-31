@@ -7,7 +7,8 @@ using System;
 
 public class PlayerController : MonoBehaviour
 {
-    public Rigidbody rb;
+    [SerializeField] public Rigidbody rb;
+    [SerializeField] private ConfigurableJoint hipJoint;
     public float speed, maxForce, jumpForce;
     public Vector2 move = new Vector2(0,0);
     public bool grounded;
@@ -20,12 +21,31 @@ public class PlayerController : MonoBehaviour
 
     public void OnMove(InputAction.CallbackContext context)
     {
-        if(move != context.ReadValue<Vector2>()) {
+        if (move != context.ReadValue<Vector2>())
+        {
             move = context.ReadValue<Vector2>();
 
+            if (move != Vector2.zero) {
+                Vector3 targetVelocity = new Vector3(move.x, 0, move.y);
+                float targetAngle = Mathf.Atan2(targetVelocity.z, targetVelocity.x) * Mathf.Rad2Deg;
+                Debug.Log(targetAngle);
+                this.hipJoint.targetRotation = Quaternion.Euler(0f, targetAngle - 90f, 0f);
+            }
+
             Vector3 newPosition = new Vector3(move.x, 0.0f, move.y);
-            transform.LookAt(newPosition + transform.position);
+
+            rb.gameObject.transform.LookAt(newPosition + transform.position);
         }
+            
+        //if (context.ReadValue<Vector2>() != Vector2.zero)
+        //{
+        //        Vector3 currentVelocity = this.GetComponent<Rigidbody>().velocity;
+        //        Vector3 targetVelocity = new Vector3(move.x, 0, move.y);
+        //        float targetAngle = Mathf.Atan2(targetVelocity.z, targetVelocity.x) * Mathf.Rad2Deg;
+        //        Debug.Log(targetAngle);
+        //        this.hipJoint.targetRotation = Quaternion.Euler(0f, targetAngle + 270f, 0f);
+            
+        //}
         
 
     }
@@ -43,8 +63,14 @@ public class PlayerController : MonoBehaviour
     public void Move()
     {
 
-        Vector3 currentVelocity = rb.velocity;
+        Vector3 currentVelocity = this.GetComponent<Rigidbody>().velocity;
         Vector3 targetVelocity = new Vector3(move.x, 0, move.y);
+
+        // hip joint rotation
+        //float targetAngle = Mathf.Atan2(targetVelocity.z, targetVelocity.x) * Mathf.Rad2Deg;
+        //Debug.Log(targetAngle);
+        //this.hipJoint.targetRotation = Quaternion.Euler(0f, targetAngle + 270f, 0f);
+
         targetVelocity *= speed;
 
         //Align direction (Do not use if rotating character manually, otherwise movement gets messed up)
@@ -94,6 +120,7 @@ public class PlayerController : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        
         Move();
 
     }
