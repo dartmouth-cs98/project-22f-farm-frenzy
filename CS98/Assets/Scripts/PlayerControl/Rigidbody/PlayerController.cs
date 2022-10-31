@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
                 Vector3 targetVelocity = new Vector3(move.x, 0, move.y);
                 float targetAngle = Mathf.Atan2(targetVelocity.z, targetVelocity.x) * Mathf.Rad2Deg;
                 Debug.Log(targetAngle);
-                this.hipJoint.targetRotation = Quaternion.Euler(0f, targetAngle - 90f, 0f);
+                this.hipJoint.targetRotation = Quaternion.Euler(0f, targetAngle + 270f, 0f);
             }
 
             Vector3 newPosition = new Vector3(move.x, 0.0f, move.y);
