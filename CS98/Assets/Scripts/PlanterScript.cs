@@ -16,6 +16,7 @@ public class PlanterScript : MonoBehaviour
 
     [SerializeField]
     private GameObject growFX;
+    public float growingTime = 5f;
 
 
     private void FixedUpdate()
@@ -66,7 +67,7 @@ public class PlanterScript : MonoBehaviour
                 (EnteringObject.GetComponent(typeof(Collider)) as Collider).isTrigger = true;
                 EnteringObject.GetComponent<Rigidbody>().isKinematic = true;   //makes the rigidbody not be acted upon by forces
                 spaceAvailable = false; // Holding something
-                Invoke("finishGrowing", 2);
+                Invoke("finishGrowing", growingTime);
             }
         }
     }
