@@ -14,8 +14,8 @@ public class GadgetManagerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        startingJump = currentPlayer.GetComponent<PlayerController>().jumpForce;
-        startingSpeed = currentPlayer.GetComponent<PlayerController>().speed;
+        startingJump = currentPlayer.GetComponent<PlayerControllerRagdoll>().jumpForce;
+        startingSpeed = currentPlayer.GetComponent<PlayerControllerRagdoll>().speed;
 
     }
 
@@ -52,8 +52,8 @@ public class GadgetManagerScript : MonoBehaviour
 
     private void resetDefaults()
     {
-        currentPlayer.GetComponent<PlayerController>().jumpForce = startingJump;
-        currentPlayer.GetComponent<PlayerController>().speed = startingSpeed;
+        currentPlayer.GetComponent<PlayerControllerRagdoll>().jumpForce = startingJump;
+        currentPlayer.GetComponent<PlayerControllerRagdoll>().speed = startingSpeed;
 
     }
 
@@ -64,12 +64,12 @@ public class GadgetManagerScript : MonoBehaviour
 
     private void speedBoostHandler()
     {
-        currentPlayer.GetComponent<PlayerController>().speed = startingSpeed * 2f;
+        currentPlayer.GetComponent<PlayerControllerRagdoll>().speed = startingSpeed * 2f;
     }
 
     private void highJumpHandler()
     {
-        currentPlayer.GetComponent<PlayerController>().jumpForce = startingJump * 2f;
+        currentPlayer.GetComponent<PlayerControllerRagdoll>().jumpForce = startingJump * 2f;
     }
 
     public void setGadget(string[] gadget)
