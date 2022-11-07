@@ -8,7 +8,7 @@ using System;
 public class PlayerController : MonoBehaviour
 {
     public Rigidbody rb;
-    public float speed, maxForce, jumpForce;
+    public float speed, maxForce, jumpForce, gravity;
     public Vector2 move = new Vector2(0,0);
     public bool grounded;
 
@@ -74,7 +74,7 @@ public class PlayerController : MonoBehaviour
             playJumpFX();
         }
 
-        rb.AddForce(jumpForces, ForceMode.VelocityChange);
+        rb.AddForce(jumpForces, ForceMode.Impulse);
     }
 
     void playJumpFX()
@@ -99,6 +99,7 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         Move();
+        rb.AddForce(Vector3.down * gravity * rb.mass);
 
     }
 }
