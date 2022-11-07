@@ -22,6 +22,7 @@ public class PickUpObject : MonoBehaviour
         if (context.action.triggered && canpickup && !hasItem) // if you enter thecollider of the objecct
         {
             ObjectIwantToPickUp.GetComponent<Rigidbody>().isKinematic = true;   //makes the rigidbody not be acted upon by forces
+            (ObjectIwantToPickUp.GetComponent(typeof(Collider)) as Collider).isTrigger = false;
             ObjectIwantToPickUp.transform.position = myHands.transform.position; // sets the position of the object to your hand position
             ObjectIwantToPickUp.transform.parent = myHands.transform; //makes the object become a child of the parent so that it moves with the hands
             hasItem = true;
@@ -37,7 +38,7 @@ public class PickUpObject : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other) // to see when the player enters the collider
     {
-        if (other.gameObject.tag == "object" && !hasItem) //on the object you want to pick up set the tag to be anything, in this case "object"
+        if ((other.gameObject.CompareTag("object") || other.gameObject.CompareTag("Scorable")) && !hasItem) //on the object you want to pick up set the tag to be anything, in this case "object"
         {
             canpickup = true;  //set the pick up bool to true
             ObjectIwantToPickUp = other.gameObject; //set the gameobject you collided with to one you can reference
