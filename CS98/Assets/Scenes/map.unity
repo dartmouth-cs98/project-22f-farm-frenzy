@@ -5011,13 +5011,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e863d8a08e474307802eaf34f998943, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Pitch: 35
-  Yaw: 90
+  Pitch: 45.3
+  Yaw: 90.02
   Roll: 0
   PaddingLeft: 0
   PaddingRight: 0
   PaddingUp: 25
-  PaddingDown: 8
+  PaddingDown: 13.1
   MoveSmoothTime: 0.1
   _targets: []
 --- !u!114 &365889949

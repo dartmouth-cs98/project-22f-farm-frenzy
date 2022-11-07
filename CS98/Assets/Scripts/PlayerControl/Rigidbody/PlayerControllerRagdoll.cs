@@ -71,7 +71,7 @@ public class PlayerControllerRagdoll : MonoBehaviour
     public void Move()
     {
 
-        Vector3 currentVelocity = this.GetComponent<Rigidbody>().velocity;
+        Vector3 currentVelocity = rb.velocity;
         Vector3 targetVelocity = new Vector3(signX * move.y, 0, signY * move.x);
 
         // hip joint rotation
@@ -93,7 +93,7 @@ public class PlayerControllerRagdoll : MonoBehaviour
         velocityChange = new Vector3(velocityChange.x, 0, velocityChange.z);
         //Clamp forces
         Vector3.ClampMagnitude(velocityChange, maxForce);
-        rb.AddForce(velocityChange, ForceMode.Impulse);
+        rb.AddForce(velocityChange, ForceMode.VelocityChange);
 
 
     }

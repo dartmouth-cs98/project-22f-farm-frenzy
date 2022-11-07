@@ -7218,7 +7218,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 160655116537642241}
   hipJoint: {fileID: 160655116537642240}
-  speed: 8
+  speed: 15
   maxForce: 15
   jumpForce: 60
   gravity: 200
@@ -8972,8 +8972,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6928040459254950203}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.004, y: 0.18, z: 0.191}
-  m_LocalScale: {x: 0.2817327, y: 0.38621622, z: 0.06788038}
+  m_LocalPosition: {x: 0.004, y: 0.16, z: 0.252}
+  m_LocalScale: {x: 0.2817327, y: 0.45411304, z: 0.16377498}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6928040458742713240}
