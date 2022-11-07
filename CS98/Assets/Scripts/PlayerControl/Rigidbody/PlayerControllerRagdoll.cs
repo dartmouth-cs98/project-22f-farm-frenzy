@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 using CartoonFX;
 using System;
 
-public class PlayerController : MonoBehaviour
+public class PlayerControllerRagdoll : MonoBehaviour
 {
     [SerializeField] public Rigidbody rb;
     [SerializeField] private ConfigurableJoint hipJoint;
