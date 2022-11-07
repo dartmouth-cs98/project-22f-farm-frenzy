@@ -14,6 +14,7 @@ public class CopyLimb : MonoBehaviour
     {
         this.m_ConfigurableJoint = this.GetComponent<ConfigurableJoint>();
         this.targetInitialRotation = this.targetLimb.transform.localRotation;
+
     }
 
     // Update is called once per frame
@@ -24,6 +25,9 @@ public class CopyLimb : MonoBehaviour
 
     private void FixedUpdate() {
         this.m_ConfigurableJoint.targetRotation = copyRotation();
+        //this.m_ConfigurableJoint.transform.position = targetLimb.transform.position;
+        targetLimb.transform.position = this.m_ConfigurableJoint.transform.position;
+
     }
 
     private Quaternion copyRotation() {

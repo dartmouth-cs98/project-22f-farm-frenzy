@@ -5,11 +5,13 @@ using UnityEngine.InputSystem;
 using CartoonFX;
 using System;
 
-public class PlayerController : MonoBehaviour
+public class PlayerControllerRagdoll : MonoBehaviour
 {
-    public Rigidbody rb;
+    [SerializeField] public Rigidbody rb;
+    [SerializeField] private ConfigurableJoint hipJoint;
     public float speed, maxForce, jumpForce, gravity;
     public Vector2 move = new Vector2(0,0);
+    public float signX, signY = 1;
     public bool grounded;
 
 
@@ -20,14 +22,36 @@ public class PlayerController : MonoBehaviour
 
     public void OnMove(InputAction.CallbackContext context)
     {
-        if(move != context.ReadValue<Vector2>()) {
+        if (move != context.ReadValue<Vector2>())
+        {
             move = context.ReadValue<Vector2>();
+
+            if (move != Vector2.zero) {
+                Vector3 targetVelocity = new Vector3(signX * move.y, 0, signY* move.x);
+                float targetAngle = Mathf.Atan2(targetVelocity.z, targetVelocity.x) * Mathf.Rad2Deg;
+                Debug.Log(targetAngle);
+                this.hipJoint.targetRotation = Quaternion.Euler(0f, targetAngle + 270f, 0f);
+            }
+
+            Vector3 newPosition = new Vector3(signX * move.x, 0.0f, signY * move.y);
+
+            rb.gameObject.transform.LookAt(newPosition + transform.position);
             
             // Normal Map: x, y
             // Current Map: y, -x
-            Vector3 newPosition = new Vector3(move.y, 0.0f, -move.x);
-            transform.LookAt(newPosition + transform.position);
+            //Vector3 newPosition = new Vector3(move.y, 0.0f, -move.x);
+            //transform.LookAt(newPosition + transform.position);
         }
+            
+        //if (context.ReadValue<Vector2>() != Vector2.zero)
+        //{
+        //        Vector3 currentVelocity = this.GetComponent<Rigidbody>().velocity;
+        //        Vector3 targetVelocity = new Vector3(move.x, 0, move.y);
+        //        float targetAngle = Mathf.Atan2(targetVelocity.z, targetVelocity.x) * Mathf.Rad2Deg;
+        //        Debug.Log(targetAngle);
+        //        this.hipJoint.targetRotation = Quaternion.Euler(0f, targetAngle + 270f, 0f);
+            
+        //}
         
 
     }
@@ -45,10 +69,18 @@ public class PlayerController : MonoBehaviour
     public void Move()
     {
 
-        Vector3 currentVelocity = rb.velocity;
+        Vector3 currentVelocity = this.GetComponent<Rigidbody>().velocity;
+        Vector3 targetVelocity = new Vector3(signX * move.y, 0, signY * move.x);
+
+        // hip joint rotation
+        //float targetAngle = Mathf.Atan2(targetVelocity.z, targetVelocity.x) * Mathf.Rad2Deg;
+        //Debug.Log(targetAngle);
+        //this.hipJoint.targetRotation = Quaternion.Euler(0f, targetAngle + 270f, 0f);
+
+        //Vector3 currentVelocity = rb.velocity;
         // Normal Map: x, y
         // Current Map: y, -x
-        Vector3 targetVelocity = new Vector3(move.y, 0, -move.x);
+        //Vector3 targetVelocity = new Vector3(move.y, 0, -move.x);
         targetVelocity *= speed;
 
         //Align direction (Do not use if rotating character manually, otherwise movement gets messed up)
@@ -98,6 +130,7 @@ public class PlayerController : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        
         Move();
         rb.AddForce(Vector3.down * gravity * rb.mass);
 
