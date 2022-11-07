@@ -13,7 +13,7 @@ public class GadgetSpawnerScript : MonoBehaviour
     // Start is called before the first frame update
     private void OnTriggerEnter(Collider other) // to see when the player enters the collider
     {
-        if (other.gameObject.tag == "Player" && gadgetAvailable) 
+        if (other.gameObject.tag == "Player" && other.gameObject.GetComponent<GadgetManagerScript>().canPickupGadget() && gadgetAvailable) 
         {
             gadgetAvailable = false;
             this.GetComponent<MeshRenderer>().enabled = false;

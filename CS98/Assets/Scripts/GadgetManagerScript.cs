@@ -87,4 +87,16 @@ public class GadgetManagerScript : MonoBehaviour
         setGadget(new string[] { "None", "Passive" });
         resetDefaults();
     }
+
+    public bool canPickupGadget()
+    {
+        if (String.Equals(currentGadget[0], "None"))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 }
