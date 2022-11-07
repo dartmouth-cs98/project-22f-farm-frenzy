@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GroundCheck : MonoBehaviour
 {
-    public PlayerController playerController;
+    public PlayerControllerRagdoll playerController;
 
     public void OnTriggerEnter(Collider other)
     {
