@@ -10,6 +10,7 @@ public class GadgetSpawnerScript : MonoBehaviour
     public string gadgetName = "Default";
     public string gadgetType = "Passive";
     public float respawnTime = 5f;
+
     // Start is called before the first frame update
     private void OnTriggerEnter(Collider other) // to see when the player enters the collider
     {

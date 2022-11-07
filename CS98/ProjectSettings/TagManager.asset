@@ -9,6 +9,7 @@ TagManager:
   - Planter
   - Hand
   - Scorable
+  - PlayerParent
   layers:
   - Default
   - TransparentFX

@@ -26,21 +26,23 @@ public class PlayerControllerRagdoll : MonoBehaviour
         {
             move = context.ReadValue<Vector2>();
 
-            if (move != Vector2.zero) {
-                Vector3 targetVelocity = new Vector3(signX * move.y, 0, signY* move.x);
+            if (move != Vector2.zero)
+            {
+                Vector3 targetVelocity = new Vector3(signX * move.y, 0, signY * move.x);
                 float targetAngle = Mathf.Atan2(targetVelocity.z, targetVelocity.x) * Mathf.Rad2Deg;
                 Debug.Log(targetAngle);
                 this.hipJoint.targetRotation = Quaternion.Euler(0f, targetAngle + 270f, 0f);
+                Debug.Log(this.hipJoint.targetRotation);
             }
 
-            Vector3 newPosition = new Vector3(signX * move.x, 0.0f, signY * move.y);
+            //Vector3 newPosition = new Vector3(signX * move.x, 0.0f, signY * move.y);
 
-            rb.gameObject.transform.LookAt(newPosition + transform.position);
-            
+            //rb.gameObject.transform.LookAt(newPosition + transform.position);
+
             // Normal Map: x, y
             // Current Map: y, -x
             //Vector3 newPosition = new Vector3(move.y, 0.0f, -move.x);
-            //transform.LookAt(newPosition + transform.position);
+            //rb.gameObject.transform.LookAt(newPosition + rb.transform.localPosition);
         }
             
         //if (context.ReadValue<Vector2>() != Vector2.zero)
@@ -91,7 +93,7 @@ public class PlayerControllerRagdoll : MonoBehaviour
         velocityChange = new Vector3(velocityChange.x, 0, velocityChange.z);
         //Clamp forces
         Vector3.ClampMagnitude(velocityChange, maxForce);
-        rb.AddForce(velocityChange, ForceMode.VelocityChange);
+        rb.AddForce(velocityChange, ForceMode.Impulse);
 
 
     }
