@@ -22,26 +22,28 @@ public class PlayerControllerRagdoll : MonoBehaviour
 
     public void OnMove(InputAction.CallbackContext context)
     {
-        if (move != context.ReadValue<Vector2>())
-        {
-            move = context.ReadValue<Vector2>();
+        // if (stunTime <= 0) {
+            if (move != context.ReadValue<Vector2>())
+            {
+                move = context.ReadValue<Vector2>();
 
-            if (move != Vector2.zero) {
-                Vector3 targetVelocity = new Vector3(signX * move.y, 0, signY* move.x);
-                float targetAngle = Mathf.Atan2(targetVelocity.z, targetVelocity.x) * Mathf.Rad2Deg;
-                Debug.Log(targetAngle);
-                this.hipJoint.targetRotation = Quaternion.Euler(0f, targetAngle + 270f, 0f);
+                if (move != Vector2.zero) {
+                    Vector3 targetVelocity = new Vector3(signX * move.y, 0, signY* move.x);
+                    float targetAngle = Mathf.Atan2(targetVelocity.z, targetVelocity.x) * Mathf.Rad2Deg;
+                    // Debug.Log(targetAngle);
+                    this.hipJoint.targetRotation = Quaternion.Euler(0f, targetAngle + 270f, 0f);
+                }
+
+                Vector3 newPosition = new Vector3(signX * move.x, 0.0f, signY * move.y);
+
+                rb.gameObject.transform.LookAt(newPosition + transform.position);
+                
+                // Normal Map: x, y
+                // Current Map: y, -x
+                //Vector3 newPosition = new Vector3(move.y, 0.0f, -move.x);
+                //transform.LookAt(newPosition + transform.position);
             }
-
-            Vector3 newPosition = new Vector3(signX * move.x, 0.0f, signY * move.y);
-
-            rb.gameObject.transform.LookAt(newPosition + transform.position);
-            
-            // Normal Map: x, y
-            // Current Map: y, -x
-            //Vector3 newPosition = new Vector3(move.y, 0.0f, -move.x);
-            //transform.LookAt(newPosition + transform.position);
-        }
+        // }
             
         //if (context.ReadValue<Vector2>() != Vector2.zero)
         //{

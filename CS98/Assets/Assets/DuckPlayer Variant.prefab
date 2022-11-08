@@ -2155,7 +2155,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 160655116537642242}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 2
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -2493,6 +2493,7 @@ GameObject:
   - component: {fileID: 160655116672309987}
   - component: {fileID: 160655116672309985}
   - component: {fileID: 160655116672310014}
+  - component: {fileID: 1919802920457439618}
   m_Layer: 7
   m_Name: Character1_LeftFoot
   m_TagString: Untagged
@@ -2655,6 +2656,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetLimb: {fileID: 4959884463007234669}
   m_ConfigurableJoint: {fileID: 160655116672309987}
+--- !u!114 &1919802920457439618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 160655116672309989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acfce0a57f3d54d6eaad03098e9eaefc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &160655116780275051
 GameObject:
   m_ObjectHideFlags: 0
@@ -3083,6 +3096,7 @@ GameObject:
   - component: {fileID: 160655116854220546}
   - component: {fileID: 160655116854220544}
   - component: {fileID: 160655116854220545}
+  - component: {fileID: 1985630552967046621}
   m_Layer: 7
   m_Name: Character1_RightFoot
   m_TagString: Untagged
@@ -3245,6 +3259,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetLimb: {fileID: 5943252626503654682}
   m_ConfigurableJoint: {fileID: 160655116854220546}
+--- !u!114 &1985630552967046621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 160655116854220548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acfce0a57f3d54d6eaad03098e9eaefc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &160655116861262938
 GameObject:
   m_ObjectHideFlags: 0
@@ -7133,6 +7159,7 @@ GameObject:
   - component: {fileID: 7846451179594071138}
   - component: {fileID: 7846451179594071139}
   - component: {fileID: 7846451179594071148}
+  - component: {fileID: 5972860695849822132}
   m_Layer: 7
   m_Name: DuckPlayer Variant
   m_TagString: Player
@@ -7182,7 +7209,7 @@ BoxCollider:
   m_GameObject: {fileID: 3305878299095668804}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.21377955, y: 0.35734388, z: 0.14088678}
   m_Center: {x: -0.016436936, y: 0.1884181, z: 0.010152926}
@@ -7200,9 +7227,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 160655116537642241}
   hipJoint: {fileID: 160655116537642240}
-  speed: 7
+  speed: 2
   maxForce: 5
-  jumpForce: 15
+  jumpForce: 30
   gravity: 0
   move: {x: 0, y: 0}
   signX: 1
@@ -7292,6 +7319,22 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &5972860695849822132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3305878299095668804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 947b31cff7ba145a297a8d6c93f57c00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggers: []
+  trigger1: {fileID: 1919802920457439618}
+  trigger2: {fileID: 1985630552967046621}
+  trigger3: {fileID: 0}
 --- !u!1 &3450879042283000701
 GameObject:
   m_ObjectHideFlags: 0
