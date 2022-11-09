@@ -24,14 +24,12 @@ public class PlanePoint : MonoBehaviour
 
     void OnCollisionEnter(Collision collision) {
 
-        if (collision.transform.name == "Capsule") {
+        if (collision.gameObject.tag == "Scorable") {
             KeepScore.Score += 1;
-            Debug.Log("collision");
             Destroy (gameObject);
             updateScoreUI();
 
-        }
-
+        } 
     }
 
     private void updateScoreUI() {
