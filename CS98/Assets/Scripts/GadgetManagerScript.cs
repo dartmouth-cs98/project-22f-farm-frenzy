@@ -7,7 +7,7 @@ public class GadgetManagerScript : MonoBehaviour
 {
 
     public string[] currentGadget = { "None", "Passive" };
-    public GameObject currentPlayer;
+    public GameObject currentPlayer; // The gameobject to affect, in our ragdoll it is the overall parent
     private float startingJump, startingSpeed;
     public float gadgetTimer = 10f;
 
