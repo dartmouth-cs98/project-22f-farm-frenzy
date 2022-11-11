@@ -18,7 +18,7 @@ public class PlayerInputController : MonoBehaviour
     
     }
 
-    public void OnPlayerJoined(PlayerInput playerInput) {
+    public void OnPlayerJoined() {
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
         Debug.Log("one") ;
         foreach (GameObject p in players)

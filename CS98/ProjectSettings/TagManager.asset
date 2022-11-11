@@ -9,7 +9,7 @@ TagManager:
   - Planter
   - Hand
   - Scorable
-  - CinemachineTarget
+  - PlayerParent
   layers:
   - Default
   - TransparentFX
