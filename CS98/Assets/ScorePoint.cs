@@ -34,8 +34,46 @@ public class ScorePoint : MonoBehaviour
 
     }
 
+    private void OnTriggerEnter(Collider collision)
+    {
+
+        if (collision.gameObject.tag == "Scorable")
+        {
+            
+            if (tag == "Red")
+            {
+                KeepScore.RedScore += 1;
+            }
+            else if (tag == "Blue")
+            {
+                KeepScore.BlueScore += 1;
+            }
+            else
+            {
+                KeepScore.Score += 1;
+            }
+
+            Debug.Log("collision");
+            Destroy(collision.gameObject);
+            updateScoreUI();
+
+        }
+
+    }
+
     private void updateScoreUI() {
-        scoreAmount.text = KeepScore.Score.ToString("0");
+        if (tag == "Red")
+        {
+            scoreAmount.text = KeepScore.RedScore.ToString("0");
+        }
+        else if (tag == "Blue")
+        {
+            scoreAmount.text = KeepScore.BlueScore.ToString("0");
+        }
+        else
+        {
+            scoreAmount.text = KeepScore.Score.ToString("0");
+        }
 
     }
 }
