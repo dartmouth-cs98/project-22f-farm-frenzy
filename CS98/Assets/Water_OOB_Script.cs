@@ -13,6 +13,10 @@ public class Water_OOB_Script : MonoBehaviour
             collision.gameObject.transform.position = new Vector3(Random.Range(-10, -5), 5, 20);
 
         }
+        else if(collision.gameObject.tag == "object")
+        {
+            collision.gameObject.transform.position = new Vector3(Random.Range(-13, -10), 7, -3.5f);
+        }
 
     }
 }
