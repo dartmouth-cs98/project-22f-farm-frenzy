@@ -52,15 +52,11 @@ public class PickUpObject : MonoBehaviour
 
     private void FixedUpdate()
     {
-         foreach (Transform child in transform)
-         {
-             if (child.tag != "Hand")
-             {
-                ObjectIwantToPickUp = null;
-                canpickup = false;    //setting both to false
-                hasItem = false;
-            }
-         }
+         if(myHands.transform.childCount == 0 && hasItem)
+        {
+            ObjectIwantToPickUp = null;
+            hasItem = false;
+        }
     }
 }
 

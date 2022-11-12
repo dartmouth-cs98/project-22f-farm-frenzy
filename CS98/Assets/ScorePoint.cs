@@ -34,14 +34,14 @@ public class ScorePoint : MonoBehaviour
 
     }
 
-    void OnTriggerEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
 
         if (collision.gameObject.tag == "Scorable")
         {
             KeepScore.Score += 1;
             Debug.Log("collision");
-            Destroy(gameObject);
+            Destroy(collision.gameObject);
             updateScoreUI();
 
         }
