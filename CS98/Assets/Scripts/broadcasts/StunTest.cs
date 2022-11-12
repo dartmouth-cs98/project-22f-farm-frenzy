@@ -23,6 +23,10 @@ public class StunTest : MonoBehaviour
     public void getStun(int sec)
     {
         stunTime = sec;
+        //animator.SetBool("Idle", false);
+        //animator.SetBool("Knock Out", true);
+        //PlayerControllerRagdoll controller = GetComponent<PlayerControllerRagdoll>();
+        //controller.enabled = false;
         InvokeRepeating("stunCountDown", 0f, 1f);
     }
 
@@ -31,6 +35,10 @@ public class StunTest : MonoBehaviour
         stunTime = stunTime - 1;
         if (stunTime == 0)
         {
+            //PlayerControllerRagdoll controller = GetComponent<PlayerControllerRagdoll>();
+            //controller.enabled = true;
+            //animator.SetBool("Idle", true);
+            //animator.SetBool("Knock Out", false);
             CancelInvoke("stunCountDown");
         }
     }

@@ -14,6 +14,7 @@ public class PlayerControllerRagdoll : MonoBehaviour
     public float signX, signY = 1;
     public bool grounded;
 
+    public Animator animator;
 
     [SerializeField]
     private GameObject jumpFX;
@@ -23,26 +24,45 @@ public class PlayerControllerRagdoll : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         // if (stunTime <= 0) {
-            if (move != context.ReadValue<Vector2>())
+        if (move != context.ReadValue<Vector2>())
+        {
+            move = context.ReadValue<Vector2>();
+
+            if (move != Vector2.zero)
             {
-                move = context.ReadValue<Vector2>();
+                Vector3 targetVelocity = new Vector3(signX * move.y, 0, signY * move.x);
+                float targetAngle = Mathf.Atan2(targetVelocity.z, targetVelocity.x) * Mathf.Rad2Deg;
+                // Debug.Log(targetAngle);
+                this.hipJoint.targetRotation = Quaternion.Euler(0f, targetAngle + 270f, 0f);
 
-                if (move != Vector2.zero) {
-                    Vector3 targetVelocity = new Vector3(signX * move.y, 0, signY* move.x);
-                    float targetAngle = Mathf.Atan2(targetVelocity.z, targetVelocity.x) * Mathf.Rad2Deg;
-                    // Debug.Log(targetAngle);
-                    this.hipJoint.targetRotation = Quaternion.Euler(0f, targetAngle + 270f, 0f);
-                }
+                animator.SetBool("Idle", false);
+                animator.SetBool("Walking", true);
+                animator.SetBool("Knock Out", false);
+                animator.SetBool("Jump Attack", false);
+                animator.SetBool("Punching", false);
+                animator.SetBool("Jump", false);
 
-                Vector3 newPosition = new Vector3(signX * move.x, 0.0f, signY * move.y);
-
-                rb.gameObject.transform.LookAt(newPosition + transform.position);
-                
-                // Normal Map: x, y
-                // Current Map: y, -x
-                //Vector3 newPosition = new Vector3(move.y, 0.0f, -move.x);
-                //transform.LookAt(newPosition + transform.position);
             }
+            else
+            {
+                animator.SetBool("Idle", true);
+                animator.SetBool("Walking", false);
+            }
+
+            Vector3 newPosition = new Vector3(signX * move.x, 0.0f, signY * move.y);
+
+            rb.gameObject.transform.LookAt(newPosition + transform.position);
+
+
+            // Normal Map: x, y
+            // Current Map: y, -x
+            //Vector3 newPosition = new Vector3(move.y, 0.0f, -move.x);
+            //transform.LookAt(newPosition + transform.position);
+        }
+        //else {
+        //    animator.SetBool("Idle", true);
+        //    animator.SetBool("Walking", false);
+        //}
         // }
             
         //if (context.ReadValue<Vector2>() != Vector2.zero)
@@ -104,11 +124,19 @@ public class PlayerControllerRagdoll : MonoBehaviour
 
         if (grounded)
         {
+            animator.SetBool("Idle", false);
+            animator.SetBool("Walking", false);
+            //animator.SetTrigger("Jump");
             jumpForces = Vector3.up * jumpForce;
             playJumpFX();
         }
 
         rb.AddForce(jumpForces, ForceMode.Impulse);
+        //if (jumpForce >= 0)
+        //{
+        //    Jumpwaiter();
+        //}
+
     }
 
     void playJumpFX()
@@ -137,4 +165,17 @@ public class PlayerControllerRagdoll : MonoBehaviour
         rb.AddForce(Vector3.down * gravity * rb.mass);
 
     }
+
+    //IEnumerator Jumpwaiter()
+    //{
+    //    animator.SetBool("Idle", false);
+    //    animator.SetBool("Walking", false);
+    //    animator.SetBool("Jump", true);
+
+    //    //Wait for 4 seconds
+    //    yield return new WaitForSecondsRealtime(2);
+
+    //    animator.SetBool("Idle", true);
+    //    animator.SetBool("Jump", false);
+    //}
 }
