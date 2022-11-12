@@ -49,7 +49,7 @@ public class PlayerPunch : MonoBehaviour
     IEnumerator Punchwaiter()
     {
         //Wait for half seconds
-        yield return new WaitForSecondsRealtime(0.5f);
+        yield return new WaitForSecondsRealtime(1f);
 
         animator.SetBool("Idle", true);
         animator.SetBool("Punching", false);

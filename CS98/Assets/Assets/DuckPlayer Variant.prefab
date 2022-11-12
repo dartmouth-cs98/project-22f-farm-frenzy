@@ -3208,12 +3208,12 @@ ConfigurableJoint:
   m_RotationDriveMode: 0
   m_AngularXDrive:
     serializedVersion: 3
-    positionSpring: 600
+    positionSpring: 300
     positionDamper: 0
     maximumForce: 3.4028233e+38
   m_AngularYZDrive:
     serializedVersion: 3
-    positionSpring: 600
+    positionSpring: 300
     positionDamper: 0
     maximumForce: 3.4028233e+38
   m_SlerpDrive:
@@ -7368,6 +7368,7 @@ MonoBehaviour:
   punchingRange: 2
   fist: {fileID: 160655117852155786}
   animator: {fileID: 1137912854687996854}
+  ThrowingForce: 100
 --- !u!1 &3450879042283000701
 GameObject:
   m_ObjectHideFlags: 0
