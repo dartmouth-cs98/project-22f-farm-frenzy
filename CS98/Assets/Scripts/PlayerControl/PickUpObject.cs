@@ -49,5 +49,18 @@ public class PickUpObject : MonoBehaviour
         canpickup = false; //when you leave the collider set the canpickup bool to false
 
     }
+
+    private void FixedUpdate()
+    {
+         foreach (Transform child in transform)
+         {
+             if (child.tag != "Hand")
+             {
+                ObjectIwantToPickUp = null;
+                canpickup = false;    //setting both to false
+                hasItem = false;
+            }
+         }
+    }
 }
 

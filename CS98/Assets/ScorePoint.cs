@@ -34,6 +34,20 @@ public class ScorePoint : MonoBehaviour
 
     }
 
+    void OnTriggerEnter(Collision collision)
+    {
+
+        if (collision.gameObject.tag == "Scorable")
+        {
+            KeepScore.Score += 1;
+            Debug.Log("collision");
+            Destroy(gameObject);
+            updateScoreUI();
+
+        }
+
+    }
+
     private void updateScoreUI() {
         scoreAmount.text = KeepScore.Score.ToString("0");
 
