@@ -6,9 +6,15 @@ public class GroundCheck : MonoBehaviour
 {
     public PlayerControllerRagdoll playerController;
 
+    public void Start()
+    {
+        playerController.SetGrounded(false);
+
+    }
+
     public void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject == playerController.gameObject)
+        if(other.gameObject == playerController.gameObject || other.tag == "Scorable" || other.tag == "Bush")
         {
             return;
         }

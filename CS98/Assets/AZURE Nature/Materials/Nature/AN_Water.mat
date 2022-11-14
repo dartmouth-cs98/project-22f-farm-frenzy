@@ -75,7 +75,7 @@ Material:
     - _RefractionIntensity: 0.15
     - _RefractionScale: 0.113
     - _Scale: 50
-    - _Smoothness: 1
+    - _Smoothness: 0
     - _TessEdgeLength: 16
     - _TessMax: 25
     - _TessMaxDisp: 25
@@ -99,7 +99,7 @@ Material:
     - __dirty: 0
     m_Colors:
     - _Color0: {r: 0.4245283, g: 0.4245283, b: 0.4245283, a: 0}
-    - _Color1: {r: 0.13318795, g: 0.6886792, b: 0.6572364, a: 0}
+    - _Color1: {r: 0.13333334, g: 0.46107337, b: 0.6901961, a: 0}
     - _Color2: {r: 0.30286577, g: 0.7134178, b: 0.7735849, a: 0}
     - _DepthColor: {r: 0, g: 1, b: 0.9725489, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}

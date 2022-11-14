@@ -45,6 +45,16 @@ public class PickUpObject : MonoBehaviour
             other.gameObject.AddComponent<Outline>();
         }
     }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if ((other.gameObject.CompareTag("object") || other.gameObject.CompareTag("Scorable")) && !hasItem) //on the object you want to pick up set the tag to be anything, in this case "object"
+        {
+            canpickup = true;  //set the pick up bool to true
+            ObjectIwantToPickUp = other.gameObject; //set the gameobject you collided with to one you can reference
+            other.gameObject.AddComponent<Outline>();
+        }
+    }
     private void OnTriggerExit(Collider other)
     {
         canpickup = false; //when you leave the collider set the canpickup bool to false
