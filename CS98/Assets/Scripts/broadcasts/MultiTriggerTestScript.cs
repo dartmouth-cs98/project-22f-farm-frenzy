@@ -42,11 +42,12 @@ public class MultiTriggerTestScript : OnTriggerListener
  
     public override void OnCollisionEntered(Collider zone, Collision activator)
     {
-        // Debug.Log(activator.collider.name + " entered zone " + zone.name);
-        if(activator.collider.gameObject.CompareTag("Player") && (activator.collider.name == "Character1_Head"))
+        //Debug.Log(activator.collider.name + " entered zone " + zone.name);
+        //if(activator.collider.gameObject.CompareTag("Player") && (activator.collider.name == "Character1_Head"))
+        if (activator.collider.name == "Character1_Head")
         {
             GameObject ancestor = activator.collider.transform.parent.parent.parent.parent.parent.parent.parent.parent.gameObject;
-            ancestor.GetComponent<StunTest>().getStun(5);
+            ancestor.GetComponent<PlayerControllerRagdoll>().getStun(10);
         }
 
         if(activator.collider.CompareTag("Player"))

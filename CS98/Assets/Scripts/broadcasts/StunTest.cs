@@ -15,8 +15,14 @@ public class StunTest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (stunTime > 0) {
+        if (stunTime > 0)
+        {
             Debug.Log("ooooooh i'm stunned");
+            // play knock out animation
+            // disable player control
+        }
+        else {
+            // enable player control
         }
     }
 
