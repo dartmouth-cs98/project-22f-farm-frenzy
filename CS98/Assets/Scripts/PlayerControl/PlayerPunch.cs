@@ -23,9 +23,9 @@ public class PlayerPunch : MonoBehaviour
 
         if (Physics.Raycast(fist.transform.position, fist.transform.forward, out hitInfo, punchingRange))
         {
-            Debug.Log(hitInfo.transform.name);
-            Collider collide = hitInfo.transform.GetComponent<Collider>();
-            Debug.Log(collide.name);
+            //Debug.Log(hitInfo.transform.name);
+            //Collider collide = hitInfo.transform.GetComponent<Collider>();
+            //Debug.Log(collide.name);
             PlayerControllerRagdoll[] hitObj = hitInfo.transform.GetComponentsInParent<PlayerControllerRagdoll>();
             //PlayerControllerRagdoll[] hitObj = hitInfo.transform.GetComponentsInParent<PlayerControllerRagdoll>();
             if (hitObj.Length > 0)
