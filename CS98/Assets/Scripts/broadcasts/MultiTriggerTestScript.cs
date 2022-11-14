@@ -15,7 +15,8 @@ public class MultiTriggerTestScript : OnTriggerListener
     public OnTriggerBroadcaster trigger1;
     public OnTriggerBroadcaster trigger2;
     public OnTriggerBroadcaster trigger3;
-   
+    public PlayerControllerRagdoll controller;
+
     //for every TriggerBroadcaster object you must add it to the 'triggers.Add' portion of this override.
     void TriggerInitialize(){{if (triggers.Count == 0){
                 //Here  VVVVVV
@@ -44,10 +45,12 @@ public class MultiTriggerTestScript : OnTriggerListener
     {
         //Debug.Log(activator.collider.name + " entered zone " + zone.name);
         //if(activator.collider.gameObject.CompareTag("Player") && (activator.collider.name == "Character1_Head"))
-        if (activator.collider.gameObject.CompareTag("Player") && activator.collider.name == "Character1_Head")
+        if (!controller.isDead && activator.collider.gameObject.CompareTag("Player") && activator.collider.name == "Character1_Head")
         {
             GameObject ancestor = activator.collider.transform.parent.parent.parent.parent.parent.parent.parent.parent.gameObject;
-            ancestor.GetComponent<PlayerControllerRagdoll>().getStun(10);
+            if (!ancestor.GetComponent<PlayerControllerRagdoll>().isDead) {
+                ancestor.GetComponent<PlayerControllerRagdoll>().getStun(5);
+            }
         }
 
         if(activator.collider.CompareTag("Player"))
