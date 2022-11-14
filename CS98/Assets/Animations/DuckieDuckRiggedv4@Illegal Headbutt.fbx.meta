@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: de5d57a9cbeb344c09de36c1b8fd0dc0
+guid: e292d3d193464439a99fc3c543a192f7
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable:
   - first:
       74: -203655887218126122
-    second: Jump Attack
+    second: Illegal Headbutt
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -18,7 +18,7 @@ ModelImporter:
     resampleCurves: 1
     optimizeGameObjects: 0
     removeConstantScaleCurves: 1
-    motionNodeName: Character1_Ctrl_Reference
+    motionNodeName: 
     rigImportErrors: 
     rigImportWarnings: 
     animationImportErrors: 
@@ -36,11 +36,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Jump Attack
+      name: Illegal Headbutt
       takeName: mixamo.com
       internalID: 0
       firstFrame: 0
-      lastFrame: 77
+      lastFrame: 26
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
