@@ -14,37 +14,66 @@ public class PlayerControllerRagdoll : MonoBehaviour
     public float signX, signY = 1;
     public bool grounded;
 
+    private int stunTime;
+
+    public Animator animator;
 
     [SerializeField]
     private GameObject jumpFX;
 
     private bool dashing;
 
+    private float original_force = 3.502823f+38f;
+
     public void OnMove(InputAction.CallbackContext context)
     {
-        if (move != context.ReadValue<Vector2>())
+        if (stunTime <= 0)
         {
-            move = context.ReadValue<Vector2>();
-
-            if (move != Vector2.zero)
+            if (move != context.ReadValue<Vector2>())
             {
-                Vector3 targetVelocity = new Vector3(signX * move.y, 0, signY * move.x);
-                float targetAngle = Mathf.Atan2(targetVelocity.z, targetVelocity.x) * Mathf.Rad2Deg;
-                Debug.Log(targetAngle);
-                this.hipJoint.targetRotation = Quaternion.Euler(0f, targetAngle + 270f, 0f);
-                Debug.Log(this.hipJoint.targetRotation);
+                move = context.ReadValue<Vector2>();
+
+                if (move != Vector2.zero)
+                {
+                    Vector3 targetVelocity = new Vector3(signX * move.y, 0, signY * move.x);
+                    float targetAngle = Mathf.Atan2(targetVelocity.z, targetVelocity.x) * Mathf.Rad2Deg;
+                    // Debug.Log(targetAngle);
+                    this.hipJoint.targetRotation = Quaternion.Euler(0f, targetAngle + 270f, 0f);
+
+                    animator.SetBool("Idle", false);
+                    animator.SetBool("Walking", true);
+                    animator.SetBool("Knock Out", false);
+                    animator.SetBool("Jump Attack", false);
+                    animator.SetBool("Punching", false);
+                    animator.SetBool("Jump", false);
+
+                }
+                else
+                {
+                    animator.SetBool("Idle", true);
+                    animator.SetBool("Walking", false);
+                }
+
+                Vector3 newPosition = new Vector3(signX * move.x, 0.0f, signY * move.y);
+
+                rb.gameObject.transform.LookAt(newPosition + transform.position);
+
+
+                // Normal Map: x, y
+                // Current Map: y, -x
+                //Vector3 newPosition = new Vector3(move.y, 0.0f, -move.x);
+                //transform.LookAt(newPosition + transform.position);
             }
-
-            //Vector3 newPosition = new Vector3(signX * move.x, 0.0f, signY * move.y);
-
-            //rb.gameObject.transform.LookAt(newPosition + transform.position);
-
-            // Normal Map: x, y
-            // Current Map: y, -x
-            //Vector3 newPosition = new Vector3(move.y, 0.0f, -move.x);
-            //rb.gameObject.transform.LookAt(newPosition + rb.transform.localPosition);
         }
-            
+        //else {
+        //    Debug.Log("ooooooh i'm stunned");
+        //}
+        //else {
+        //    animator.SetBool("Idle", true);
+        //    animator.SetBool("Walking", false);
+        //}
+        // }
+
         //if (context.ReadValue<Vector2>() != Vector2.zero)
         //{
         //        Vector3 currentVelocity = this.GetComponent<Rigidbody>().velocity;
@@ -52,9 +81,9 @@ public class PlayerControllerRagdoll : MonoBehaviour
         //        float targetAngle = Mathf.Atan2(targetVelocity.z, targetVelocity.x) * Mathf.Rad2Deg;
         //        Debug.Log(targetAngle);
         //        this.hipJoint.targetRotation = Quaternion.Euler(0f, targetAngle + 270f, 0f);
-            
+
         //}
-        
+
 
     }
 
@@ -104,11 +133,19 @@ public class PlayerControllerRagdoll : MonoBehaviour
 
         if (grounded)
         {
+            animator.SetBool("Idle", false);
+            animator.SetBool("Walking", false);
+            //animator.SetTrigger("Jump");
             jumpForces = Vector3.up * jumpForce;
             playJumpFX();
         }
 
         rb.AddForce(jumpForces, ForceMode.Impulse);
+        //if (jumpForce >= 0)
+        //{
+        //    Jumpwaiter();
+        //}
+
     }
 
     void playJumpFX()
@@ -128,7 +165,7 @@ public class PlayerControllerRagdoll : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        //original_force = hipJoint.JointDrive.maximumForce;
     }
     private void FixedUpdate()
     {
@@ -136,5 +173,76 @@ public class PlayerControllerRagdoll : MonoBehaviour
         Move();
         rb.AddForce(Vector3.down * gravity * rb.mass);
 
+    }
+
+    public void getStun(int sec)
+    {
+        stunTime = sec;
+        //animator.SetBool("Idle", false);
+        //animator.SetTrigger("Knock Out");
+
+        //JointDrive drive = new JointDrive();
+        //drive.positionSpring = 0;
+        //Debug.Log("turning to 0 spring");
+        //hipJoint.angularXDrive = drive;
+        //hipJoint.angularYZDrive = drive;
+        //PlayerControllerRagdoll controller = GetComponent<PlayerControllerRagdoll>();
+        //controller.enabled = false;
+        StartCoroutine(Jointwaiter());
+
+        InvokeRepeating("stunCountDown", 0f, 1f);
+    }
+
+    private void stunCountDown()
+    {
+        stunTime = stunTime - 1;
+        if (stunTime < 0)
+        {
+            PlayerControllerRagdoll controller = GetComponent<PlayerControllerRagdoll>();
+            controller.enabled = true;
+
+            animator.SetBool("Idle", true);
+            //animator.SetBool("Knock Out", false);
+            animator.ResetTrigger("Knock Out");
+
+            JointDrive drive = new JointDrive();
+            //drive.maximumForce = original_force;
+            drive.maximumForce = Mathf.Infinity; ;
+            drive.positionSpring = 500;
+            Debug.Log("turning back");
+            hipJoint.angularXDrive = drive;
+            hipJoint.angularYZDrive = drive;
+
+            CancelInvoke("stunCountDown");
+        }
+    }
+
+    IEnumerator Jointwaiter()
+    {
+        //animator.SetBool("Idle", false);
+        //animator.SetBool("Walking", false);
+        //animator.SetBool("Jump", true);
+
+        ////Wait for 4 seconds
+        //yield return new WaitForSecondsRealtime(2);
+
+        //animator.SetBool("Idle", true);
+        //animator.SetBool("Jump", false);
+        PlayerControllerRagdoll controller = GetComponent<PlayerControllerRagdoll>();
+        controller.enabled = false;
+
+        animator.SetBool("Idle", false);
+        animator.SetTrigger("Knock Out");
+
+        yield return new WaitForSecondsRealtime(0.8f);
+
+        JointDrive drive = new JointDrive();
+        drive.positionSpring = 0;
+        Debug.Log("turning to 0 spring");
+        hipJoint.angularXDrive = drive;
+        hipJoint.angularYZDrive = drive;
+
+        //PlayerControllerRagdoll controller = GetComponent<PlayerControllerRagdoll>();
+        //controller.enabled = false;
     }
 }

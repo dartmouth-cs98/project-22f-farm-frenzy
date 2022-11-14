@@ -76,7 +76,7 @@ GameObject:
   - component: {fileID: 160655115805249717}
   - component: {fileID: 160655115805249712}
   - component: {fileID: 160655115805249713}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Character1_LeftShoulder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -314,7 +314,7 @@ GameObject:
   - component: {fileID: 160655115930297227}
   - component: {fileID: 160655115930297226}
   - component: {fileID: 160655115930297225}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Character1_LeftHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -424,12 +424,12 @@ ConfigurableJoint:
   m_RotationDriveMode: 0
   m_AngularXDrive:
     serializedVersion: 3
-    positionSpring: 150
+    positionSpring: 300
     positionDamper: 0
     maximumForce: 3.4028233e+38
   m_AngularYZDrive:
     serializedVersion: 3
-    positionSpring: 150
+    positionSpring: 300
     positionDamper: 0
     maximumForce: 3.4028233e+38
   m_SlerpDrive:
@@ -551,7 +551,7 @@ GameObject:
   - component: {fileID: 160655115995591570}
   - component: {fileID: 160655115995591568}
   - component: {fileID: 160655115995591569}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Character1_Spine2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -817,7 +817,7 @@ GameObject:
   - component: {fileID: 160655116037490094}
   - component: {fileID: 160655116037490092}
   - component: {fileID: 160655116037490093}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Character1_RightArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1086,7 +1086,7 @@ GameObject:
   - component: {fileID: 160655116122872712}
   - component: {fileID: 160655116122872710}
   - component: {fileID: 160655116122872711}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Character1_RightShoulder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1522,7 +1522,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 160655116432862800}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Character1_Reference
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1663,7 +1663,7 @@ GameObject:
   - component: {fileID: 160655116473064358}
   - component: {fileID: 160655116473064356}
   - component: {fileID: 160655116473064357}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Character1_RightUpLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1927,7 +1927,7 @@ GameObject:
   - component: {fileID: 160655116494691378}
   - component: {fileID: 160655116494691381}
   - component: {fileID: 160655116494691379}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Character1_LeftForeArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2118,6 +2118,7 @@ GameObject:
   - component: {fileID: 160655116537642243}
   - component: {fileID: 160655116537642241}
   - component: {fileID: 160655116537642240}
+  - component: {fileID: 3230720416027422121}
   - component: {fileID: 160655116537642270}
   - component: {fileID: 160655116537642271}
   - component: {fileID: 3455741182147202466}
@@ -2156,7 +2157,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 160655116537642242}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 2
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -2260,6 +2261,19 @@ ConfigurableJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &3230720416027422121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 160655116537642242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22994245bce944763b4b5df01f21077a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  joint: {fileID: 160655116537642240}
 --- !u!65 &160655116537642270
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2511,7 +2525,8 @@ GameObject:
   - component: {fileID: 160655116672309987}
   - component: {fileID: 160655116672309985}
   - component: {fileID: 160655116672310014}
-  m_Layer: 7
+  - component: {fileID: 1919802920457439618}
+  m_Layer: 9
   m_Name: Character1_LeftFoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2673,6 +2688,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetLimb: {fileID: 4959884463007234669}
   m_ConfigurableJoint: {fileID: 160655116672309987}
+--- !u!114 &1919802920457439618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 160655116672309989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acfce0a57f3d54d6eaad03098e9eaefc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &160655116780275051
 GameObject:
   m_ObjectHideFlags: 0
@@ -2686,7 +2713,7 @@ GameObject:
   - component: {fileID: 160655116780275049}
   - component: {fileID: 160655116780275047}
   - component: {fileID: 160655116780275044}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Character1_LeftArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3101,7 +3128,8 @@ GameObject:
   - component: {fileID: 160655116854220546}
   - component: {fileID: 160655116854220544}
   - component: {fileID: 160655116854220545}
-  m_Layer: 7
+  - component: {fileID: 1985630552967046621}
+  m_Layer: 9
   m_Name: Character1_RightFoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3212,12 +3240,12 @@ ConfigurableJoint:
   m_RotationDriveMode: 0
   m_AngularXDrive:
     serializedVersion: 3
-    positionSpring: 600
+    positionSpring: 300
     positionDamper: 0
     maximumForce: 3.4028233e+38
   m_AngularYZDrive:
     serializedVersion: 3
-    positionSpring: 600
+    positionSpring: 300
     positionDamper: 0
     maximumForce: 3.4028233e+38
   m_SlerpDrive:
@@ -3263,6 +3291,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetLimb: {fileID: 5943252626503654682}
   m_ConfigurableJoint: {fileID: 160655116854220546}
+--- !u!114 &1985630552967046621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 160655116854220548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acfce0a57f3d54d6eaad03098e9eaefc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &160655116861262938
 GameObject:
   m_ObjectHideFlags: 0
@@ -3307,7 +3347,7 @@ GameObject:
   - component: {fileID: 160655116922881148}
   - component: {fileID: 160655116922881146}
   - component: {fileID: 160655116922881147}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Character1_Spine1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3647,7 +3687,7 @@ GameObject:
   - component: {fileID: 160655117128253575}
   - component: {fileID: 160655117128253574}
   - component: {fileID: 160655117128253572}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Character1_Spine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3809,7 +3849,7 @@ GameObject:
   - component: {fileID: 160655117134389323}
   - component: {fileID: 160655117134389321}
   - component: {fileID: 160655117134389318}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Character1_LeftLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4034,7 +4074,7 @@ GameObject:
   - component: {fileID: 160655117148097900}
   - component: {fileID: 160655117148097903}
   - component: {fileID: 160655117148097901}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Character1_RightForeArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4228,7 +4268,7 @@ GameObject:
   - component: {fileID: 160655117242141390}
   - component: {fileID: 160655117242141388}
   - component: {fileID: 160655117242141389}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Character1_LeftUpLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4865,7 +4905,7 @@ GameObject:
   - component: {fileID: 160655117419749579}
   - component: {fileID: 160655117419749578}
   - component: {fileID: 160655117419749576}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Character1_Neck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5091,7 +5131,7 @@ GameObject:
   - component: {fileID: 160655117438288959}
   - component: {fileID: 160655117438288957}
   - component: {fileID: 160655117438288954}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Character1_Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5261,7 +5301,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 160655117444086941}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Character1_RightToeBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5359,7 +5399,7 @@ GameObject:
   - component: {fileID: 160655117557275218}
   - component: {fileID: 160655117557275216}
   - component: {fileID: 160655117557275217}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Character1_RightLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5562,7 +5602,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 160655117575290783}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Character1_LeftToeBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5918,7 +5958,7 @@ GameObject:
   - component: {fileID: 160655117852155786}
   - component: {fileID: 160655117852155789}
   - component: {fileID: 160655117852155788}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Character1_RightHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6028,12 +6068,12 @@ ConfigurableJoint:
   m_RotationDriveMode: 0
   m_AngularXDrive:
     serializedVersion: 3
-    positionSpring: 150
+    positionSpring: 300
     positionDamper: 0
     maximumForce: 3.4028233e+38
   m_AngularYZDrive:
     serializedVersion: 3
-    positionSpring: 150
+    positionSpring: 300
     positionDamper: 0
     maximumForce: 3.4028233e+38
   m_SlerpDrive:
@@ -6460,6 +6500,26 @@ Transform:
   m_Father: {fileID: 2786327806579393278}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1137912854687996854
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1483533289047280844}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 12a552ebc6cfd1247851bc1b05168f8c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1502593701990475788
 GameObject:
   m_ObjectHideFlags: 0
@@ -7151,6 +7211,8 @@ GameObject:
   - component: {fileID: 7846451179594071138}
   - component: {fileID: 7846451179594071139}
   - component: {fileID: 7846451179594071148}
+  - component: {fileID: 5972860695849822132}
+  - component: {fileID: 3839337718610776949}
   m_Layer: 7
   m_Name: DuckPlayer Variant
   m_TagString: PlayerParent
@@ -7183,7 +7245,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3305878299095668804}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 2
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -7305,11 +7367,59 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 91a14cb2-fe0e-4d93-a63f-446509d0cfe5
     m_ActionName: Player/Grab[/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3839337718610776949}
+        m_TargetAssemblyTypeName: PlayerPunch, Assembly-CSharp
+        m_MethodName: Punch
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: f37bc784-747c-4a00-a410-48bb23298e81
+    m_ActionName: Player/Punch[/Keyboard/f]
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: Keyboard
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &5972860695849822132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3305878299095668804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 947b31cff7ba145a297a8d6c93f57c00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggers: []
+  trigger1: {fileID: 1919802920457439618}
+  trigger2: {fileID: 1985630552967046621}
+  trigger3: {fileID: 0}
+--- !u!114 &3839337718610776949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3305878299095668804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9edaa3d018f0842a8a2ca87bbc9357f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  punchingRange: 2
+  fist: {fileID: 160655117852155786}
+  animator: {fileID: 1137912854687996854}
+  ThrowingForce: 100
 --- !u!1 &3450879042283000701
 GameObject:
   m_ObjectHideFlags: 0
@@ -8827,7 +8937,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6928040457866156631}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: PlayerObjects
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8862,7 +8972,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6928040458742713240}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: HandTransform
   m_TagString: Hand
   m_Icon: {fileID: 0}
@@ -8895,7 +9005,7 @@ GameObject:
   - component: {fileID: 6928040458953983473}
   - component: {fileID: 6928040458953983475}
   - component: {fileID: 6928040458953983474}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8957,7 +9067,7 @@ GameObject:
   - component: {fileID: 6928040459254950183}
   - component: {fileID: 6928040459254950182}
   - component: {fileID: 6928040459254950181}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8989,7 +9099,7 @@ BoxCollider:
   m_GameObject: {fileID: 6928040459254950203}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -9110,6 +9220,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 91a14cb2-fe0e-4d93-a63f-446509d0cfe5
     m_ActionName: Player/Grab[/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f37bc784-747c-4a00-a410-48bb23298e81
+    m_ActionName: Player/Punch[/Keyboard/f]
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: Keyboard
   m_DefaultActionMap: Player
@@ -9767,7 +9881,7 @@ PrefabInstance:
     - target: {fileID: 141433446842962269, guid: 9fe8f8b3288e45a44af36ff8aa04486e,
         type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 141433446842962273, guid: 9fe8f8b3288e45a44af36ff8aa04486e,
         type: 3}
@@ -9837,7 +9951,7 @@ PrefabInstance:
     - target: {fileID: 8122789944495389005, guid: 9fe8f8b3288e45a44af36ff8aa04486e,
         type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9fe8f8b3288e45a44af36ff8aa04486e, type: 3}
@@ -9860,7 +9974,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 83cd9cc9f9c88824ba18dc59b05ae328, type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 83cd9cc9f9c88824ba18dc59b05ae328, type: 3}
       propertyPath: m_RootOrder
