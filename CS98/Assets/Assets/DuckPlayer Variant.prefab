@@ -7277,6 +7277,7 @@ MonoBehaviour:
   grounded: 1
   animator: {fileID: 1137912854687996854}
   jumpFX: {fileID: 2387399411978242833}
+  isDead: 0
 --- !u!114 &7846451179594071148
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7392,6 +7393,7 @@ MonoBehaviour:
   trigger1: {fileID: 1919802920457439618}
   trigger2: {fileID: 1985630552967046621}
   trigger3: {fileID: 0}
+  controller: {fileID: 7846451179594071139}
 --- !u!114 &3839337718610776949
 MonoBehaviour:
   m_ObjectHideFlags: 0

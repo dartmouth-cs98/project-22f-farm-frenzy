@@ -22,6 +22,7 @@ public class PlayerControllerRagdoll : MonoBehaviour
     private GameObject jumpFX;
 
     private bool dashing;
+    public bool isDead;
 
     private float original_force = 3.502823f+38f;
 
@@ -188,6 +189,7 @@ public class PlayerControllerRagdoll : MonoBehaviour
         //hipJoint.angularYZDrive = drive;
         //PlayerControllerRagdoll controller = GetComponent<PlayerControllerRagdoll>();
         //controller.enabled = false;
+        isDead = true;
         StartCoroutine(Jointwaiter());
 
         InvokeRepeating("stunCountDown", 0f, 1f);
@@ -212,7 +214,7 @@ public class PlayerControllerRagdoll : MonoBehaviour
             Debug.Log("turning back");
             hipJoint.angularXDrive = drive;
             hipJoint.angularYZDrive = drive;
-
+            isDead = false;
             CancelInvoke("stunCountDown");
         }
     }
