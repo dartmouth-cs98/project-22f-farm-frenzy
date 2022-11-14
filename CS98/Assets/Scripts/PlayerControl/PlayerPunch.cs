@@ -9,6 +9,7 @@ public class PlayerPunch : MonoBehaviour
     public Rigidbody fist;
     public Animator animator;
     public float ThrowingForce = 100f;
+    [SerializeField] public Rigidbody self_rb;
 
     // punch effct
 
@@ -22,20 +23,22 @@ public class PlayerPunch : MonoBehaviour
 
         if (Physics.Raycast(fist.transform.position, fist.transform.forward, out hitInfo, punchingRange))
         {
-            //Debug.Log(hitInfo.transform.name);
-            //Collider collide = hitInfo.transform.GetComponent<Collider>();
-            StunTest[] hitObj = hitInfo.transform.GetComponentsInParent<StunTest>();
+            Debug.Log(hitInfo.transform.name);
+            Collider collide = hitInfo.transform.GetComponent<Collider>();
+            Debug.Log(collide.name);
+            PlayerControllerRagdoll[] hitObj = hitInfo.transform.GetComponentsInParent<PlayerControllerRagdoll>();
             //PlayerControllerRagdoll[] hitObj = hitInfo.transform.GetComponentsInParent<PlayerControllerRagdoll>();
             if (hitObj.Length > 0)
             {
                 //Debug.Log(hitObj[0].name);
-                hitObj[0].getStun(3);
-                Rigidbody enemy = hitObj[0].GetComponent<Rigidbody>();
-                Debug.Log(enemy.name);
+                //hitObj[0].getStun(3);
+                Rigidbody enemy = hitObj[0].rb;
+                //Debug.Log(enemy.name);
                 
-                if (enemy != null)
+                if (enemy != null && enemy != self_rb)
                 {
                     // NEED TO TEST, NOT WORKING REALLY.
+                    Debug.Log("atttttack");
                     enemy.isKinematic = false;
                     enemy.AddForce(fist.transform.forward * ThrowingForce, ForceMode.Impulse);
                 }

@@ -44,7 +44,7 @@ public class MultiTriggerTestScript : OnTriggerListener
     {
         //Debug.Log(activator.collider.name + " entered zone " + zone.name);
         //if(activator.collider.gameObject.CompareTag("Player") && (activator.collider.name == "Character1_Head"))
-        if (activator.collider.name == "Character1_Head")
+        if (activator.collider.gameObject.CompareTag("Player") && activator.collider.name == "Character1_Head")
         {
             GameObject ancestor = activator.collider.transform.parent.parent.parent.parent.parent.parent.parent.parent.gameObject;
             ancestor.GetComponent<PlayerControllerRagdoll>().getStun(10);
