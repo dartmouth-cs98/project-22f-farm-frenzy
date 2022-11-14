@@ -20,6 +20,7 @@ public class PlayerControllerRagdoll : MonoBehaviour
 
     [SerializeField]
     private GameObject jumpFX;
+    [SerializeField] private GameObject stunFX;
 
     private bool dashing;
     private float speedMultiplier = 1;
@@ -169,6 +170,13 @@ public class PlayerControllerRagdoll : MonoBehaviour
         jumpFX.GetComponent<ParticleSystem>().Play();
     }
 
+    void playStunFX()
+    {
+        stunFX.transform.localScale = new Vector3(.08f, .08f, .08f);
+        stunFX.transform.localPosition = new Vector3(0, .4f, 0);
+        stunFX.GetComponent<ParticleSystem>().Stop();
+        stunFX.GetComponent<ParticleSystem>().Play();
+    }
 
     public void SetGrounded(bool state)
     {
@@ -178,7 +186,7 @@ public class PlayerControllerRagdoll : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //original_force = hipJoint.JointDrive.maximumForce;
+        stunFX.GetComponent<ParticleSystem>().Stop();
     }
     private void FixedUpdate()
     {
@@ -210,6 +218,7 @@ public class PlayerControllerRagdoll : MonoBehaviour
     private void stunCountDown()
     {
         stunTime = stunTime - 1;
+        playStunFX();
         if (stunTime < 0)
         {
             PlayerControllerRagdoll controller = GetComponent<PlayerControllerRagdoll>();
@@ -248,7 +257,7 @@ public class PlayerControllerRagdoll : MonoBehaviour
         animator.SetBool("Idle", false);
         animator.SetTrigger("Knock Out");
 
-        yield return new WaitForSecondsRealtime(0.8f);
+        yield return new WaitForSecondsRealtime(0.5f);
 
         JointDrive drive = new JointDrive();
         drive.positionSpring = 0;

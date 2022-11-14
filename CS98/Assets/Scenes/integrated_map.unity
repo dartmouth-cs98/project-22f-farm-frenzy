@@ -10719,9 +10719,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 578720452}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ca34a6148db2d54493f84f379293f33, type: 3}
+  m_Script: {fileID: 11500000, guid: 3626e61ab015c6c4686bc4599445d510, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  growables: []
+  growFX: {fileID: 613191993}
+  growingTime: 5
 --- !u!4 &578720454
 Transform:
   m_ObjectHideFlags: 0
@@ -11430,6 +11433,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4080440661629114, guid: c4f78ff501084af4cb85dfc30db4a8c6,
     type: 3}
   m_PrefabInstance: {fileID: 605337609}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &613191993 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1734540687839101081, guid: 609684d479348b54eb2698b9ce5a53a5,
+    type: 3}
+  m_PrefabInstance: {fileID: 806491037}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &618761724
 PrefabInstance:
