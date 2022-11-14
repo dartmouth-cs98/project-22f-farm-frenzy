@@ -19,6 +19,7 @@ public class PlayerControllerRagdoll : MonoBehaviour
     private GameObject jumpFX;
 
     private bool dashing;
+    private float speedMultiplier = 1;
 
     public void OnMove(InputAction.CallbackContext context)
     {
@@ -83,7 +84,7 @@ public class PlayerControllerRagdoll : MonoBehaviour
         // Normal Map: x, y
         // Current Map: y, -x
         //Vector3 targetVelocity = new Vector3(move.y, 0, -move.x);
-        targetVelocity *= speed;
+        targetVelocity *= CalculateSpeed();
 
         //Align direction (Do not use if rotating character manually, otherwise movement gets messed up)
         //targetVelocity = transform.TransformDirection(targetVelocity);
@@ -97,6 +98,17 @@ public class PlayerControllerRagdoll : MonoBehaviour
 
 
     }
+
+    public float CalculateSpeed()
+    {
+        return speed * speedMultiplier;
+    }
+
+    public void SetSpeedMultiplier(float mult)
+    {
+        speedMultiplier = mult;
+    }
+
 
     public void Jump()
     {
