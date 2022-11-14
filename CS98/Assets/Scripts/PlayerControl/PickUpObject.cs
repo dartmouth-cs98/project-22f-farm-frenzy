@@ -42,12 +42,27 @@ public class PickUpObject : MonoBehaviour
         {
             canpickup = true;  //set the pick up bool to true
             ObjectIwantToPickUp = other.gameObject; //set the gameobject you collided with to one you can reference
+            other.gameObject.AddComponent<Outline>();
         }
     }
     private void OnTriggerExit(Collider other)
     {
         canpickup = false; //when you leave the collider set the canpickup bool to false
+        if(other.gameObject.GetComponent<Outline>())
+        {
+            Destroy(other.gameObject.GetComponent<Outline>());
+        }
 
+
+    }
+
+    private void FixedUpdate()
+    {
+         if(myHands.transform.childCount == 0 && hasItem)
+        {
+            ObjectIwantToPickUp = null;
+            hasItem = false;
+        }
     }
 }
 
