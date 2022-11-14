@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.56241167, g: 0.65803045, b: 0.8672581, a: 1}
+  m_IndirectSpecularColor: {r: 0.5624783, g: 0.65803415, b: 0.8672625, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2511,8 +2511,13 @@ PrefabInstance:
         type: 3}
       propertyPath: m_PlayerPrefab
       value: 
-      objectReference: {fileID: 3305878299095668804, guid: c4dd49b3d038448869890a8a724b808a,
+      objectReference: {fileID: 3393315425198324181, guid: 02aa8f13872f6e84a9971afa87a4f74b,
         type: 3}
+    - target: {fileID: 1561804811475293179, guid: ed57b0e48a602d74a9a8ff3c37760565,
+        type: 3}
+      propertyPath: m_MaxPlayerCount
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1561804811475293179, guid: ed57b0e48a602d74a9a8ff3c37760565,
         type: 3}
       propertyPath: m_PlayerJoinedEvent.m_PersistentCalls.m_Calls.Array.size
@@ -8495,6 +8500,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ca34a6148db2d54493f84f379293f33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GroupID: 0
 --- !u!4 &578720454
 Transform:
   m_ObjectHideFlags: 0
@@ -10294,6 +10300,7 @@ GameObject:
   m_Component:
   - component: {fileID: 722024397}
   - component: {fileID: 722024396}
+  - component: {fileID: 722024398}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -10314,6 +10321,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraMultiTarget: {fileID: 655984725}
+  teamOne: {fileID: 2100000, guid: 2396b7d30b784e34aaf8fc6610067c9d, type: 2}
+  teamTwo: {fileID: 2100000, guid: fbfaaefe802a0784bbdb11b86620ec33, type: 2}
+  mat_list:
+  - {fileID: 2100000, guid: da93c942a7cc8ce4abf2bb6a125c903a, type: 2}
+  - {fileID: 2100000, guid: 2396b7d30b784e34aaf8fc6610067c9d, type: 2}
+  - {fileID: 2100000, guid: fbfaaefe802a0784bbdb11b86620ec33, type: 2}
 --- !u!4 &722024397
 Transform:
   m_ObjectHideFlags: 0
@@ -10330,6 +10343,50 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &722024398
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 722024395}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: da93c942a7cc8ce4abf2bb6a125c903a, type: 2}
+  - {fileID: 2100000, guid: 2396b7d30b784e34aaf8fc6610067c9d, type: 2}
+  - {fileID: 2100000, guid: fbfaaefe802a0784bbdb11b86620ec33, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1001 &728174036
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10967,6 +11024,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3811922670237935786, guid: 8935206927463ed4b92ab77408e959e6,
     type: 3}
   m_PrefabInstance: {fileID: 755957852}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &756859675 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1561804811475293176, guid: ed57b0e48a602d74a9a8ff3c37760565,
+    type: 3}
+  m_PrefabInstance: {fileID: 127111798}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &758404891
 PrefabInstance:
@@ -20202,6 +20265,51 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 127111798}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1509117427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 756859675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 621567455fd1c4ceb811cc8a00b6a1a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_NotificationBehavior: 2
+  m_MaxPlayerCount: 1
+  m_AllowJoining: 1
+  m_JoinBehavior: 0
+  m_PlayerJoinedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_PlayerLeftEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_JoinAction:
+    m_UseReference: 0
+    m_Action:
+      m_Name: 
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 0}
+  m_PlayerPrefab: {fileID: 5834458376869861666, guid: 28c5c563b3d8d9749ad48cc241ce9399,
+    type: 3}
+  m_SplitScreen: 0
+  m_MaintainAspectRatioInSplitScreen: 0
+  m_FixedNumberOfSplitScreens: -1
+  m_SplitScreenRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
 --- !u!1 &1514189091
 GameObject:
   m_ObjectHideFlags: 0

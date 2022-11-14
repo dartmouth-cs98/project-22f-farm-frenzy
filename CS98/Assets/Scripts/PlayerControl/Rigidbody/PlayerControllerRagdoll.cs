@@ -13,12 +13,17 @@ public class PlayerControllerRagdoll : MonoBehaviour
     public Vector2 move = new Vector2(0,0);
     public float signX, signY = 1;
     public bool grounded;
+    Material rend;
+    public Material[] mat_list;
+    public static string col;
+   
 
 
     [SerializeField]
     private GameObject jumpFX;
 
     private bool dashing;
+
 
     public void OnMove(InputAction.CallbackContext context)
     {
@@ -30,9 +35,7 @@ public class PlayerControllerRagdoll : MonoBehaviour
             {
                 Vector3 targetVelocity = new Vector3(signX * move.y, 0, signY * move.x);
                 float targetAngle = Mathf.Atan2(targetVelocity.z, targetVelocity.x) * Mathf.Rad2Deg;
-                Debug.Log(targetAngle);
                 this.hipJoint.targetRotation = Quaternion.Euler(0f, targetAngle + 270f, 0f);
-                Debug.Log(this.hipJoint.targetRotation);
             }
 
             //Vector3 newPosition = new Vector3(signX * move.x, 0.0f, signY * move.y);
@@ -128,6 +131,10 @@ public class PlayerControllerRagdoll : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        rend = GetComponent<Renderer>().material;
+        Debug.Log(rend);
+        rend = mat_list[0];
+        Debug.Log(rend);
 
     }
     private void FixedUpdate()
@@ -135,6 +142,13 @@ public class PlayerControllerRagdoll : MonoBehaviour
         
         Move();
         rb.AddForce(Vector3.down * gravity * rb.mass);
+        if (col == "Red") {
+            rend = mat_list[1];
+            Debug.Log(rend);
+        } else if (col == "Blue") {
+            rend = mat_list[2]; 
+        } 
+
 
     }
 }
