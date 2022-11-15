@@ -56,9 +56,9 @@ public class PlayerControllerRagdoll : MonoBehaviour
                     animator.SetBool("Walking", false);
                 }
 
-                Vector3 newPosition = new Vector3(signX * move.x, 0.0f, signY * move.y);
+                //Vector3 newPosition = new Vector3(signX * move.x, 0.0f, signY * move.y);
 
-                rb.gameObject.transform.LookAt(newPosition + transform.position);
+                //rb.gameObject.transform.LookAt(newPosition + transform.position);
 
 
                 // Normal Map: x, y
@@ -144,7 +144,7 @@ public class PlayerControllerRagdoll : MonoBehaviour
     {
         Vector3 jumpForces = Vector3.zero;
 
-        if (grounded)
+        if (grounded && !isDead)
         {
             animator.SetBool("Idle", false);
             animator.SetBool("Walking", false);
@@ -185,6 +185,10 @@ public class PlayerControllerRagdoll : MonoBehaviour
         
         Move();
         rb.AddForce(Vector3.down * gravity * rb.mass);
+        if(isDead)
+        {
+            GetComponentInChildren<PickUpObject>().dropItem();
+        }
 
     }
 
