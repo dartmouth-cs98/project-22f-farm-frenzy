@@ -12,11 +12,11 @@ Tech Stack:
 
 ## Setup
 
-N/A
+Pull branch integration-testing-michael (TODO: Merge with main)
 
-## Deployment
+Open the CS98 folder through Unity, with the specified Unity version.
 
-N/A
+Either press play in the editor to test, or build the project through Unity.
 
 ## Authors
 
@@ -25,5 +25,3 @@ N/A
 * Kaihao Tian
 * Yuchuan Ma
 * Michael Canche
-
-## Acknowledgments
