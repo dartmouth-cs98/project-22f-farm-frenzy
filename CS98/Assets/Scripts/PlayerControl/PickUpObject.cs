@@ -29,12 +29,21 @@ public class PickUpObject : MonoBehaviour
         }
         else if(context.action.triggered && hasItem)
         {
+            dropItem();
+        }
+    }
+
+    public void dropItem()
+    {
+        if(hasItem)
+        {
             ObjectIwantToPickUp.GetComponent<Rigidbody>().isKinematic = false; // make the rigidbody work again
 
-            ObjectIwantToPickUp.transform.parent = null; // make the object no be a child of the hands
+            ObjectIwantToPickUp.transform.parent = null; // make the object not be a child of the hands
 
             hasItem = false;
         }
+        
     }
     private void OnTriggerEnter(Collider other) // to see when the player enters the collider
     {
