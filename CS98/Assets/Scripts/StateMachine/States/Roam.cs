@@ -10,8 +10,9 @@ internal class Roam : IState
     private readonly Animator _animator;
     private static readonly int Speed = Animator.StringToHash("Speed");
 
-    private Vector3 _lastPosition = Vector3.zero;
-    //public float TimeStuck;
+    // need tuning, not sure
+    private float walkRadius = 15f;
+
 
     public Roam(Shopper shopper, NavMeshAgent navMeshAgent, Animator animator)
     {
@@ -22,24 +23,37 @@ internal class Roam : IState
 
     public void Tick()
     {
-        //if (Vector3.Distance(_shopper.transform.position, _lastPosition) <= 0f)
-        //    TimeStuck += Time.deltaTime;
-
-        _lastPosition = _shopper.transform.position;
+        if (_navMeshAgent.remainingDistance <= 0.8f)
+        {
+            _navMeshAgent.SetDestination(RandomNavMeshLocation());
+        }
     }
 
     public void OnEnter()
     {
         //TimeStuck = 0f;
         _navMeshAgent.enabled = true;
-        //_navMeshAgent.SetDestination(_gatherer.Target.transform.position);
+        _navMeshAgent.SetDestination(RandomNavMeshLocation());
         _animator.SetFloat(Speed, 1f);
     }
 
     public void OnExit()
     {
         _navMeshAgent.enabled = false;
+        Debug.Log("speed to 0");
         _animator.SetFloat(Speed, 0f);
     }
 
+    private Vector3 RandomNavMeshLocation()
+    {
+        Vector3 finalPos = Vector3.zero;
+        Vector3 randomPos = Random.insideUnitSphere * walkRadius;
+        randomPos += _shopper.transform.position;
+        if (NavMesh.SamplePosition(randomPos, out NavMeshHit hit, walkRadius, 1))
+        {
+            finalPos = hit.position;
+        }
+
+        return finalPos;
+    }
 }
