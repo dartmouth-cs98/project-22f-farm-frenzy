@@ -35,6 +35,9 @@ internal class Roam : IState
         _navMeshAgent.enabled = true;
         _navMeshAgent.SetDestination(RandomNavMeshLocation());
         _animator.SetFloat(Speed, 1f);
+
+        // set fruit wanted
+        if (_shopper.fruit_wanted == null) _shopper.fruit_wanted = null;    // set to a new fruit
     }
 
     public void OnExit()

@@ -30,13 +30,31 @@ internal class SeePlayer : IState
     {
         // look at the player
         _shopper.transform.LookAt(_playerDetector._detectedPlayer.transform);
-        // UI text pop up
 
+        /************ ui here *****************/
+
+
+        // wait a bit for trading to happen?
+        _shopper.StartCoroutine(TradeWait());
         // trade funct
+        trade();
     }
 
     public void OnExit()
     {
         tradeComplete = false;
+    }
+
+    private void trade()
+    {
+        // check fruit
+        // _shopper.fruit_wanted
+        _shopper.fruit_wanted = null;
+        tradeComplete = true;
+    }
+
+    private IEnumerator TradeWait()
+    {
+        yield return new WaitForSeconds(1);
     }
 }

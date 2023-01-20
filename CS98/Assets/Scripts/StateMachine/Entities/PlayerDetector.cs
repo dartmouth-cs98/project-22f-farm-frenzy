@@ -11,7 +11,8 @@ public class PlayerDetector : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (_detectedPlayer == null && other.GetComponent<PlayerControllerRagdoll>())
+        // other.GetComponent<PlayerControllerRagdoll>()
+        if (_detectedPlayer == null && other.gameObject.tag == "Player")
         {
             _detectedPlayer = other.GetComponent<PlayerControllerRagdoll>();
         }
