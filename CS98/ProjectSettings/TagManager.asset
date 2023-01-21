@@ -14,6 +14,7 @@ TagManager:
   - Red
   - Blue
   - Bush
+  - ButtonLookTransform
   layers:
   - Default
   - TransparentFX
