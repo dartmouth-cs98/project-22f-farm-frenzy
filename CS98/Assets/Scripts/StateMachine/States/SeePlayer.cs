@@ -34,7 +34,7 @@ internal class SeePlayer : IState
         /************ ui here *****************/
 
 
-        // wait a bit for trading to happen?
+        // TODO: wait a bit for trading to happen?
         _shopper.StartCoroutine(TradeWait());
         // trade funct
         trade();
@@ -48,8 +48,14 @@ internal class SeePlayer : IState
     private void trade()
     {
         // check fruit
-        // _shopper.fruit_wanted
-        _shopper.fruit_wanted = null;
+        if (_playerDetector._detectedFruit == _shopper.fruit_wanted)
+        {
+            // TODO: give player buff
+            // if success, set the want fruit to be null and give the player rewards
+            // give player buff
+            _shopper.fruit_wanted = null;
+
+        }
         tradeComplete = true;
     }
 

@@ -28,12 +28,12 @@ public class Shopper : MonoBehaviour
 
         // transitions
         _stateMachine.AddAnyTransition(roam, () => playerDetector.playerInRange == false);
-        At(seePlayer, roam, TradeSuccess());
+        At(seePlayer, roam, TradeComplete());
         // transit from roam to see player
 
         // func bool checks
         void At(IState to, IState from, Func<bool> condition) => _stateMachine.AddTransition(to, from, condition);
-        Func<bool> TradeSuccess() => () => playerDetector.playerInRange && seePlayer.tradeComplete;
+        Func<bool> TradeComplete() => () => playerDetector.playerInRange && seePlayer.tradeComplete;
 
 
 

@@ -5,6 +5,9 @@ using UnityEngine;
 public class PlayerDetector : MonoBehaviour
 {
     public bool playerInRange => _detectedPlayer != null;
+    public bool fruitInRange => _detectedFruit != null;
+
+    public GameObject _detectedFruit;
 
     public PlayerControllerRagdoll _detectedPlayer;
 
@@ -15,7 +18,14 @@ public class PlayerDetector : MonoBehaviour
         if (_detectedPlayer == null && other.gameObject.tag == "Player")
         {
             _detectedPlayer = other.GetComponent<PlayerControllerRagdoll>();
+            // get pick up obj
+            //if (_detectedPlayer.GetComponentInChildren<GameObject>)
         }
+        if (_detectedFruit == null && other.gameObject.tag == "Scorable")
+        {
+            _detectedFruit = other.GetComponent<GameObject>();
+        }
+
     }
 
     private void OnTriggerExit(Collider other)
@@ -24,6 +34,11 @@ public class PlayerDetector : MonoBehaviour
         {
             //StartCoroutine(DetectedPlayerAfterDelay());
             _detectedPlayer = null;
+        }
+        if (other.gameObject.tag == "Scorable" && _detectedFruit)
+        {
+            //StartCoroutine(DetectedPlayerAfterDelay());
+            _detectedFruit = null;
         }
     }
 
