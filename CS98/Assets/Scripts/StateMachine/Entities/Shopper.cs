@@ -28,21 +28,22 @@ public class Shopper : MonoBehaviour
 
         // transitions
         _stateMachine.AddAnyTransition(roam, () => playerDetector.playerInRange == false);
+        At(roam, seePlayer, HasTarget());
         At(seePlayer, roam, TradeComplete());
         // transit from roam to see player
 
+        _stateMachine.AddAnyTransition(roam, () => !playerDetector.playerInRange);
+
         // func bool checks
         void At(IState to, IState from, Func<bool> condition) => _stateMachine.AddTransition(to, from, condition);
-        Func<bool> TradeComplete() => () => playerDetector.playerInRange && seePlayer.tradeComplete;
-
+        Func<bool> HasTarget() => () => playerDetector._detectedPlayer != null;
+        Func<bool> TradeComplete() => () => seePlayer.tradeComplete;
 
 
         // start state
         _stateMachine.SetState(roam);
         Debug.Log("state " + _stateMachine._currentState);
         //StartCoroutine(waiter());
-
-
     }
 
     // Update is called once per frame
@@ -54,9 +55,4 @@ public class Shopper : MonoBehaviour
         yield return new WaitForSeconds(10);
         _stateMachine._currentState.OnExit();
     }
-
-    //public IEnumerator TradeWait()
-    //{
-    //    yield return new WaitForSeconds(1);
-    //}
 }
