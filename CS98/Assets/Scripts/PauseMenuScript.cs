@@ -7,11 +7,13 @@ public class PauseMenuScript : MonoBehaviour
 {
     public GameObject pauseMenu;
     public static bool isPaused;
+    public GameObject scoreMenu;
+
     // Start is called before the first frame update
     void Start()
     {
             pauseMenu.SetActive(false);
-        
+            scoreMenu.SetActive(true);
     }
 
     // Update is called once per frame
@@ -29,6 +31,7 @@ public class PauseMenuScript : MonoBehaviour
 
     public void PauseGame() 
     {
+        scoreMenu.SetActive(false);
         pauseMenu.SetActive(true);
         Time.timeScale = 0f;
         isPaused = true;
@@ -36,6 +39,7 @@ public class PauseMenuScript : MonoBehaviour
 
     public void ResumeGame() 
     {
+        scoreMenu.SetActive(true);
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
         isPaused = false;
@@ -45,7 +49,7 @@ public class PauseMenuScript : MonoBehaviour
         Time.timeScale = 1f;
 
         // Place holder until we get a real main menu scene
-        // SceneManager.LoadScene("ExampleScene");
+        SceneManager.LoadScene("Scene2");
 
     }
 
