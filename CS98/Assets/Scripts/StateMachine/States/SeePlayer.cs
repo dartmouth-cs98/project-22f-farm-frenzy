@@ -28,6 +28,7 @@ internal class SeePlayer : IState
 
     public void OnEnter()
     {
+        Debug.Log("state " + "see player");
         // look at the player
         _shopper.transform.LookAt(_playerDetector._detectedPlayer.transform);
 
@@ -48,19 +49,25 @@ internal class SeePlayer : IState
     private void trade()
     {
         // check fruit
-        if (_playerDetector._detectedFruit == _shopper.fruit_wanted)
+        Debug.Log("checking fruit...");
+        if (_playerDetector._detectedFruit != null)
         {
-            // TODO: give player buff
-            // if success, set the want fruit to be null and give the player rewards
-            // give player buff
-            _shopper.fruit_wanted = null;
-
+            string playerFruit = _playerDetector._detectedFruit.ToLower();
+            if (playerFruit.Contains(_shopper.fruit_wanted))
+            {
+                // TODO: give player buff
+                // if success, set the want fruit to be null and give the player rewards
+                // give player buff
+                Debug.Log("fruit sold!");
+                _shopper.fruit_wanted = null;
+            }
         }
         tradeComplete = true;
     }
 
     private IEnumerator TradeWait()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(3);
     }
+
 }

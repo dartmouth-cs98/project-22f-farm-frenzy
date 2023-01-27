@@ -9,15 +9,19 @@ internal class Roam : IState
     private readonly NavMeshAgent _navMeshAgent;
     private readonly Animator _animator;
     private static readonly int Speed = Animator.StringToHash("Speed");
+    private readonly PlayerDetector _playerDetector;
+    //private static string[] fruits = { "apple", "pineapple", "watermelon" };
+    private static string[] fruits = { "apple" };
 
     // need tuning, not sure
     private float walkRadius = 15f;
 
 
-    public Roam(Shopper shopper, NavMeshAgent navMeshAgent, Animator animator)
+    public Roam(Shopper shopper, NavMeshAgent navMeshAgent, Animator animator, PlayerDetector playerDetector)
     {
         _shopper = shopper;
         _navMeshAgent = navMeshAgent;
+        _playerDetector = playerDetector;
         _animator = animator;
     }
 
@@ -27,6 +31,11 @@ internal class Roam : IState
         {
             _navMeshAgent.SetDestination(RandomNavMeshLocation());
         }
+        //else if (_playerDetector._detectedPlayer != null && _playerDetector._detectedFruit == null)
+        //{
+        //    Debug.Log("player doesnt have fruit. walk away");
+        //    _navMeshAgent.SetDestination(RandomNavMeshLocation());
+        //}
     }
 
     public void OnEnter()
@@ -35,16 +44,24 @@ internal class Roam : IState
         _navMeshAgent.enabled = true;
         _navMeshAgent.SetDestination(RandomNavMeshLocation());
         _animator.SetFloat(Speed, 1f);
-
+        _playerDetector._detectedPlayer = null;
         // set fruit wanted
-        if (_shopper.fruit_wanted == null) _shopper.fruit_wanted = null;    // set to a new fruit
+        if (_shopper.fruit_wanted == null)
+        {
+            int r = Random.Range(0, fruits.Length - 1);
+            _shopper.fruit_wanted = fruits[r]; // set to a random new fruit
+            Debug.Log("roam, set fruit to: " + _shopper.fruit_wanted);
+        }
+        
+
+        Debug.Log("state " + "roam");
     }
 
     public void OnExit()
     {
         _navMeshAgent.enabled = false;
         Debug.Log("speed to 0");
-        _animator.SetFloat(Speed, 0f);
+        //_animator.SetFloat(Speed, 0f);
     }
 
     private Vector3 RandomNavMeshLocation()
