@@ -53,12 +53,22 @@ internal class SeePlayer : IState
         if (_playerDetector._detectedFruit != null)
         {
             string playerFruit = _playerDetector._detectedFruit.ToLower();
+            Debug.Log(playerFruit);
+            Debug.Log(playerFruit.Contains(_shopper.fruit_wanted));
             if (playerFruit.Contains(_shopper.fruit_wanted))
             {
                 // TODO: give player buff
                 // if success, set the want fruit to be null and give the player rewards
                 // give player buff
                 Debug.Log("fruit sold!");
+
+                // Gives a random buff to the player and gets rid of the fruit
+                GameObject fruit = _playerDetector._detectedPlayer.GetComponentInChildren<PickUpObject>().ObjectIwantToPickUp;
+                // Drop then destroy, so the player can keep picking up things
+                _playerDetector._detectedPlayer.GetComponentInChildren<PickUpObject>().dropItem();
+                GameObject.Destroy(fruit);
+                _playerDetector._detectedPlayer.GetComponentInChildren<GadgetManagerScript>().setRandomGadget();
+
                 _shopper.fruit_wanted = null;
             }
         }

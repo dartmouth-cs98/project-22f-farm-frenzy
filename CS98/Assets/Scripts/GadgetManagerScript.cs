@@ -88,6 +88,19 @@ public class GadgetManagerScript : MonoBehaviour
         resetDefaults();
     }
 
+    public void setRandomGadget()
+    {
+        if (UnityEngine.Random.value < .5)
+        {
+            setGadget(new string[] { "HighJump", "Passive" });
+        }
+        else
+        {
+            setGadget(new string[] { "SpeedBoost", "Passive" });
+        }
+
+    }
+
     public bool canPickupGadget()
     {
         if (String.Equals(currentGadget[0], "None"))

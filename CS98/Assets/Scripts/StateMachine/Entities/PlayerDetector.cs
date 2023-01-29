@@ -12,7 +12,7 @@ public class PlayerDetector : MonoBehaviour
     public PlayerControllerRagdoll _detectedPlayer;
 
 
-    private void OnTriggerEnter(Collider other)
+    void OnCollisionEnter(Collision other)
     {
         // other.GetComponent<PlayerControllerRagdoll>()
         PlayerControllerRagdoll[] hitObj = other.transform.GetComponentsInParent<PlayerControllerRagdoll>();
@@ -22,19 +22,24 @@ public class PlayerDetector : MonoBehaviour
         {
             Debug.Log("hit a duck");
             _detectedPlayer = hitObj[0].GetComponent<PlayerControllerRagdoll>();
+            if(_detectedPlayer.GetComponentInChildren<PickUpObject>().ObjectIwantToPickUp != null)
+            {
+                _detectedFruit = _detectedPlayer.GetComponentInChildren<PickUpObject>().ObjectIwantToPickUp.transform.name;
+            }
+
             // get pick up obj
-            //if (_detectedPlayer.GetComponentInChildren<GameObject>)
+
         }
         if (_detectedFruit == null && other.gameObject.tag == "Scorable")
         {
             Debug.Log("hit a fruit");
-            _detectedFruit = other.name;
+            _detectedFruit = other.transform.name;
             Debug.Log(_detectedFruit);
         }
 
     }
 
-    private void OnTriggerExit(Collider other)
+    void OnCollisionExit(Collision other)
     {
         // if the player leaves the collider area, then trade cannot continue
         // only when they continue to stay and then trade script will run and complete

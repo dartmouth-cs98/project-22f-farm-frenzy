@@ -7,7 +7,7 @@ public class PickUpObject : MonoBehaviour
 {
     public GameObject myHands; //reference to your hands/the position where you want your object to go
     bool canpickup; //a bool to see if you can or cant pick up the item
-    GameObject ObjectIwantToPickUp; // the gameobject onwhich you collided with
+    public GameObject ObjectIwantToPickUp; // the gameobject onwhich you collided with
     bool hasItem; // a bool to see if you have an item in your hand
                   // Start is called before the first frame update
     void Start()
