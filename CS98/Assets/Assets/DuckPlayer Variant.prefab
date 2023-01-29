@@ -1684,7 +1684,7 @@ Transform:
   m_Children:
   - {fileID: 160655117557275221}
   m_Father: {fileID: 160655116537642243}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &160655116473064359
 Rigidbody:
@@ -2142,6 +2142,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 5289228905146755428}
   - {fileID: 160655117242141425}
   - {fileID: 160655116473064361}
   - {fileID: 160655117128253577}
@@ -3713,7 +3714,7 @@ Transform:
   m_Children:
   - {fileID: 160655116922881151}
   m_Father: {fileID: 160655116537642243}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &160655117128253575
 Rigidbody:
@@ -4294,7 +4295,7 @@ Transform:
   m_Children:
   - {fileID: 160655117134389322}
   m_Father: {fileID: 160655116537642243}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &160655117242141391
 Rigidbody:
@@ -6301,6 +6302,37 @@ Transform:
   m_Father: {fileID: 7490717427650034848}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1019192727977482102
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5289228905146755428}
+  m_Layer: 9
+  m_Name: HatSpot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5289228905146755428
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1019192727977482102}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.3232, z: -0.0077}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 160655116537642243}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1434813655422015670
 GameObject:
   m_ObjectHideFlags: 0
@@ -7219,6 +7251,7 @@ GameObject:
   - component: {fileID: 7846451179594071148}
   - component: {fileID: 5972860695849822132}
   - component: {fileID: 3839337718610776949}
+  - component: {fileID: 1497069250320055647}
   m_Layer: 7
   m_Name: DuckPlayer Variant
   m_TagString: PlayerParent
@@ -7433,6 +7466,18 @@ MonoBehaviour:
   animator: {fileID: 1137912854687996854}
   ThrowingForce: 300
   self_rb: {fileID: 160655116537642241}
+--- !u!114 &1497069250320055647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3305878299095668804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ad5af6b1b51d8e40950b0c830dc7b83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3450879042283000701
 GameObject:
   m_ObjectHideFlags: 0
@@ -9022,7 +9067,7 @@ Transform:
   - {fileID: 2366579919642074181}
   - {fileID: 6928040459254950180}
   m_Father: {fileID: 160655116537642243}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6928040458742713247
 GameObject:
@@ -9183,6 +9228,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myHands: {fileID: 6928040458742713247}
+  myHat: {fileID: 1019192727977482102}
 --- !u!23 &6928040459254950183
 MeshRenderer:
   m_ObjectHideFlags: 0

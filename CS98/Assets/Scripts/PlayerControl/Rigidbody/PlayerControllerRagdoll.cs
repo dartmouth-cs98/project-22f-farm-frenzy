@@ -27,6 +27,7 @@ public class PlayerControllerRagdoll : MonoBehaviour
 
     private float original_force = 3.502823f+38f;
 
+
     public void OnMove(InputAction.CallbackContext context)
     {
         if (stunTime <= 0)
@@ -174,13 +175,7 @@ public class PlayerControllerRagdoll : MonoBehaviour
     {
         grounded = state;
     }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        //original_force = hipJoint.JointDrive.maximumForce;
-    }
-    private void FixedUpdate()
+  private void FixedUpdate()
     {
         
         Move();
