@@ -27,7 +27,6 @@ public class PlayerControllerRagdoll : MonoBehaviour
 
     private float original_force = 3.502823f+38f;
 
-
     public void OnMove(InputAction.CallbackContext context)
     {
         if (stunTime <= 0)
@@ -57,9 +56,9 @@ public class PlayerControllerRagdoll : MonoBehaviour
                     animator.SetBool("Walking", false);
                 }
 
-                //Vector3 newPosition = new Vector3(signX * move.x, 0.0f, signY * move.y);
+                Vector3 newPosition = new Vector3(signX * move.x, 0.0f, signY * move.y);
 
-                //rb.gameObject.transform.LookAt(newPosition + transform.position);
+                rb.gameObject.transform.LookAt(newPosition + transform.position);
 
 
                 // Normal Map: x, y
@@ -145,7 +144,7 @@ public class PlayerControllerRagdoll : MonoBehaviour
     {
         Vector3 jumpForces = Vector3.zero;
 
-        if (grounded && !isDead)
+        if (grounded)
         {
             animator.SetBool("Idle", false);
             animator.SetBool("Walking", false);
@@ -175,15 +174,17 @@ public class PlayerControllerRagdoll : MonoBehaviour
     {
         grounded = state;
     }
-  private void FixedUpdate()
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        //original_force = hipJoint.JointDrive.maximumForce;
+    }
+    private void FixedUpdate()
     {
         
         Move();
         rb.AddForce(Vector3.down * gravity * rb.mass);
-        if(isDead)
-        {
-            GetComponentInChildren<PickUpObject>().dropItem();
-        }
 
     }
 

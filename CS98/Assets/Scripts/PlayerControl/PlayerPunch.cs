@@ -5,8 +5,7 @@ using UnityEngine;
 public class PlayerPunch : MonoBehaviour
 {
 
-    public LayerMask IgnoreMe;
-    public float punchingRange = 6.0f;
+    public float punchingRange = 3.0f;
     public Rigidbody fist;
     public Animator animator;
     public float ThrowingForce = 100f;
@@ -22,20 +21,19 @@ public class PlayerPunch : MonoBehaviour
 
             RaycastHit hitInfo;
 
-        if (Physics.Raycast(fist.transform.position, fist.transform.forward, out hitInfo, punchingRange, ~IgnoreMe))
+        if (Physics.Raycast(fist.transform.position, fist.transform.forward, out hitInfo, punchingRange))
         {
             Debug.Log(hitInfo.transform.name);
             Collider collide = hitInfo.transform.GetComponent<Collider>();
             Debug.Log(collide.name);
             PlayerControllerRagdoll[] hitObj = hitInfo.transform.GetComponentsInParent<PlayerControllerRagdoll>();
-            Debug.DrawRay(fist.transform.position, collide.transform.position, Color.green, duration: 2);
             //PlayerControllerRagdoll[] hitObj = hitInfo.transform.GetComponentsInParent<PlayerControllerRagdoll>();
             if (hitObj.Length > 0)
             {
                 //Debug.Log(hitObj[0].name);
                 //hitObj[0].getStun(3);
                 Rigidbody enemy = hitObj[0].rb;
-                Debug.Log(enemy.name);
+                //Debug.Log(enemy.name);
                 
                 if (enemy != null && enemy != self_rb)
                 {

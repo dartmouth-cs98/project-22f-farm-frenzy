@@ -55,7 +55,7 @@ Material:
     - _2: 0.7
     - _AlphaCutoff: 0.5
     - _ChromaticAberration: 0
-    - _CoastOpacity: 0
+    - _CoastOpacity: 0.19
     - _CoastalWavesDensity: 0.5
     - _DepthDistance: 1.21
     - _DepthFade: 1
