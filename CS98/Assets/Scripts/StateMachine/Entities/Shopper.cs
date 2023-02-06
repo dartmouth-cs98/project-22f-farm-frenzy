@@ -9,10 +9,11 @@ public class Shopper : MonoBehaviour
     private StateMachine _stateMachine;
     public Animator animator;
     public NavMeshAgent navMeshAgent;
-    //public PlayerDetector playerDetector;
+    public float lifetime;
 
     // to change
     public String fruit_wanted;
+    public Vector3 birthplace = new Vector3(0,0,1);
 
     private void Awake()
     {
@@ -35,6 +36,7 @@ public class Shopper : MonoBehaviour
         // transit from roam to see player
 
         _stateMachine.AddAnyTransition(roam, () => !playerDetector.playerInRange);
+        // TODO: Add a state that call it to go back to birthplace and die...
 
         // func bool checks
         void At(IState to, IState from, Func<bool> condition) => _stateMachine.AddTransition(to, from, condition);
