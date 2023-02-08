@@ -6,6 +6,7 @@ public class WalkScript : MonoBehaviour
     public float range = 10f;
     public float avoidDistance = 5f;
     public LayerMask avoidLayer;
+    public int maxJumps = 3;
 
     private Transform player;
     private Vector3 targetPosition;
@@ -35,7 +36,7 @@ public class WalkScript : MonoBehaviour
 
     private void Update()
     {
-        GameObject[] targets = GameObject.FindGameObjectsWithTag("Player");
+        /*GameObject[] targets = GameObject.FindGameObjectsWithTag("Player");
 
         foreach (GameObject target in targets)
         {
@@ -46,7 +47,7 @@ public class WalkScript : MonoBehaviour
                 closestDistance = distance;
                 player = target.transform;
             }
-        }
+        }*/
 
         if (Vector3.Distance(transform.position, targetPosition) < 0.1f)
         {
@@ -54,13 +55,18 @@ public class WalkScript : MonoBehaviour
         }
 
         Vector3 direction = (targetPosition - transform.position).normalized;
-        if (Physics.Raycast(transform.position, direction, out RaycastHit hit, avoidDistance, avoidLayer))
+        if (Physics.Raycast(transform.position, direction, out RaycastHit hit, avoidDistance, ~avoidLayer))
         {
             targetPosition = RandomPosition();
         }
-        else
+        else if(maxJumps > 0)
         {
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
+            //transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
+            //GetComponent<Rigidbody>().AddForce((targetPosition) * speed, ForceMode.Impulse);
+            //maxJumps--;
+
+
         }
     }
 
@@ -68,6 +74,8 @@ public class WalkScript : MonoBehaviour
     {
         Vector3 randomPosition = player.position + Random.onUnitSphere * range;
         randomPosition.y = 7;
+        maxJumps = 3;
         return randomPosition;
+
     }
 }

@@ -72,6 +72,9 @@ public class PlanterScript : MonoBehaviour
             }
             if(spaceAvailable)
             {
+                if(EnteringObject.GetComponent<WalkScript>() != null) {
+                    EnteringObject.GetComponent<WalkScript>().enabled = false;
+                }
                 EnteringObject.transform.parent = this.transform;
                 EnteringObject.transform.position = this.transform.position + (new Vector3(0, 1, 0));
                 (EnteringObject.GetComponent(typeof(Collider)) as Collider).isTrigger = true;

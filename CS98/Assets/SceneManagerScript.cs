@@ -28,7 +28,7 @@ public class SceneManagerScript : MonoBehaviour
         // Inputs for testing purposes, just call methods when we have actual setup
         if (Input.GetKeyDown(KeyCode.Backspace))
         {
-            RestartScene();
+            LoadStartScene();
         }
         else if (Input.GetKeyDown(KeyCode.Backslash))
         {
