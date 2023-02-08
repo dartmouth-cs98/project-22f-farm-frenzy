@@ -128,9 +128,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60bb486ee5675314da7eb8f01875078b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 7
-  range: 20
-  avoidDistance: 10
+  speed: 5
+  range: 10
+  avoidDistance: 4
   avoidLayer:
     serializedVersion: 2
     m_Bits: 0

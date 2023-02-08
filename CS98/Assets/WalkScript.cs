@@ -67,7 +67,7 @@ public class WalkScript : MonoBehaviour
     private Vector3 RandomPosition()
     {
         Vector3 randomPosition = player.position + Random.onUnitSphere * range;
-        randomPosition.y = 0;
+        randomPosition.y = 7;
         return randomPosition;
     }
 }

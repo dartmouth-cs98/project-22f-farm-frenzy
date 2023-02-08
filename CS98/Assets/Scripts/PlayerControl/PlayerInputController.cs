@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 public class PlayerInputController : MonoBehaviour
 {
     public CameraMultiTarget cameraMultiTarget;
-
+    public Transform SpawnPosition;
     private List<GameObject> targets = new List<GameObject>();
 
     // Start is called before the first frame updates
@@ -24,6 +24,7 @@ public class PlayerInputController : MonoBehaviour
         foreach (GameObject p in players)
         {
             targets.Add(p);
+            p.transform.position = SpawnPosition.position;
         }
         cameraMultiTarget.SetTargets(targets.ToArray());
     }
