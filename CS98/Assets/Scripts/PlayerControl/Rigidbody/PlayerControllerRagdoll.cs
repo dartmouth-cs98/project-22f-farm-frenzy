@@ -165,7 +165,6 @@ public class PlayerControllerRagdoll : MonoBehaviour
     void playJumpFX()
     {
         jumpFX.transform.localScale = new Vector3(.15f, .15f, .15f);
-        jumpFX.transform.localPosition = new Vector3(0, -.5f, 0);
         jumpFX.GetComponent<ParticleSystem>().Stop();
         jumpFX.GetComponent<ParticleSystem>().Play();
     }

@@ -4,7 +4,7 @@ using System.Collections;
 
 public class SceneManagerScript : MonoBehaviour
 {
-    private string StartSceneName = "";
+    private string StartSceneName = "hubworld";
     private string GameSceneName = "integrated_map";
     private string AwardSceneName = "";
     private string TestSceneName = "hatTesting";
@@ -28,7 +28,7 @@ public class SceneManagerScript : MonoBehaviour
         // Inputs for testing purposes, just call methods when we have actual setup
         if (Input.GetKeyDown(KeyCode.Backspace))
         {
-            RestartScene();
+            LoadStartScene();
         }
         else if (Input.GetKeyDown(KeyCode.Backslash))
         {

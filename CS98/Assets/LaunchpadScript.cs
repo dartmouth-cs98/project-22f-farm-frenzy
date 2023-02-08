@@ -21,7 +21,7 @@ public class LaunchpadScript : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         // Scorable and has no parent, meaning it is not currently carried
-        if(other.gameObject.tag == "object" && other.transform.parent == null)
+        if(other.gameObject.tag == "Scorable" && other.transform.parent == null)
         {
 
 

@@ -4,20 +4,19 @@ using UnityEngine;
 
 public class Water_OOB_Script : MonoBehaviour
 {
-    public Transform PlayerRespawnPoint;
-    public Transform SeedRespawnPoint;
     // Start is called before the first frame update
+    public Transform SpawnPosition;
     void OnCollisionEnter(Collision collision)
     {
 
         if (collision.gameObject.tag == "Player")
         {
-            collision.gameObject.transform.position = PlayerRespawnPoint.position;
+            collision.gameObject.transform.position = SpawnPosition.position;
 
         }
         else if(collision.gameObject.tag == "object")
         {
-            collision.gameObject.transform.position = SeedRespawnPoint.position;
+            collision.gameObject.transform.position = SpawnPosition.position;
         }
 
     }
