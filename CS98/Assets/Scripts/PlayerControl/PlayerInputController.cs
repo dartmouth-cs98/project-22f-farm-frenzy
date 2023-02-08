@@ -24,7 +24,11 @@ public class PlayerInputController : MonoBehaviour
         foreach (GameObject p in players)
         {
             targets.Add(p);
-            p.transform.position = SpawnPosition.position;
+            if(SpawnPosition != null)
+            {
+                p.transform.root.position = SpawnPosition.position;
+
+            }
         }
         cameraMultiTarget.SetTargets(targets.ToArray());
     }

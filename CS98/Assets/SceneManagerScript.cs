@@ -4,7 +4,7 @@ using System.Collections;
 
 public class SceneManagerScript : MonoBehaviour
 {
-    private string StartSceneName = "";
+    private string StartSceneName = "hubworld";
     private string GameSceneName = "integrated_map";
     private string AwardSceneName = "";
     private string TestSceneName = "hatTesting";
