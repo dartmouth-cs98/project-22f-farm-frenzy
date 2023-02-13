@@ -19,6 +19,15 @@ public class PlanterScript : MonoBehaviour
     public float growingTime = 5f;
 
 
+    private void Start()
+    {
+        growFX.GetComponent<ParticleSystem>().Stop();
+        var main = growFX.GetComponent<ParticleSystem>().main;
+        //main.simulationSpeed = growingTime / (2*main.duration);
+
+    }
+
+
     private void FixedUpdate()
     {
         if(EnteringObject)
@@ -28,6 +37,7 @@ public class PlanterScript : MonoBehaviour
             {
                 spaceAvailable = true;
                 CancelInvoke();
+                growFX.GetComponent<ParticleSystem>().Stop();
                 EnteringObject = null;
             }
             else
@@ -62,12 +72,16 @@ public class PlanterScript : MonoBehaviour
             }
             if(spaceAvailable)
             {
+                if(EnteringObject.GetComponent<WalkScript>() != null) {
+                    EnteringObject.GetComponent<WalkScript>().enabled = false;
+                }
                 EnteringObject.transform.parent = this.transform;
                 EnteringObject.transform.position = this.transform.position + (new Vector3(0, 1, 0));
                 (EnteringObject.GetComponent(typeof(Collider)) as Collider).isTrigger = true;
                 EnteringObject.GetComponent<Rigidbody>().isKinematic = true;   //makes the rigidbody not be acted upon by forces
                 spaceAvailable = false; // Holding something
                 Invoke("finishGrowing", growingTime);
+                playGrowFX();
             }
         }
     }
@@ -84,9 +98,10 @@ public class PlanterScript : MonoBehaviour
             (EnteringObject.GetComponent(typeof(Collider)) as Collider).isTrigger = true;
             EnteringObject.GetComponent<Rigidbody>().isKinematic = true;   //makes the rigidbody not be acted upon by forces
             spaceAvailable = false; // Holding something
-            playGrowFX();
+            growFX.GetComponent<ParticleSystem>().Stop();
+
         }
-        
+
 
     }
 
