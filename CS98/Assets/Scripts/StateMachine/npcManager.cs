@@ -7,8 +7,12 @@ public class npcManager : MonoBehaviour
     // Start is called before the first frame update
     public GameObject shopper;
     public float pos_x, pos_y, pos_z;
-    public float timer = 1;
-    public float interval = 5;
+    public float timer_create = 1;
+    public float interval = 30;     // interval between creating each shopper, needs to be long enough for the previous one
+                                    // to return to birthplace, die and then pop a new one after a bit
+    public float lifetimeOfEach = 5;    // life time of each shopper
+    public float timer_destroy = 8;
+    private GameObject shopper_created = null;
 
     void Awake()
     {
@@ -18,17 +22,29 @@ public class npcManager : MonoBehaviour
 
     void StartShopper()
     {
-        Instantiate(shopper, new Vector3(pos_x, pos_y, pos_z), Quaternion.identity);
+        shopper_created = Instantiate(shopper, new Vector3(pos_x, pos_y, pos_z), Quaternion.identity);
         //new_shopper.transform.position = new Vector3()
     }
 
     void Update()
     {
-        timer -= Time.deltaTime;
-        if (timer <= 0) {
+        timer_create -= Time.deltaTime;
+        if (timer_create <= 0) {
             StartShopper();
-            timer = interval;
+            //Debug.Log("new shopper!!");
+            timer_create = interval;
         }
-        
+        if (shopper_created != null)
+        {
+            //Debug.Log("counting down on this shopper's time -1-1-1-1-1 oop");
+            timer_destroy -= Time.deltaTime;
+            if (timer_destroy <= 0)
+            {
+                shopper_created.GetComponent<Shopper>().lifelimit = true;
+                timer_destroy = lifetimeOfEach;
+                shopper_created = null;
+            }
+        }
+
     }
 }
