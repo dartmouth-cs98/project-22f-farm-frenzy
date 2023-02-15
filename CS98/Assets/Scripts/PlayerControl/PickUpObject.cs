@@ -11,27 +11,55 @@ public class PickUpObject : MonoBehaviour
     public GameObject ObjectIwantToPickUp; // the gameobject onwhich you collided with
     bool hasItem; // a bool to see if you have an item in your hand
     bool hasHat;
+    GameObject myHatObject;
                   // Start is called before the first frame update
     void Start()
     {
         canpickup = false;    //setting both to false
         hasItem = false;
+        hasHat = false;
     }
 
     
     public void PickUp(InputAction.CallbackContext context)
     {
+
         //Object is a hat
-        if(ObjectIwantToPickUp.GetComponent<HatScript>() != null)
+        if(ObjectIwantToPickUp.GetComponent<HatScript>() != null && !hasHat)
         {
-            ObjectIwantToPickUp.GetComponent<Rigidbody>().isKinematic = true;   //makes the rigidbody not be acted upon by forces
-            ObjectIwantToPickUp.GetComponent<Rigidbody>().mass = 0;   //makes the rigidbody not be acted upon by forces
-            (ObjectIwantToPickUp.GetComponent(typeof(Collider)) as Collider).enabled = false;
-            ObjectIwantToPickUp.transform.position = myHat.transform.position; // sets the position of the object to your hand position
-            ObjectIwantToPickUp.transform.rotation = myHat.transform.rotation; // sets the position of the object to your hand position
-            ObjectIwantToPickUp.transform.parent = myHat.transform; //makes the object become a child of the parent so that it moves with the hands
+            myHatObject = ObjectIwantToPickUp;
+            myHatObject.GetComponent<Rigidbody>().isKinematic = true;   //makes the rigidbody not be acted upon by forces
+            myHatObject.GetComponent<Rigidbody>().mass = 0;   //makes the rigidbody not be acted upon by forces
+            (myHatObject.GetComponent(typeof(Collider)) as Collider).enabled = false;
+            myHatObject.transform.position = myHat.transform.position; // sets the position of the object to your hand position
+            myHatObject.transform.rotation = myHat.transform.rotation; // sets the position of the object to your hand position
+            myHatObject.transform.parent = myHat.transform; //makes the object become a child of the parent so that it moves with the hands
+            myHatObject.tag = "Untagged";
+            ObjectIwantToPickUp = null;
             hasHat = true;
 
+        }
+        else if(ObjectIwantToPickUp.GetComponent<HatScript>() != null && hasHat)
+        {
+            myHatObject.transform.parent = null; // make the object not be a child of the hands
+            (myHatObject.GetComponent(typeof(Collider)) as Collider).enabled = true;
+            myHatObject.GetComponent<Rigidbody>().isKinematic = false;   //makes the rigidbody not be acted upon by forces
+            myHatObject.GetComponent<Rigidbody>().mass = 0.4f;   
+            myHatObject.GetComponent<Rigidbody>().AddForce(Vector3.up*1.2f, ForceMode.Impulse);
+            myHatObject.tag = "object";
+            myHatObject = null;
+
+
+
+            /*
+                        ObjectIwantToPickUp.GetComponent<Rigidbody>().isKinematic = true;   //makes the rigidbody not be acted upon by forces
+                        ObjectIwantToPickUp.GetComponent<Rigidbody>().mass = 0;   //makes the rigidbody not be acted upon by forces
+                        (ObjectIwantToPickUp.GetComponent(typeof(Collider)) as Collider).enabled = false;
+                        ObjectIwantToPickUp.transform.position = myHat.transform.position; // sets the position of the object to your hand position
+                        ObjectIwantToPickUp.transform.rotation = myHat.transform.rotation; // sets the position of the object to your hand position
+                        ObjectIwantToPickUp.transform.parent = myHat.transform; //makes the object become a child of the parent so that it moves with the hands
+                        myHatObject = ObjectIwantToPickUp;*/
+            hasHat = false;
         }
 
         else if (context.action.triggered && canpickup && !hasItem) // if you enter thecollider of the objecct
@@ -86,7 +114,10 @@ public class PickUpObject : MonoBehaviour
         {
             canpickup = true;  //set the pick up bool to true
             ObjectIwantToPickUp = other.gameObject; //set the gameobject you collided with to one you can reference
-            other.gameObject.AddComponent<Outline>();
+            if(other.gameObject.GetComponent<Outline>() == null)
+            {
+                other.gameObject.AddComponent<Outline>();
+            }
         }
     }
     private void OnTriggerExit(Collider other)

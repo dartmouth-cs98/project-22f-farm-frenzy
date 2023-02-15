@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.56241405, g: 0.6578119, b: 0.8671766, a: 1}
+  m_IndirectSpecularColor: {r: 0.56241167, g: 0.65803045, b: 0.8672581, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -9116,7 +9116,7 @@ PrefabInstance:
     - target: {fileID: 1504224923777043578, guid: 9bfa9ccefd257904fbe954dbc3f82a40,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1504224923777043582, guid: 9bfa9ccefd257904fbe954dbc3f82a40,
         type: 3}
@@ -16130,7 +16130,7 @@ MonoBehaviour:
   - {fileID: 1985663502}
   - {fileID: 0}
   prefabsToSpawn:
-  - {fileID: 2940515059117078612, guid: 888e0f192b5c8484d84cc6797a4243f9, type: 3}
+  - {fileID: 8801120317109535524, guid: f7748958bc3044479823c290c77d4eee, type: 3}
   - {fileID: 0}
   waitForMessage: 
   startSpawnDelays:
@@ -22847,7 +22847,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1312726308
 RectTransform:
   m_ObjectHideFlags: 0
@@ -39431,7 +39431,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!223 &3426216104837512284
 Canvas:
   m_ObjectHideFlags: 0
@@ -39467,7 +39467,7 @@ RectTransform:
   m_Children:
   - {fileID: 1003014103}
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -41150,7 +41150,7 @@ PrefabInstance:
     - target: {fileID: 8171795683640727966, guid: f7748958bc3044479823c290c77d4eee,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.2451766
+      value: 2.62
       objectReference: {fileID: 0}
     - target: {fileID: 8171795683640727966, guid: f7748958bc3044479823c290c77d4eee,
         type: 3}
