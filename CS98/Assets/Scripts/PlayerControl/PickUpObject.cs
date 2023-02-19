@@ -70,6 +70,11 @@ public class PickUpObject : MonoBehaviour
             {
                 ObjectIwantToPickUp.GetComponent<WalkScript>().enabled = false;
             }
+            else if (ObjectIwantToPickUp.GetComponent<FloatScript>() != null)
+            {
+                ObjectIwantToPickUp.GetComponent<FloatScript>().enabled = false;
+
+            }
             ObjectIwantToPickUp.transform.position = myHands.transform.position; // sets the position of the object to your hand position
             ObjectIwantToPickUp.transform.parent = myHands.transform; //makes the object become a child of the parent so that it moves with the hands
             hasItem = true;

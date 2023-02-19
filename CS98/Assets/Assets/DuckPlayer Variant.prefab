@@ -6996,7 +6996,7 @@ MonoBehaviour:
   hipJoint: {fileID: 160655116537642240}
   speed: 10
   maxForce: 15
-  jumpForce: 80
+  jumpForce: 110
   gravity: 150
   move: {x: 0, y: 0}
   signX: 1
