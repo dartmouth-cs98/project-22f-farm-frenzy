@@ -8,7 +8,7 @@ public class Dialogue : MonoBehaviour
     public TextMeshProUGUI textComponent;
     public string[] lines;
     public float textSpeed;
-    private int index;
+    public static int index;
     // Start is called before the first frame update
     void Start()
     {
