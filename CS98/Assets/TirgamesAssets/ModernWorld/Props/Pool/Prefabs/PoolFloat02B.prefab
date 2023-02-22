@@ -17,6 +17,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: PoolFloat02B
       objectReference: {fileID: 0}
+    - target: {fileID: 5917378875045556038, guid: d4bc3f41bcd84024188b696c1bb91aab,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6055389957691607730, guid: d4bc3f41bcd84024188b696c1bb91aab,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6055389957691607730, guid: d4bc3f41bcd84024188b696c1bb91aab,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6437068906032920060, guid: d4bc3f41bcd84024188b696c1bb91aab,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6437068906032920060, guid: d4bc3f41bcd84024188b696c1bb91aab,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -34,6 +54,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6437068906032920060, guid: d4bc3f41bcd84024188b696c1bb91aab,
         type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6437068906032920060, guid: d4bc3f41bcd84024188b696c1bb91aab,
+        type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
@@ -45,16 +70,6 @@ PrefabInstance:
     - target: {fileID: 6437068906032920060, guid: d4bc3f41bcd84024188b696c1bb91aab,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6437068906032920060, guid: d4bc3f41bcd84024188b696c1bb91aab,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6437068906032920060, guid: d4bc3f41bcd84024188b696c1bb91aab,
-        type: 3}
-      propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6437068906032920060, guid: d4bc3f41bcd84024188b696c1bb91aab,
@@ -74,3 +89,55 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4bc3f41bcd84024188b696c1bb91aab, type: 3}
+--- !u!1 &4122947288871566225 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5917378875045556038, guid: d4bc3f41bcd84024188b696c1bb91aab,
+    type: 3}
+  m_PrefabInstance: {fileID: 7721815234551534807}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &2133775490053214567
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4122947288871566225}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &52744479028154928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4122947288871566225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3421456569ba1cb4898275675c6f6b71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  factor: 0.7
+  damper: 0.3
+  sinking: 0.6
+  centerOfMass: {x: 0, y: 0, z: 0}
+--- !u!64 &2692952376437851622
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4122947288871566225}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -3321638561473779675, guid: f2db53fdb014d364785a7ca63fb5cbcd, type: 3}

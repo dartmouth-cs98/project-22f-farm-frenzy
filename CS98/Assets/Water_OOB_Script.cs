@@ -14,7 +14,7 @@ public class Water_OOB_Script : MonoBehaviour
             collision.gameObject.transform.position = SpawnPosition.position;
 
         }
-        else if(collision.gameObject.tag == "object")
+        else if(collision.gameObject.tag == "object" || collision.gameObject.tag == "Scorable")
         {
             collision.gameObject.transform.position = SpawnPosition.position;
         }

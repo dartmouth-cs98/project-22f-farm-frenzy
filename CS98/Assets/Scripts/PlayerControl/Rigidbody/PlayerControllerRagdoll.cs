@@ -167,6 +167,8 @@ public class PlayerControllerRagdoll : MonoBehaviour
         jumpFX.transform.localScale = new Vector3(.15f, .15f, .15f);
         jumpFX.GetComponent<ParticleSystem>().Stop();
         jumpFX.GetComponent<ParticleSystem>().Play();
+        FindObjectOfType<AudioManager>().PlayAudio("JumpSound");
+
     }
 
 

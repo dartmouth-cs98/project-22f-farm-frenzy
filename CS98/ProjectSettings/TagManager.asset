@@ -15,6 +15,7 @@ TagManager:
   - Blue
   - Bush
   - bodyCollider
+  - Water
   layers:
   - Default
   - TransparentFX
