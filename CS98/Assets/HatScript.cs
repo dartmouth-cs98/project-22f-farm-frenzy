@@ -6,10 +6,14 @@ public class HatScript : MonoBehaviour
 {
     private void Update()
     {
-        if (gameObject.GetComponent<Outline>() != null && gameObject.transform.parent.name == "HatSpot")
+        if(gameObject.transform.parent != null)
         {
+            if (gameObject.GetComponent<Outline>() != null && gameObject.transform.parent.name == "HatSpot")
+            {
 
-            gameObject.GetComponent<Outline>().enabled = false;
+                gameObject.GetComponent<Outline>().enabled = false;
+            }
         }
+        
     }
 }

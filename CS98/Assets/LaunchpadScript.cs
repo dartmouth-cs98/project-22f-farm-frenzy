@@ -24,7 +24,7 @@ public class LaunchpadScript : MonoBehaviour
         if(other.gameObject.tag == "Scorable" && other.transform.parent == null)
         {
 
-
+            FindObjectOfType<AudioManager>().PlayAudio("LaunchSound");
             other.gameObject.GetComponent<Rigidbody>().AddForce((launchDirection.position - other.transform.position) * launchForce, ForceMode.Impulse);
 
         }
