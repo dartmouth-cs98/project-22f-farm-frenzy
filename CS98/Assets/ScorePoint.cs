@@ -39,7 +39,7 @@ public class ScorePoint : MonoBehaviour
 
         if (collision.gameObject.tag == "Scorable")
         {
-            
+            FindObjectOfType<AudioManager>().PlayAudio("ScoreSound");
             if (tag == "Red")
             {
                 KeepScore.RedScore += 1;

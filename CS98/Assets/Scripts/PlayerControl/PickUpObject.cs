@@ -37,6 +37,7 @@ public class PickUpObject : MonoBehaviour
             myHatObject.tag = "Untagged";
             ObjectIwantToPickUp = null;
             hasHat = true;
+            FindObjectOfType<AudioManager>().PlayAudio("PickupSound");
 
         }
         else if(ObjectIwantToPickUp.GetComponent<HatScript>() != null && hasHat)
@@ -78,6 +79,8 @@ public class PickUpObject : MonoBehaviour
             ObjectIwantToPickUp.transform.position = myHands.transform.position; // sets the position of the object to your hand position
             ObjectIwantToPickUp.transform.parent = myHands.transform; //makes the object become a child of the parent so that it moves with the hands
             hasItem = true;
+            FindObjectOfType<AudioManager>().PlayAudio("PickupSound");
+
         }
         else if(context.action.triggered && hasItem)
         {

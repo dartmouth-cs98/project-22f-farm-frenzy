@@ -4,10 +4,10 @@ using System.Collections;
 
 public class SceneManagerScript : MonoBehaviour
 {
-    private string StartSceneName = "hubworld";
-    private string GameSceneName = "integrated_map";
-    private string AwardSceneName = "";
-    private string TestSceneName = "hatTesting";
+    public string StartSceneName = "hubworld";
+    public string GameSceneName = "integrated_map";
+    public string AwardSceneName = "";
+    public string TestSceneName = "hatTesting";
 
     public int timeToEnd = 300;
     public Color loadToColor = Color.black;
