@@ -6,7 +6,7 @@ public class npcManager : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject shopper;
-    public float pos_x, pos_y, pos_z;
+    public float pos_x = -25.72f, pos_y = 1f, pos_z = -3.61f;
     public float timer_create = 1;
     public float interval = 30;     // interval between creating each shopper, needs to be long enough for the previous one
                                     // to return to birthplace, die and then pop a new one after a bit

@@ -21,7 +21,7 @@ public class LaunchpadScript : MonoBehaviour
             if (fruit_ontop && player_ontop)
             {
                 player_ontop.scored_fruits++;
-                Debug.Log("fruit score" + player_ontop.scored_fruits);
+                //Debug.Log("fruit score" + player_ontop.scored_fruits);
             }
         }
         if (other.gameObject.tag == "Player" && player_ontop == null)

@@ -28,7 +28,7 @@ internal class SeePlayer : IState
 
     public void OnEnter()
     {
-        Debug.Log("state " + "see player");
+        //Debug.Log("state " + "see player");
         // look at the player
         _shopper.transform.LookAt(_playerDetector._detectedPlayer.transform);
 
@@ -53,8 +53,8 @@ internal class SeePlayer : IState
         if (_playerDetector._detectedFruit != null)
         {
             string playerFruit = _playerDetector._detectedFruit.ToLower();
-            Debug.Log(playerFruit);
-            Debug.Log(playerFruit.Contains(_shopper.fruit_wanted));
+            //Debug.Log(playerFruit);
+            //Debug.Log(playerFruit.Contains(_shopper.fruit_wanted));
             if (playerFruit.Contains(_shopper.fruit_wanted))
             {
                 // TODO: give player buff
@@ -68,7 +68,8 @@ internal class SeePlayer : IState
                 _playerDetector._detectedPlayer.GetComponentInChildren<PickUpObject>().dropItem();
                 GameObject.Destroy(fruit);
                 _playerDetector._detectedPlayer.GetComponentInChildren<GadgetManagerScript>().setRandomGadget();
-
+                // score calcualtion
+                _playerDetector._detectedPlayer.fruit_trade++;
                 _shopper.fruit_wanted = null;
             }
         }

@@ -82,7 +82,7 @@ public class PlanterScript : MonoBehaviour
                 if (seed_is_here && player_ontop)
                 {
                     player_ontop.seed_planted++;
-                    Debug.Log("seed planted score" + player_ontop.seed_planted);
+                    //Debug.Log("seed planted score" + player_ontop.seed_planted);
                 }
                 EnteringObject.transform.parent = this.transform;
                 EnteringObject.transform.position = this.transform.position + (new Vector3(0, 1, 0));

@@ -10,21 +10,17 @@ public class scoreSummary : MonoBehaviour
     public (PlayerControllerRagdoll, int) most_fruit_traded;
     public (PlayerControllerRagdoll, int) most_fruit_scored;
     // Start is called before the first frame update
-    void Start()
+    void getScores()
     {
         foreach (GameObject hips in GameObject.FindGameObjectsWithTag("Player"))
         {
             allPlayers.Add(hips.GetComponentInParent<PlayerControllerRagdoll>());
         }
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
         foreach (PlayerControllerRagdoll p in allPlayers)
         {
-            if (p.knockouts > most_knockouts.Item2) {
+            if (p.knockouts > most_knockouts.Item2)
+            {
                 most_knockouts.Item1 = p;
                 most_knockouts.Item2 = p.knockouts;
             }
