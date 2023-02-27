@@ -18,7 +18,6 @@ public class PlanterScript : MonoBehaviour
     private GameObject growFX;
     public float growingTime = 5f;
 
-    private bool player_is_here = false;
     private bool seed_is_here = false;
     private PlayerControllerRagdoll player_ontop = null;
 
@@ -74,13 +73,13 @@ public class PlanterScript : MonoBehaviour
                     return;
                 }
             }
-            if(spaceAvailable && player_is_here)
+            if(spaceAvailable && player_ontop)
             {
                 if(EnteringObject.GetComponent<WalkScript>() != null) {
                     EnteringObject.GetComponent<WalkScript>().enabled = false;
                 }
                // fruit score!
-                if (seed_is_here && player_is_here)
+                if (seed_is_here && player_ontop)
                 {
                     player_ontop.seed_planted++;
                     Debug.Log("seed planted score" + player_ontop.seed_planted);
@@ -94,18 +93,16 @@ public class PlanterScript : MonoBehaviour
                 playGrowFX();
             }
         }
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player" && player_ontop == null)
         {
-            player_is_here = true;
             player_ontop = other.GetComponentInParent<PlayerControllerRagdoll>();
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player" && other.gameObject.GetComponentInParent<PlayerControllerRagdoll>() == player_ontop)
         {
-            player_is_here = false;
             player_ontop = null;
         }
     }
