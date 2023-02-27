@@ -102,6 +102,8 @@ public class PickUpObject : MonoBehaviour
                 //ObjectIwantToPickUp.GetComponent<WalkScript>().enabled = true;
             }
 
+
+
             hasItem = false;
         }
         

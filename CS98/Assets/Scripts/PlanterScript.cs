@@ -18,6 +18,9 @@ public class PlanterScript : MonoBehaviour
     private GameObject growFX;
     public float growingTime = 5f;
 
+    private bool player_is_here = false;
+    private bool seed_is_here = false;
+    private PlayerControllerRagdoll player_ontop = null;
 
     private void Start()
     {
@@ -32,10 +35,11 @@ public class PlanterScript : MonoBehaviour
     {
         if(EnteringObject)
         {
-            print("EnteringObject");
+            //print("EnteringObject");
             if(EnteringObject.transform.parent != this.transform)
             {
                 spaceAvailable = true;
+                seed_is_here = false;
                 CancelInvoke();
                 growFX.GetComponent<ParticleSystem>().Stop();
                 EnteringObject = null;
@@ -59,21 +63,27 @@ public class PlanterScript : MonoBehaviour
     {
         if (other.gameObject.tag == "object" && spaceAvailable) //on the object you want to pick up set the tag to be anything, in this case "object"
         {
-
+            seed_is_here = true;
             EnteringObject = other.gameObject;
 
             // Check if object is not held
             if(EnteringObject.transform.parent)
             {
-                if (EnteringObject.transform.parent.tag == "Hand")
+                if (EnteringObject.transform.parent.tag == "Hand" || EnteringObject.transform.parent == null)   // so seed won't plant itself
                 {
                     return;
                 }
             }
-            if(spaceAvailable)
+            if(spaceAvailable && player_is_here)
             {
                 if(EnteringObject.GetComponent<WalkScript>() != null) {
                     EnteringObject.GetComponent<WalkScript>().enabled = false;
+                }
+               // fruit score!
+                if (seed_is_here && player_is_here)
+                {
+                    player_ontop.seed_planted++;
+                    Debug.Log("seed planted score" + player_ontop.seed_planted);
                 }
                 EnteringObject.transform.parent = this.transform;
                 EnteringObject.transform.position = this.transform.position + (new Vector3(0, 1, 0));
@@ -83,6 +93,20 @@ public class PlanterScript : MonoBehaviour
                 Invoke("finishGrowing", growingTime);
                 playGrowFX();
             }
+        }
+        if (other.gameObject.tag == "Player")
+        {
+            player_is_here = true;
+            player_ontop = other.GetComponentInParent<PlayerControllerRagdoll>();
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            player_is_here = false;
+            player_ontop = null;
         }
     }
 

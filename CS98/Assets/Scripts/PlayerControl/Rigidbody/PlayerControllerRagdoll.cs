@@ -25,7 +25,9 @@ public class PlayerControllerRagdoll : MonoBehaviour
     private float speedMultiplier = 1;
     public bool isDead;
 
-    private float original_force = 3.502823f+38f;
+    // for scores
+    public int knockouts = 0, scored_fruits = 0, seed_planted = 0, fruit_trade = 0;
+    public bool onPlanting = false;
 
 
     public void OnMove(InputAction.CallbackContext context)
