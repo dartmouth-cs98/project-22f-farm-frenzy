@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 9048325917094650654}
   - component: {fileID: 638303315722978725}
   - component: {fileID: 8456366892737977114}
-  - component: {fileID: 4139459906056791506}
   m_Layer: 7
   m_Name: Shopper_New
   m_TagString: Untagged
@@ -116,7 +115,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 638303315722978725}
   navMeshAgent: {fileID: 8456366892737977114}
+  lifetime: 0
+  lifelimit: 0
+  timeToDie: 0
   fruit_wanted: 
+  birthplace: {x: 0, y: 0, z: 1}
 --- !u!95 &638303315722978725
 Animator:
   serializedVersion: 4
@@ -159,16 +162,3 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &4139459906056791506
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1799528459227025881}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c877951391bdd45b2aeaa20b6fb23718, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lifetime: 4

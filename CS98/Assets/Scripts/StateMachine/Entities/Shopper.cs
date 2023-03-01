@@ -16,7 +16,6 @@ public class Shopper : MonoBehaviour
     // to change
     public String fruit_wanted;
     public Vector3 birthplace = new Vector3(0,0,1);
-    //public Transform birthplace_pos;
 
     private void Awake()
     {
