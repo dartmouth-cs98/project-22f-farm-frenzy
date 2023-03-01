@@ -43,7 +43,7 @@ internal class Roam : IState
         //TimeStuck = 0f;
         _navMeshAgent.enabled = true;
         _navMeshAgent.SetDestination(RandomNavMeshLocation());
-        _animator.SetFloat(Speed, 1f);
+        _animator.SetFloat(Speed, .8f);
         _playerDetector._detectedPlayer = null;
         // set fruit wanted
         if (_shopper.fruit_wanted == null)

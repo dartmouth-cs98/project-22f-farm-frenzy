@@ -41,6 +41,7 @@ public class PlayerPunch : MonoBehaviour
                 {
                     // NEED TO TEST, NOT WORKING REALLY.
                     Debug.Log("atttttack");
+                    gameObject.GetComponent<PlayerControllerRagdoll>().knockouts++;     // attacker score one point!
                     enemy.isKinematic = false;
                     FindObjectOfType<AudioManager>().PlayAudio("Punch_01");
                     enemy.AddForce(fist.transform.forward * ThrowingForce, ForceMode.Impulse);

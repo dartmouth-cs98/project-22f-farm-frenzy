@@ -50,6 +50,10 @@ public class MultiTriggerTestScript : OnTriggerListener
             GameObject ancestor = activator.collider.transform.parent.parent.parent.parent.parent.parent.parent.parent.gameObject;
             if (!ancestor.GetComponent<PlayerControllerRagdoll>().isDead) {
                 ancestor.GetComponent<PlayerControllerRagdoll>().getStun(5);
+
+                // for score calculation:
+                // TODO: multiplayer test
+                //gameObject.GetComponentInParent<PlayerControllerRagdoll>().knockouts++;
             }
         }
 
