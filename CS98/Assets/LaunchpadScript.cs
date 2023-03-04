@@ -9,6 +9,7 @@ public class LaunchpadScript : MonoBehaviour
 
     private PlayerControllerRagdoll player_ontop = null;
     private GameObject fruit_ontop = null;
+    public GameObject jumpFX;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -18,6 +19,7 @@ public class LaunchpadScript : MonoBehaviour
             fruit_ontop = other.gameObject;
             FindObjectOfType<AudioManager>().PlayAudio("LaunchSound");
             other.gameObject.GetComponent<Rigidbody>().AddForce((launchDirection.position - other.transform.position) * launchForce, ForceMode.Impulse);
+            jumpFX.GetComponent<ParticleSystem>().Play();
             if (fruit_ontop && player_ontop)
             {
                 player_ontop.scored_fruits++;
