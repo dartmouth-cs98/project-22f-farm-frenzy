@@ -19,7 +19,7 @@ public class SceneManagerScript : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name == GameSceneName)
         {
-            Invoke("LoadGameScene", timeToEnd);
+            Invoke("StartSceneName", timeToEnd);
         }
     }
 
@@ -63,5 +63,20 @@ public class SceneManagerScript : MonoBehaviour
 
         //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 
+    }
+
+    public void PlayerReadyCheck()
+    {
+        ColorChanging colorChangeScript = FindObjectsOfType<ColorChanging>()[0];
+        print("Checking validity");
+        if( colorChangeScript.arePlayersReady())
+        {
+            print("Loading Scene");
+            LoadGameScene();
+        }
+        else
+        {
+            // Send message to players
+        }
     }
 }

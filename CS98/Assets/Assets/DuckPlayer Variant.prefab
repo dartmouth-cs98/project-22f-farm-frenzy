@@ -6927,6 +6927,7 @@ GameObject:
   - component: {fileID: 5972860695849822132}
   - component: {fileID: 3839337718610776949}
   - component: {fileID: 1497069250320055647}
+  - component: {fileID: 4023446672834940341}
   m_Layer: 7
   m_Name: DuckPlayer Variant
   m_TagString: PlayerParent
@@ -7005,6 +7006,11 @@ MonoBehaviour:
   animator: {fileID: 1137912854687996854}
   jumpFX: {fileID: 2387399411978242833}
   isDead: 0
+  knockouts: 0
+  scored_fruits: 0
+  seed_planted: 0
+  fruit_trade: 0
+  onPlanting: 0
 --- !u!114 &7846451179594071148
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7099,6 +7105,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: f37bc784-747c-4a00-a410-48bb23298e81
     m_ActionName: Player/Punch[/Keyboard/f]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4023446672834940341}
+        m_TargetAssemblyTypeName: SceneSwitchingScript, Assembly-CSharp
+        m_MethodName: sceneSwitch
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: f616b980-06b8-4384-82c7-48b7815f00ba
+    m_ActionName: Player/Start Game[/Keyboard/g]
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: Keyboard
   m_DefaultActionMap: Player
@@ -7151,6 +7173,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2ad5af6b1b51d8e40950b0c830dc7b83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4023446672834940341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3305878299095668804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0de7d698c4be416438bf78b513e28082, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &3450879042283000701

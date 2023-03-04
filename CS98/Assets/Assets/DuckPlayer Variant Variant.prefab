@@ -7,6 +7,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 160655117438288929, guid: c4dd49b3d038448869890a8a724b808a,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 2786327806579393278, guid: c4dd49b3d038448869890a8a724b808a,
         type: 3}
       propertyPath: m_RootOrder
@@ -65,7 +70,7 @@ PrefabInstance:
     - target: {fileID: 3305878299095668804, guid: c4dd49b3d038448869890a8a724b808a,
         type: 3}
       propertyPath: m_Name
-      value: DuckPlayer Variant
+      value: DuckPlayer Variant Variant
       objectReference: {fileID: 0}
     - target: {fileID: 6928040457866156630, guid: c4dd49b3d038448869890a8a724b808a,
         type: 3}
