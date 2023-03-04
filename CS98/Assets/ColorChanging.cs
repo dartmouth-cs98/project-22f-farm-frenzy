@@ -25,7 +25,17 @@ public class ColorChanging : MonoBehaviour
     {
             numOfPlayers = GameObject.FindGameObjectsWithTag("PlayerParent").Length;
 
+        if (playersIDs.Count > 0 && numOfPlayers > 0)
+        {
+            if (playersIDs.Count == numOfPlayers)
+            {
+                playerCountUI.text = "Start Game!";
+            }
+        }
+        else
+        {
             playerCountUI.text = "Players Ready: " + playersIDs.Count + "/" + numOfPlayers;
+        }
     }
     // Start is called before the first frame update
     private void OnTriggerEnter(Collider other)
