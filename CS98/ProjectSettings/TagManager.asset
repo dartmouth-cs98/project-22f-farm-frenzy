@@ -17,6 +17,7 @@ TagManager:
   - Dialogue
   - bodyCollider
   - Water
+  - FxTemporaire
   layers:
   - Default
   - TransparentFX
@@ -53,4 +54,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: background
+    uniqueID: 3460130351
+    locked: 0
+  - name: fruit
+    uniqueID: 12598549
     locked: 0

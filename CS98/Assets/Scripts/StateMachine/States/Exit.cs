@@ -37,7 +37,8 @@ public class Exit : IState
         _navMeshAgent.enabled = true;
         _navMeshAgent.destination = _shopper.birthplace;
         _animator.SetFloat(Speed, 1f);
-
+        _animator.SetBool("walk", true);
+        _animator.SetBool("idle", false);
         Debug.Log("state " + "exiting...!!!");
     }
 

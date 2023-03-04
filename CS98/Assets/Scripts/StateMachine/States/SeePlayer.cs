@@ -31,7 +31,8 @@ internal class SeePlayer : IState
         //Debug.Log("state " + "see player");
         // look at the player
         _shopper.transform.LookAt(_playerDetector._detectedPlayer.transform);
-
+        _animator.SetBool("idle", true);
+        _animator.SetBool("walk", false);
         /************ ui here *****************/
 
 

@@ -44,6 +44,8 @@ internal class Roam : IState
         _navMeshAgent.enabled = true;
         _navMeshAgent.SetDestination(RandomNavMeshLocation());
         _animator.SetFloat(Speed, .8f);
+        _animator.SetBool("idle", false);
+        _animator.SetBool("walk", true);
         _playerDetector._detectedPlayer = null;
         // set fruit wanted
         if (_shopper.fruit_wanted == null)
@@ -61,6 +63,8 @@ internal class Roam : IState
     {
         _navMeshAgent.enabled = false;
         Debug.Log("speed to 0");
+        _animator.SetBool("idle", true);
+        _animator.SetBool("walk", false);
         //_animator.SetFloat(Speed, 0f);
     }
 
