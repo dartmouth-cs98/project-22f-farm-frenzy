@@ -1,0 +1,34 @@
+{
+    "name": "ControllerInteract",
+    "maps": [
+        {
+            "name": "Interact",
+            "id": "8a871e60-c9bc-425d-89d9-98a86d110304",
+            "actions": [
+                {
+                    "name": "talk",
+                    "type": "Button",
+                    "id": "2ca2462c-d38a-4a44-9797-4def3fb7d503",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "f7744929-1c84-4126-a47d-13211a875182",
+                    "path": "<Gamepad>/dpad/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "talk",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
