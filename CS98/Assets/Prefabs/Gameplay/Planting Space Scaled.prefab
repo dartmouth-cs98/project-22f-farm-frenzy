@@ -14833,6 +14833,9 @@ MonoBehaviour:
   growables:
   - {fileID: 5190453383944685893, guid: 3184a40a2e2ca364eb7ec26e5447ed3d, type: 3}
   - {fileID: 5805212591396783805, guid: 11fb2cd9161f6854081a94268cab130b, type: 3}
+  specialGrowables:
+  - {fileID: 5190453383944685893, guid: 7972b190313422a4a9025264ea3a77c2, type: 3}
+  - {fileID: 5805212591396783805, guid: d0b5760e1d948a54cbb610a9f90f5cd3, type: 3}
   growFX: {fileID: 166628516671092832}
   growingTime: 5
 --- !u!1 &7766401859939860098

@@ -8,6 +8,7 @@ public class ScorePoint : MonoBehaviour
 {
 
     public TMP_Text scoreAmount;
+    public GameObject scoreFX;
 
     // Start is called before the first frame update
     void Start()
@@ -40,20 +41,26 @@ public class ScorePoint : MonoBehaviour
         if (collision.gameObject.tag == "Scorable")
         {
             FindObjectOfType<AudioManager>().PlayAudio("ScoreSound");
+            int amountToScore = 1;
+            if(collision.gameObject.GetComponent<SpecialFruitScript>() != null)
+            {
+                amountToScore += 3;
+            }
             if (tag == "Red")
             {
-                KeepScore.RedScore += 1;
+                KeepScore.RedScore += amountToScore;
             }
             else if (tag == "Blue")
             {
-                KeepScore.BlueScore += 1;
+                KeepScore.BlueScore += amountToScore;
             }
             else
             {
-                KeepScore.Score += 1;
+                KeepScore.Score += amountToScore;
             }
 
             Debug.Log("collision");
+            scoreFX.GetComponent<ParticleSystem>().Play();
             Destroy(collision.gameObject);
             updateScoreUI();
 
