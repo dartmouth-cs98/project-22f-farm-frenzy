@@ -9,6 +9,7 @@ public class Shopper : MonoBehaviour
     private StateMachine _stateMachine;
     public Animator animator;
     public NavMeshAgent navMeshAgent;
+    public ChatBubble _chatBubble;
     public float lifetime;
     public bool lifelimit = false;
     public bool timeToDie = false;
@@ -20,13 +21,13 @@ public class Shopper : MonoBehaviour
     private void Awake()
     {
         var playerDetector = gameObject.AddComponent<PlayerDetector>();
-        //var playerDetector = gameObject.AddComponent<PlayerDetector>();
+        var _chatBubble = gameObject.GetComponent<ChatBubble>();
         fruit_wanted = null;
 
         _stateMachine = new StateMachine();
 
         // state inits
-        var roam = new Roam(this, navMeshAgent, animator, playerDetector);
+        var roam = new Roam(this, navMeshAgent, animator, playerDetector, _chatBubble);
         var seePlayer = new SeePlayer(this, playerDetector, animator);
         var exit = new Exit(this, navMeshAgent, animator);
 

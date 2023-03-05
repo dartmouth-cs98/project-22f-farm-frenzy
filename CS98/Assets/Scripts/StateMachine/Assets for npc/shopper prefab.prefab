@@ -379,7 +379,7 @@ GameObject:
   - component: {fileID: 8930997224866443358}
   - component: {fileID: 2769631602769561212}
   - component: {fileID: 102873153036183082}
-  - component: {fileID: 8912912700952611339}
+  - component: {fileID: 9035273196968939677}
   m_Layer: 7
   m_Name: shopper prefab
   m_TagString: Untagged
@@ -477,26 +477,22 @@ CapsuleCollider:
   m_Height: 0.4044014
   m_Direction: 1
   m_Center: {x: 0.000046658515, y: -0.8108637, z: 0.005856109}
---- !u!95 &8912912700952611339
-Animator:
-  serializedVersion: 4
+--- !u!114 &9035273196968939677
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1560466339022807725}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 651cba2ea77864c569d1426fbd238e3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraTransform: {fileID: 0}
+  appleSprite: {fileID: 0}
+  carrotSprite: {fileID: 0}
+  sprite_popup: {fileID: 0}
 --- !u!1 &1703707727105354132
 GameObject:
   m_ObjectHideFlags: 0
