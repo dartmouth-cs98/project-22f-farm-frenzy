@@ -13,6 +13,9 @@ public class TriggerDialogue : MonoBehaviour
     public GameObject button1;
     public GameObject button2;
 
+    public GameObject coconutImg;
+    public GameObject kingImg;
+
 
     public string[] lines;
     public string[] characters;
@@ -34,6 +37,9 @@ public class TriggerDialogue : MonoBehaviour
 
         button1.SetActive(false);
         button2.SetActive(false);
+        coconutImg.SetActive(true);
+        kingImg.SetActive(false);
+
         
         textComponent2.text = string.Empty;
         textComponent.text = string.Empty;
@@ -111,6 +117,8 @@ public class TriggerDialogue : MonoBehaviour
     {
         index = 0;
         StartCoroutine(TypeLine());
+        button1.SetActive(false);
+        button2.SetActive(false);
     }
 
     IEnumerator TypeLine()
@@ -135,12 +143,24 @@ public class TriggerDialogue : MonoBehaviour
             textComponent2.text = string.Empty;
             textComponent.text = string.Empty;  
             StartCoroutine(TypeLine());
-            if (index == 4){
+
+            if (   index == 1 
+                || index == 3 
+                || index == 11 )
+            {
+                coconutImg.SetActive(false);
+                kingImg.SetActive(true);
+
+            } else {
+                kingImg.SetActive(false);
+                coconutImg.SetActive(true);
+            }
+
+            if (index == 4 ) {
                 button1.SetActive(true);
                 button2.SetActive(true);
                 
-            }
-            if (index == 6){
+            }  else if (index == 6){
                 dialog.enabled = false;
             }
         }
@@ -149,6 +169,8 @@ public class TriggerDialogue : MonoBehaviour
             dialog.enabled = false;
             button1.SetActive(false);
             button2.SetActive(false);
+            coconutImg.SetActive(false);
+            kingImg.SetActive(false);
         }
     }
     

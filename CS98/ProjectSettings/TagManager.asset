@@ -17,11 +17,12 @@ TagManager:
   - Dialogue
   - bodyCollider
   - Water
+  - FxTemporaire
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - KingCamera
   - Water
   - UI
   - 
