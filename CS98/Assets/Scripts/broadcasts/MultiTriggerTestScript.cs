@@ -53,7 +53,8 @@ public class MultiTriggerTestScript : OnTriggerListener
 
                 // for score calculation:
                 // TODO: multiplayer test
-                //gameObject.GetComponentInParent<PlayerControllerRagdoll>().knockouts++;
+                gameObject.GetComponentInParent<PlayerControllerRagdoll>().knockouts++;
+                Debug.Log("test "+ gameObject.GetComponentInParent<PlayerControllerRagdoll>().knockouts);
             }
         }
 

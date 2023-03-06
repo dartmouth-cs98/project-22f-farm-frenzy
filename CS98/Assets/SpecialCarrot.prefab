@@ -140,6 +140,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CFX3_Hit_Light_C_Air
       objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: 757df604761b8ef42831192c70ee1099, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 757df604761b8ef42831192c70ee1099, type: 3}
       propertyPath: m_RootOrder
       value: 0
