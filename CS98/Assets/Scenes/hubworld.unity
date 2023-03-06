@@ -3353,6 +3353,11 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 1561804811475293179, guid: ed57b0e48a602d74a9a8ff3c37760565,
         type: 3}
+      propertyPath: m_MaxPlayerCount
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1561804811475293179, guid: ed57b0e48a602d74a9a8ff3c37760565,
+        type: 3}
       propertyPath: m_PlayerJoinedEvent.m_PersistentCalls.m_Calls.Array.size
       value: 3
       objectReference: {fileID: 0}
