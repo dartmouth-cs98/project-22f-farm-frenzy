@@ -31,16 +31,22 @@ public class npcManager : MonoBehaviour
         timer_create -= Time.deltaTime;
         if (timer_create <= 0) {
             StartShopper();
-            //Debug.Log("new shopper!!");
+            
             timer_create = interval;
         }
         if (shopper_created != null)
         {
-            //Debug.Log("counting down on this shopper's time -1-1-1-1-1 oop");
             timer_destroy -= Time.deltaTime;
             if (timer_destroy <= 0)
             {
+                //shopper_created.GetComponent<Shopper>().lifelimit = true;
                 shopper_created.GetComponent<Shopper>().lifelimit = true;
+                Destroy(shopper_created.GetComponent<Shopper>());
+                Destroy(shopper_created.GetComponent<ChatBubble>());
+                //Destroy(shopper_created.GetComponent<NavMeshAgent>());
+                shopper_created.GetComponent<dieDuck>().playFx();
+                shopper_created.GetComponent<dieDuck>().die = true;
+
                 timer_destroy = lifetimeOfEach;
                 shopper_created = null;
             }

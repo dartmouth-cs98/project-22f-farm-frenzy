@@ -13,13 +13,15 @@ public class Shopper : MonoBehaviour
     public float lifetime;
     public bool lifelimit = false;
     public bool timeToDie = false;
+    [SerializeField] private GameObject dieFX;
 
     // to change
     public String fruit_wanted;
-    public Vector3 birthplace = new Vector3(0,0,1);
+    public Vector3 birthplace = new Vector3(0, 0, 1);
 
     private void Awake()
     {
+        
         var playerDetector = gameObject.AddComponent<PlayerDetector>();
         var _chatBubble = gameObject.GetComponent<ChatBubble>();
         fruit_wanted = null;
@@ -28,8 +30,8 @@ public class Shopper : MonoBehaviour
 
         // state inits
         var roam = new Roam(this, navMeshAgent, animator, playerDetector, _chatBubble);
-        var seePlayer = new SeePlayer(this, playerDetector, animator);
-        var exit = new Exit(this, navMeshAgent, animator);
+        var seePlayer = new SeePlayer(this, navMeshAgent, playerDetector, animator, this);
+        var exit = new Exit(this, navMeshAgent, animator, dieFX, this);
 
 
         // transitions
@@ -50,8 +52,7 @@ public class Shopper : MonoBehaviour
 
         // start state
         _stateMachine.SetState(roam);
-        Debug.Log("state " + _stateMachine._currentState);
-        //StartCoroutine(waiter());
+        
     }
 
     // Update is called once per frame
@@ -62,13 +63,40 @@ public class Shopper : MonoBehaviour
 
     public void Die()
     {
+        //playFX();
+        //dieFX.transform.localScale = new Vector3(0f, -1f, 0f);
+        //dieFX.GetComponent<ParticleSystem>().Stop();
+        //dieFX.GetComponent<ParticleSystem>().Play();
+        //StartCoroutine(testFunction());
+        Debug.Log("in shopper: die");
+        Destroy(this);
+        //StartCoroutine("testFunction");
+
+        //Destroy(gameObject);
+    }
+
+    public IEnumerator DoCoroutine(IEnumerator cor)
+    {
+        while (cor.MoveNext())
+            yield return cor.Current;
+    }
+
+    private IEnumerator testFunction()
+    {
+        playFX();
+        dieFX.transform.localScale = new Vector3(0f, -1f, 0f);
+        dieFX.GetComponent<ParticleSystem>().Stop();
+        dieFX.GetComponent<ParticleSystem>().Play();
+        Debug.Log("here");
+        yield return new WaitForSeconds(1f);
+        Debug.Log("herehereherehere");
+      
         Destroy(gameObject);
     }
 
-
-    IEnumerator Waiter()
-    {
-        yield return new WaitForSeconds(10);
-        _stateMachine._currentState.OnExit();
+    public void playFX(){
+        dieFX.transform.localScale = new Vector3(0f, -1f, 0f);
+        dieFX.GetComponent<ParticleSystem>().Stop();
+        dieFX.GetComponent<ParticleSystem>().Play();
     }
 }

@@ -1,23 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 internal class SeePlayer : IState
 {
     private readonly Shopper _shopper;
     private readonly PlayerDetector _playerDetector;
+    private readonly NavMeshAgent _navMeshAgent;
     private readonly Animator _animator;
     public bool tradeComplete = false;
-
+    private MonoBehaviour mono;
+    private float walkRadius = 200f;
     // stop moving, look at the player
     // if player has the correct fruit -> get it and score
     // if not, quit the state...??
 
-    public SeePlayer(Shopper shopper, PlayerDetector playerDetector, Animator animator)
+    public SeePlayer(Shopper shopper, NavMeshAgent navMeshAgent, PlayerDetector playerDetector, Animator animator, MonoBehaviour monob)
     {
         _shopper = shopper;
         _playerDetector = playerDetector;
+        _navMeshAgent = navMeshAgent;
         _animator = animator;
+        mono = monob;
     }
 
 
@@ -33,11 +38,15 @@ internal class SeePlayer : IState
         _shopper.transform.LookAt(_playerDetector._detectedPlayer.transform);
         _animator.SetBool("idle", true);
         _animator.SetBool("walk", false);
+
         /************ ui here *****************/
 
 
         // TODO: wait a bit for trading to happen?
-        _shopper.StartCoroutine(TradeWait());
+        mono.StartCoroutine(testFunction());
+
+        //And also use StopCoroutine function
+        //mono.StopCoroutine(testFunction());
         // trade funct
         trade();
     }
@@ -53,12 +62,11 @@ internal class SeePlayer : IState
         Debug.Log("checking fruit...");
         if (_playerDetector._detectedFruit != null)
         {
+            _navMeshAgent.enabled = false;
             string playerFruit = _playerDetector._detectedFruit.ToLower();
-            //Debug.Log(playerFruit);
-            //Debug.Log(playerFruit.Contains(_shopper.fruit_wanted));
             if (playerFruit.Contains(_shopper.fruit_wanted))
             {
-                // TODO: give player buff
+                // give player buff
                 // if success, set the want fruit to be null and give the player rewards
                 // give player buff
                 Debug.Log("fruit sold!");
@@ -71,15 +79,44 @@ internal class SeePlayer : IState
                 _playerDetector._detectedPlayer.GetComponentInChildren<GadgetManagerScript>().setRandomGadget();
                 // score calcualtion
                 _playerDetector._detectedPlayer.fruit_trade++;
+                mono.StartCoroutine(testFunction());
                 _shopper.fruit_wanted = null;
+            }
+            else {
+                _navMeshAgent.enabled = true;
+                //_navMeshAgent.SetDestination(RandomNavMeshLocation());
             }
         }
         tradeComplete = true;
+        //mono.StopCoroutine(testFunction());
     }
 
-    private IEnumerator TradeWait()
+    public void monoParser(MonoBehaviour mono)
     {
-        yield return new WaitForSeconds(3);
+        //We can now use StartCoroutine from MonoBehaviour in a non MonoBehaviour script
+        mono.StartCoroutine(testFunction());
+
+        //And also use StopCoroutine function
+        mono.StopCoroutine(testFunction());
     }
 
+    IEnumerator testFunction()
+    {
+        yield return new WaitForSeconds(3f);
+        Debug.Log("Test!");
+        _navMeshAgent.enabled = false;
+    }
+
+    //private Vector3 RandomNavMeshLocation()
+    //{
+    //    Vector3 finalPos = Vector3.zero;
+    //    Vector3 randomPos = Random.insideUnitSphere * walkRadius;
+    //    randomPos += _shopper.transform.position;
+    //    if (NavMesh.SamplePosition(randomPos, out NavMeshHit hit, walkRadius, 1))
+    //    {
+    //        finalPos = hit.position;
+    //    }
+
+    //    return finalPos;
+    //}
 }

@@ -4,19 +4,6 @@ using UnityEngine;
 
 public class ChatBubble : MonoBehaviour
 {
-    private GameObject _camera;
-    private Transform cameraTransform;
-    [SerializeField] private GameObject appleSprite;
-    [SerializeField] private GameObject carrotSprite;
-    private SpriteRenderer backgroundRenderer;
-    private SpriteRenderer fruitRenderer;
-    public GameObject sprite_popup;
-    GameObject chatBubbleTrans;
-
-    public enum FruitType {
-        Apple,
-        Carrot
-    }
 
     public void Create(string fruit)
     {
@@ -24,17 +11,8 @@ public class ChatBubble : MonoBehaviour
         //chatBubbleTrans = Instantiate(sprite_popup, parent);
         //backgroundRenderer = sprite_popup.transform.Find("background").GetComponent<SpriteRenderer>();
         //fruitRenderer = sprite_popup.GetComponent<SpriteRenderer>();
-        Vector3 offset = new Vector3(0, 2, 0);
-        if (fruit == "apple")
-        {
-            chatBubbleTrans = Instantiate(appleSprite, transform.position + offset, transform.rotation);
-            //fruitRenderer.sprite = GetFruitSprite(FruitType.Apple);
-        }
-        else
-        {
-            chatBubbleTrans = Instantiate(carrotSprite, transform.position + offset, transform.rotation);
-            //fruitRenderer.sprite = GetFruitSprite(FruitType.Carrot);
-        }
+        spriteSwitch fruit_swtich = GetComponentInChildren<spriteSwitch>();
+        fruit_swtich.Create(fruit);
 
         //chatBubbleTrans.transform.rotation = Quaternion.LookRotation(chatBubbleTrans.transform.position - cameraTransform.position);
     }
@@ -42,10 +20,6 @@ public class ChatBubble : MonoBehaviour
     private void Awake()
     {
         //backgroundRenderer = transform.Find("background").GetComponent<SpriteRenderer>();
-        //fruitRenderer = transform.Find("fruit").GetComponent<SpriteRenderer>();
-        //cameraTransform = Camera.main.transform;
-        //_camera = GameObject.FindGameObjectsWithTag("camera")[0];
-        //cameraTransform = _camera.transform;
     }
 
     //private void Setup(FruitType fruitType)

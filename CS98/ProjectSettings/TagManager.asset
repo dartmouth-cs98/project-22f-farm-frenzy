@@ -18,6 +18,7 @@ TagManager:
   - bodyCollider
   - Water
   - FxTemporaire
+  - camera
   layers:
   - Default
   - TransparentFX

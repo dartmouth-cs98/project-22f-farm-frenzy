@@ -11,11 +11,10 @@ internal class Roam : IState
     private readonly ChatBubble _chatBubble;
     private static readonly int Speed = Animator.StringToHash("Speed");
     private readonly PlayerDetector _playerDetector;
-    //private static string[] fruits = { "apple", "pineapple", "watermelon" };
     private static string[] fruits = { "apple", "carrot"};
 
     // need tuning, not sure
-    private float walkRadius = 15f;
+    private float walkRadius = 200f;
 
 
     public Roam(Shopper shopper, NavMeshAgent navMeshAgent, Animator animator, PlayerDetector playerDetector, ChatBubble chatbubble)
@@ -52,29 +51,16 @@ internal class Roam : IState
         // set fruit wanted
         if (_shopper.fruit_wanted == null)
         {
-            int r = Random.Range(0, fruits.Length - 1);
+            int r = Random.Range(1, 3)-1;
             _shopper.fruit_wanted = fruits[r]; // set to a random new fruit
             Debug.Log("roam, set fruit to: " + _shopper.fruit_wanted);
             _chatBubble.Create(_shopper.fruit_wanted);
-            //if (_shopper.fruit_wanted == "apple")
-            //{
-            //    //_chatBubble.Create(_shopper.transform, ChatBubble.FruitType.Apple);
-            //}
-            //else
-            //{
-            //    //_chatBubble.Create(_shopper.transform, ChatBubble.FruitType.Carrot);
-            //}
-            Debug.Log("fruit popu heyyyyy");
         }
-        
-
-        //Debug.Log("state " + "roam");
     }
 
     public void OnExit()
     {
         _navMeshAgent.enabled = false;
-        Debug.Log("speed to 0");
         _animator.SetBool("idle", true);
         _animator.SetBool("walk", false);
         //_animator.SetFloat(Speed, 0f);
