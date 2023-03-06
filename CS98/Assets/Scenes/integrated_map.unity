@@ -25243,22 +25243,27 @@ PrefabInstance:
         type: 3}
       propertyPath: shopper
       value: 
-      objectReference: {fileID: 6804196275815455419, guid: 6046ecfd90f414f1ebf049bb6bbed755,
+      objectReference: {fileID: 4522664681456104404, guid: 92ed0d489333f48ddb1038396e2c0da7,
         type: 3}
     - target: {fileID: 2668947817267822750, guid: c27ab6392195e49788384590ebe27b31,
         type: 3}
+      propertyPath: interval
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 2668947817267822750, guid: c27ab6392195e49788384590ebe27b31,
+        type: 3}
       propertyPath: timer_create
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2668947817267822750, guid: c27ab6392195e49788384590ebe27b31,
         type: 3}
       propertyPath: timer_destroy
-      value: 20
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2668947817267822750, guid: c27ab6392195e49788384590ebe27b31,
         type: 3}
       propertyPath: lifetimeOfEach
-      value: 20
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2668947817267822751, guid: c27ab6392195e49788384590ebe27b31,
         type: 3}
