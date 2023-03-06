@@ -39068,6 +39068,26 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 75.58
       objectReference: {fileID: 0}
+    - target: {fileID: 7316334270250597035, guid: 51b197986cdaa4c21a9bb2479df5a871,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.30214578
+      objectReference: {fileID: 0}
+    - target: {fileID: 7316334270250597035, guid: 51b197986cdaa4c21a9bb2479df5a871,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.1710568
+      objectReference: {fileID: 0}
+    - target: {fileID: 7316334270250597035, guid: 51b197986cdaa4c21a9bb2479df5a871,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.30214578
+      objectReference: {fileID: 0}
+    - target: {fileID: 7316334270250597035, guid: 51b197986cdaa4c21a9bb2479df5a871,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 16.46
+      objectReference: {fileID: 0}
     - target: {fileID: 7316334270674838898, guid: 51b197986cdaa4c21a9bb2479df5a871,
         type: 3}
       propertyPath: m_RootOrder
@@ -47087,8 +47107,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 7.9270744, y: 6.912851, z: 7.9109597}
-  m_Center: {x: 0.000061035156, y: 0, z: 0.000056743622}
+  m_Size: {x: 3.705804, y: 7.480549, z: 1.1780334}
+  m_Center: {x: -0.07624274, y: -0.28384793, z: -0.26867005}
 --- !u!1 &2006963022 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 874754518050880387, guid: d76000a7ec926487b9845889f636b853,

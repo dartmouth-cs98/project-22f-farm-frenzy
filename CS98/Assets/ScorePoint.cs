@@ -44,7 +44,7 @@ public class ScorePoint : MonoBehaviour
             int amountToScore = 1;
             if(collision.gameObject.GetComponent<SpecialFruitScript>() != null)
             {
-                amountToScore += 3;
+                amountToScore += 1;
             }
             if (tag == "Red")
             {

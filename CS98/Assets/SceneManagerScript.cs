@@ -9,7 +9,7 @@ public class SceneManagerScript : MonoBehaviour
     public string AwardSceneName = "";
     public string TestSceneName = "hatTesting";
 
-    public int timeToEnd = 300;
+    public int timeToEnd = 2;
     public Color loadToColor = Color.black;
 
     public float sceneTransitionTime = 3f;
@@ -19,7 +19,7 @@ public class SceneManagerScript : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name == GameSceneName)
         {
-            Invoke("StartSceneName", timeToEnd);
+            Invoke("LoadStartScene", timeToEnd);
         }
     }
 
