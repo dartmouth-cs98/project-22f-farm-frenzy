@@ -22,6 +22,8 @@ public class PlanterScript : MonoBehaviour
     private bool seed_is_here = false;
     private PlayerControllerRagdoll player_ontop = null;
 
+    public GameObject bonusFX;
+
     private void Start()
     {
         growFX.GetComponent<ParticleSystem>().Stop();
@@ -116,10 +118,19 @@ public class PlanterScript : MonoBehaviour
             if(EnteringObject.gameObject.GetComponent<FloatScript>() != null)
             {
                 newObj = Instantiate(specialGrowables[Random.Range(0, growables.Length)]);
+                bonusFX.GetComponent<ParticleSystem>().Stop();
+                bonusFX.GetComponent<ParticleSystem>().Play();
+                for (int i = 0; i < 4; i++)
+                {
+                    Instantiate(growables[Random.Range(0, growables.Length)], EnteringObject.transform.position, Quaternion.identity);
+
+                }
             }
             else
             {
                 newObj = Instantiate(growables[Random.Range(0, growables.Length)]);
+
+                
             }
             newObj.transform.parent = EnteringObject.transform.parent;
             newObj.transform.position = EnteringObject.transform.position;

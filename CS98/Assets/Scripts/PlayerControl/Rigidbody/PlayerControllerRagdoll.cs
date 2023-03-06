@@ -20,6 +20,7 @@ public class PlayerControllerRagdoll : MonoBehaviour
 
     [SerializeField]
     private GameObject jumpFX;
+    public GameObject koFX;
 
     private bool dashing;
     private float speedMultiplier = 1;
@@ -204,8 +205,10 @@ public class PlayerControllerRagdoll : MonoBehaviour
         //PlayerControllerRagdoll controller = GetComponent<PlayerControllerRagdoll>();
         //controller.enabled = false;
         isDead = true;
+        
         StartCoroutine(Jointwaiter());
-
+        koFX.GetComponent<ParticleSystem>().Stop();
+        koFX.GetComponent<ParticleSystem>().Play();
         InvokeRepeating("stunCountDown", 0f, 1f);
     }
 

@@ -24,8 +24,7 @@ public class ColorChanging : MonoBehaviour
     private void FixedUpdate()
     {
         numOfPlayers = GameObject.FindGameObjectsWithTag("PlayerParent").Length;
-        print("num " + numOfPlayers);
-
+        
         if (playersIDs.Count == numOfPlayers)
         {
             playerCountUI.text = "Start Game!";
