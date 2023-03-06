@@ -15,6 +15,10 @@ public class TriggerDialogue : MonoBehaviour
 
     public GameObject coconutImg;
     public GameObject kingImg;
+    public GameObject coconutMonster;
+    public Animator cocoAnim;
+
+    public static bool isGameStarted = false;
 
 
     public string[] lines;
@@ -57,8 +61,6 @@ public class TriggerDialogue : MonoBehaviour
         if (Input.inputString != "") Debug.Log(Input.inputString);
         if (onDialogRange && dpadPressed)
         {
-            Time.timeScale = 0f;
-            isPaused = true;
             
             if (dialog.enabled == false ) {
                 dialog.enabled = true;
@@ -82,15 +84,11 @@ public class TriggerDialogue : MonoBehaviour
                         StopAllCoroutines();
                         textComponent2.text = characters[index];
                         textComponent.text = lines[index];
-                        
-                        //dialog.enabled = false;
                     }
                 }
             }
         }
 
-        Time.timeScale = 1f;
-        isPaused = false;
     }
 
 
@@ -119,6 +117,7 @@ public class TriggerDialogue : MonoBehaviour
         StartCoroutine(TypeLine());
         button1.SetActive(false);
         button2.SetActive(false);
+        //Time.timeScale = 0f;
     }
 
     IEnumerator TypeLine()
@@ -151,7 +150,11 @@ public class TriggerDialogue : MonoBehaviour
                 coconutImg.SetActive(false);
                 kingImg.SetActive(true);
 
-            } else {
+            } else if (index == 2){
+                cocoAnim.SetBool("open", true);
+                kingImg.SetActive(false);
+                coconutImg.SetActive(true);
+            }else {
                 kingImg.SetActive(false);
                 coconutImg.SetActive(true);
             }
@@ -162,6 +165,9 @@ public class TriggerDialogue : MonoBehaviour
                 
             }  else if (index == 6){
                 dialog.enabled = false;
+                isGameStarted = true;
+                coconutMonster.SetActive(false);
+                
             }
         }
         else
@@ -171,6 +177,10 @@ public class TriggerDialogue : MonoBehaviour
             button2.SetActive(false);
             coconutImg.SetActive(false);
             kingImg.SetActive(false);
+            Debug.Log("GAME STARTED");
+            isGameStarted = true;
+            coconutMonster.SetActive(false);
+            // Time.timeScale = 1f;
         }
     }
     
