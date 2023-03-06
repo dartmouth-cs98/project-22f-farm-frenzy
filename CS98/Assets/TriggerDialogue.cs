@@ -16,6 +16,10 @@ public class TriggerDialogue : MonoBehaviour
     public GameObject coconutImg;
     public GameObject kingImg;
     public GameObject coconutMonster;
+
+    public GameObject seedSpawner;
+    public GameObject startVFX;
+
     public Animator cocoAnim;
 
     public static bool isGameStarted = false;
@@ -43,6 +47,8 @@ public class TriggerDialogue : MonoBehaviour
         button2.SetActive(false);
         coconutImg.SetActive(true);
         kingImg.SetActive(false);
+        seedSpawner.SetActive(false);
+        startVFX.SetActive(false);
 
         
         textComponent2.text = string.Empty;
@@ -154,7 +160,7 @@ public class TriggerDialogue : MonoBehaviour
                 cocoAnim.SetBool("open", true);
                 kingImg.SetActive(false);
                 coconutImg.SetActive(true);
-            }else {
+            } else {
                 kingImg.SetActive(false);
                 coconutImg.SetActive(true);
             }
@@ -167,6 +173,8 @@ public class TriggerDialogue : MonoBehaviour
                 dialog.enabled = false;
                 isGameStarted = true;
                 coconutMonster.SetActive(false);
+                seedSpawner.SetActive(true);
+                startVFX.SetActive(true);
                 
             }
         }
@@ -180,7 +188,8 @@ public class TriggerDialogue : MonoBehaviour
             Debug.Log("GAME STARTED");
             isGameStarted = true;
             coconutMonster.SetActive(false);
-            // Time.timeScale = 1f;
+            seedSpawner.SetActive(true);
+            startVFX.SetActive(true);
         }
     }
     
