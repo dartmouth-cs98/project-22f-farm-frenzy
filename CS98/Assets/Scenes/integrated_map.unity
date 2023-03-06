@@ -2241,6 +2241,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 240667131201365666, guid: bccdf37f667904c1381fc0fb455135d3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 1572958229221912222, guid: bccdf37f667904c1381fc0fb455135d3,
         type: 3}
       propertyPath: m_IsActive
@@ -2259,6 +2264,11 @@ PrefabInstance:
     - target: {fileID: 5263366683889716354, guid: bccdf37f667904c1381fc0fb455135d3,
         type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5263366683987696955, guid: bccdf37f667904c1381fc0fb455135d3,
+        type: 3}
+      propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5263366684300680965, guid: bccdf37f667904c1381fc0fb455135d3,
@@ -4497,7 +4507,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 65
+    m_Bits: 81
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: adf516def61d37744bc6e23e065360e4, type: 2}
   m_TargetDisplay: 0
@@ -7467,6 +7477,12 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -7004846808184815563, guid: d76000a7ec926487b9845889f636b853, type: 3}
+--- !u!1 &309431540 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 119183615461286708, guid: 04748f702c7287340bb4a832e557931d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1909402509}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &309639060
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9851,6 +9867,8 @@ MonoBehaviour:
   coconutImg: {fileID: 1904500957}
   kingImg: {fileID: 1892831544}
   coconutMonster: {fileID: 3406636674076739424}
+  seedSpawner: {fileID: 857936456}
+  startVFX: {fileID: 309431540}
   cocoAnim: {fileID: 3406636674076739425}
   lines:
   - "Waaaaaaahhhh What\u2019re you doing on my island!!! I am the guardian of this
@@ -13963,7 +13981,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 9
+    m_Bits: 25
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: 18860d3ffcdb4fc409a0e86f8e6259d7, type: 2}
   m_TargetDisplay: 0
