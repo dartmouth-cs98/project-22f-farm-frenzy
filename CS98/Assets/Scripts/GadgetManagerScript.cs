@@ -107,6 +107,8 @@ public class GadgetManagerScript : MonoBehaviour
             setGadget(new string[] { "SpeedBoost", "Passive" });
         }
 
+        Invoke("resetGadget", 15);
+
     }
 
     public bool canPickupGadget()

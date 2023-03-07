@@ -23,10 +23,10 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - KingCamera
   - Water
   - UI
-  - 
+  - CoconutCamera
   - Character
   - 
   - Duck Body

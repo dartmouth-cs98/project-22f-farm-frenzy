@@ -3,22 +3,45 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+//using Math;
 
 public class ScorePoint : MonoBehaviour
 {
 
     public TMP_Text scoreAmount;
+    public TMP_Text timer;
+    public GameObject scoreFX;
+
+    private float currentTime = 300;
+    private bool timerStarted = false; 
+    [SerializeField] float startTime;
+
 
     // Start is called before the first frame update
     void Start()
     {
         updateScoreUI();
+        currentTime = startTime;
         
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (TriggerDialogue.isGameStarted) {
+            timerStarted = true;
+        }
+
+        if (timerStarted) {
+            Debug.Log("YESSIR IT STARTED");
+            currentTime -= Time.deltaTime;
+            timer.text = currentTime.ToString("f1");
+        }
+
+        if (currentTime <= 0) {
+            timerStarted = false;
+            currentTime = 300;
+        }
         
     }
 
@@ -40,20 +63,26 @@ public class ScorePoint : MonoBehaviour
         if (collision.gameObject.tag == "Scorable")
         {
             FindObjectOfType<AudioManager>().PlayAudio("ScoreSound");
+            int amountToScore = 1;
+            if(collision.gameObject.GetComponent<SpecialFruitScript>() != null)
+            {
+                amountToScore += 1;
+            }
             if (tag == "Red")
             {
-                KeepScore.RedScore += 1;
+                KeepScore.RedScore += amountToScore;
             }
             else if (tag == "Blue")
             {
-                KeepScore.BlueScore += 1;
+                KeepScore.BlueScore += amountToScore;
             }
             else
             {
-                KeepScore.Score += 1;
+                KeepScore.Score += amountToScore;
             }
 
             Debug.Log("collision");
+            scoreFX.GetComponent<ParticleSystem>().Play();
             Destroy(collision.gameObject);
             updateScoreUI();
 
