@@ -12,15 +12,16 @@ public class GadgetPop : MonoBehaviour
     public void Pop(GadgetManagerScript _GadgetManagerScript, Shopper _shopper)
     {
         string buff = _GadgetManagerScript.getCurrentGadget();
-        if (buff == "speedboost")
+        if (buff == "SpeedBoost")
         {
-            buff_popup = Instantiate(speed_buff, transform.position + offset, Quaternion.identity);
+            buff_popup = Instantiate(speed_buff, _shopper.transform.position - offset, Quaternion.identity);
         }
-        else
+        else if (buff == "HighJump")
         {
-            buff_popup = Instantiate(jump_buff, _shopper.transform.position, Quaternion.identity);
+            buff_popup = Instantiate(jump_buff, _shopper.transform.position + offset, Quaternion.identity);
         }
-        buff_popup.transform.Translate(Vector3.down * 5f * Time.deltaTime);
+
+        //buff_popup.transform.Translate(Vector3.down * 10f * Time.deltaTime);
         Destroy(buff_popup, 1.3f);
     }
 

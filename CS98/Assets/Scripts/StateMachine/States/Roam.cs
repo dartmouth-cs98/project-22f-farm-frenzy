@@ -39,7 +39,7 @@ internal class Roam : IState
         //TimeStuck = 0f;
         _navMeshAgent.enabled = true;
         _navMeshAgent.SetDestination(RandomNavMeshLocation());
-        _animator.SetFloat(Speed, .8f);
+        //_animator.SetFloat(Speed, .8f);
         _animator.SetBool("idle", false);
         _animator.SetBool("walk", true);
         _playerDetector._detectedPlayer = null;

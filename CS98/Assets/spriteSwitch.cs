@@ -37,17 +37,17 @@ public class spriteSwitch : MonoBehaviour
             fruitRenderer.size -= new Vector2(1000f, 2000f);
             fruitRenderer.sprite = carrotSprite;
         }
-        else if (fruit == "sleep")
-        {
-            Debug.Log("SHOPPER SLEE[");
-            fruitRenderer.size += new Vector2(100f, 100f);
-            fruitRenderer.sprite = sleepSprite;
-        }
-        else {
-            Debug.Log("SHOPPER HAPPY");
-            fruitRenderer.size = new Vector2(100f, 100f);
-            fruitRenderer.sprite = happySprite;
-        }
+        //else if (fruit == "sleep")
+        //{
+        //    Debug.Log("SHOPPER SLEE[");
+        //    fruitRenderer.size += new Vector2(100f, 100f);
+        //    fruitRenderer.sprite = sleepSprite;
+        //}
+        //else {
+        //    Debug.Log("SHOPPER HAPPY");
+        //    fruitRenderer.size = new Vector2(100f, 100f);
+        //    fruitRenderer.sprite = happySprite;
+        //}
     }
 
     private void Update()

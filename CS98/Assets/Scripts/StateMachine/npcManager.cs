@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class npcManager : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject shopper;
+    public string GameSceneName = "integrated_map";
     public float pos_x = -25.72f, pos_y = 1f, pos_z = -3.61f;
     public float timer_create = 1;
     public float interval = 30;     // interval between creating each shopper, needs to be long enough for the previous one
@@ -13,7 +15,7 @@ public class npcManager : MonoBehaviour
     public float lifetimeOfEach = 5;    // life time of each shopper
     public float timer_destroy = 8;
     private GameObject shopper_created = null;
-
+    public bool start = false;
     [SerializeField] private GameObject dieFX;
     private Vector3 offset = new Vector3(0f, -4.5f, 0f);
 
@@ -25,9 +27,17 @@ public class npcManager : MonoBehaviour
 
     void Update()
     {
+        // TODO: add some form of check to check if game starts, then set start to true
+        //if (SceneManager.GetActiveScene().name == GameSceneName)
+        //{
+        //    start = true;
+        //}
         timer_create -= Time.deltaTime;
         // check count down for shopper creation
-        if (timer_create <= 0) {
+        if (timer_create <= 0)
+        {
+            // uncomment below if checked game start or not
+        //if (timer_create <= 0 && start) {
             StartShopper();
             
             timer_create = interval;
