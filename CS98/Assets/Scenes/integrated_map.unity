@@ -4476,7 +4476,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 158512957}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &158512960
 Camera:
   m_ObjectHideFlags: 0
@@ -9981,7 +9981,8 @@ MonoBehaviour:
   - Nice! press (Left controller button) to grab a seed and press again to let go
   - 'If you take a seed to the farmland and let go, it will automatically be planted
     and start growing! '
-  - 'Once fully grown, the seed will light up and sparkle.  '
+  - Once fully grown, the seed will light up and sparkle. Then, place them on the
+    trampoline to score!
   - Hahaha! Yes! My favorite part of the festivities!
   - 'In these games, you must defend your farmland.  Press (right controller button)
     to swat away foes! '
@@ -13207,6 +13208,7 @@ MonoBehaviour:
   timeToEnd: 300
   loadToColor: {r: 0, g: 0, b: 0, a: 1}
   sceneTransitionTime: 3
+  timerStarted: 0
 --- !u!1001 &582252351
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14044,7 +14046,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 616388149}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &616388152
 Camera:
   m_ObjectHideFlags: 0

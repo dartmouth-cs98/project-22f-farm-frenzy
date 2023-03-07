@@ -13,17 +13,14 @@ public class SceneManagerScript : MonoBehaviour
     public Color loadToColor = Color.black;
 
     public float sceneTransitionTime = 3f;
-
+    public bool timerStarted = false;
 
     private void Start()
     {
-        if (SceneManager.GetActiveScene().name == GameSceneName)
-        {
-            Invoke("LoadStartScene", timeToEnd);
-        }
+            timerStarted = false;
     }
 
-    void Update()
+void Update()
     {
         // Inputs for testing purposes, just call methods when we have actual setup
         if (Input.GetKeyDown(KeyCode.Backspace))
@@ -34,10 +31,12 @@ public class SceneManagerScript : MonoBehaviour
         {
             LoadGameScene();
         }
+        startTimer();
     }
 
     public void LoadGameScene()
     {
+        timerStarted = false;
         Initiate.Fade(GameSceneName, loadToColor, sceneTransitionTime);
 
         //SceneManager.LoadScene(GameSceneName);
@@ -45,6 +44,7 @@ public class SceneManagerScript : MonoBehaviour
 
     public void LoadStartScene()
     {
+        timerStarted = false;
         Initiate.Fade(StartSceneName, loadToColor, sceneTransitionTime);
 
         //SceneManager.LoadScene(StartSceneName);
@@ -52,6 +52,7 @@ public class SceneManagerScript : MonoBehaviour
 
     public void LoadAwardScene()
     {
+        timerStarted = false;
         Initiate.Fade(AwardSceneName, loadToColor, sceneTransitionTime);
 
         //SceneManager.LoadScene(AwardSceneName);
@@ -59,6 +60,7 @@ public class SceneManagerScript : MonoBehaviour
 
     void RestartScene()
     {
+        timerStarted = false;
         Initiate.Fade(SceneManager.GetActiveScene().name, loadToColor, sceneTransitionTime);
 
         //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
@@ -77,6 +79,15 @@ public class SceneManagerScript : MonoBehaviour
         else
         {
             // Send message to players
+        }
+    }
+
+    public void startTimer()
+    {
+        if (SceneManager.GetActiveScene().name == GameSceneName && TriggerDialogue.isGameStarted && !timerStarted)
+        {
+            timerStarted = true;
+            Invoke("LoadStartScene", timeToEnd);
         }
     }
 }
