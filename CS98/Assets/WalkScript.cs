@@ -49,25 +49,25 @@ public class WalkScript : MonoBehaviour
             }
         }*/
 
-        if (Vector3.Distance(transform.position, targetPosition) < 0.1f)
-        {
-            targetPosition = RandomPosition();
-        }
+        //if (Vector3.Distance(transform.position, targetPosition) < 0.1f)
+        //{
+        //    targetPosition = RandomPosition();
+        //}
 
-        Vector3 direction = (targetPosition - transform.position).normalized;
-        if (Physics.Raycast(transform.position, direction, out RaycastHit hit, avoidDistance, ~avoidLayer))
-        {
-            targetPosition = RandomPosition();
-        }
-        else if(maxJumps > 0)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
-            //transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
-            //GetComponent<Rigidbody>().AddForce((targetPosition) * speed, ForceMode.Impulse);
-            //maxJumps--;
+        //Vector3 direction = (targetPosition - transform.position).normalized;
+        //if (Physics.Raycast(transform.position, direction, out RaycastHit hit, avoidDistance, ~avoidLayer))
+        //{
+        //    targetPosition = RandomPosition();
+        //}
+        //else if(maxJumps > 0)
+        //{
+        //    transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
+        //    //transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
+        //    //GetComponent<Rigidbody>().AddForce((targetPosition) * speed, ForceMode.Impulse);
+        //    //maxJumps--;
 
 
-        }
+        //}
     }
 
     private Vector3 RandomPosition()

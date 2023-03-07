@@ -10,6 +10,7 @@ public class GadgetManagerScript : MonoBehaviour
     public GameObject currentPlayer; // The gameobject to affect, in our ragdoll it is the overall parent
     private float startingJump, startingSpeed;
     public float gadgetTimer = 10f;
+    public string current_Gadet;
 
     // Start is called before the first frame update
     void Start()
@@ -32,9 +33,11 @@ public class GadgetManagerScript : MonoBehaviour
             {
                 case "HighJump":
                     highJumpHandler();
+                    current_Gadet = "HighJump";
                     break;
                 case "SpeedBoost":
                     speedBoostHandler();
+                    current_Gadet = "SpeedBoost";
                     break;
                 case "Shield":
                     shieldHandler();
@@ -75,6 +78,11 @@ public class GadgetManagerScript : MonoBehaviour
     public void setGadget(string[] gadget)
     {
         currentGadget = gadget;
+    }
+
+    public String getCurrentGadget()
+    {
+        return current_Gadet;
     }
 
     public string[] getGadget()
