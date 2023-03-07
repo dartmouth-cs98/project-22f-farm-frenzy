@@ -269,4 +269,14 @@ public class PlayerControllerRagdoll : MonoBehaviour
         //PlayerControllerRagdoll controller = GetComponent<PlayerControllerRagdoll>();
         //controller.enabled = false;
     }
+
+    // public string getName() {
+    //     if (this.transform.GetChild(4).gameObject != null) {
+    //         return this.transform.GetChild(4).gameObject.name;
+    //     } else {
+    //         return "No Hat";
+    //     }
+    // }
 }
+
+
