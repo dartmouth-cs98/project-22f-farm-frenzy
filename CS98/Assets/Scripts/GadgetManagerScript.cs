@@ -10,7 +10,7 @@ public class GadgetManagerScript : MonoBehaviour
     public GameObject currentPlayer; // The gameobject to affect, in our ragdoll it is the overall parent
     private float startingJump, startingSpeed;
     public float gadgetTimer = 10f;
-    public string current_Gadet;
+    public string current_Gadet = "";
 
     // Start is called before the first frame update
     void Start()
