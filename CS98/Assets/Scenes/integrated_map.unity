@@ -1567,6 +1567,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 114f2649f72b6407bbfd5886a26ca2c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  knockout_txt: {fileID: 0}
+  seed_txt: {fileID: 0}
+  trade_txt: {fileID: 0}
+  score_txt: {fileID: 0}
 --- !u!1001 &60885919
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9916,6 +9920,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: coconut_monster 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3406636674513337102, guid: 8fc99d31863ad401cbb04711182cc806,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4869179681986534153, guid: 8fc99d31863ad401cbb04711182cc806,
         type: 3}
       propertyPath: m_LocalRotation.w
@@ -13203,9 +13212,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StartSceneName: hubworld
   GameSceneName: integrated_map
-  AwardSceneName: 
   TestSceneName: hatTesting
-  timeToEnd: 300
   loadToColor: {r: 0, g: 0, b: 0, a: 1}
   sceneTransitionTime: 3
   timerStarted: 0

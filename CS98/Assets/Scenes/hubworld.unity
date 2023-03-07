@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.56241167, g: 0.65803045, b: 0.8672581, a: 1}
+  m_IndirectSpecularColor: {r: 0.56241405, g: 0.6578119, b: 0.8671766, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -21970,11 +21970,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StartSceneName: hubworld
   GameSceneName: integrated_map
-  AwardSceneName: 
   TestSceneName: hatTesting
-  timeToEnd: 300
   loadToColor: {r: 0, g: 0, b: 0, a: 1}
   sceneTransitionTime: 3
+  timerStarted: 0
 --- !u!114 &581372562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39117,6 +39116,51 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7473673210395619237, guid: 51b197986cdaa4c21a9bb2479df5a871,
+        type: 3}
+      propertyPath: m_Name
+      value: Blue Floppy Hat
+      objectReference: {fileID: 0}
+    - target: {fileID: 7981231681521280691, guid: 51b197986cdaa4c21a9bb2479df5a871,
+        type: 3}
+      propertyPath: m_Name
+      value: Top Hat
+      objectReference: {fileID: 0}
+    - target: {fileID: 7981231681598187898, guid: 51b197986cdaa4c21a9bb2479df5a871,
+        type: 3}
+      propertyPath: m_Name
+      value: Beanie
+      objectReference: {fileID: 0}
+    - target: {fileID: 7981231681677378809, guid: 51b197986cdaa4c21a9bb2479df5a871,
+        type: 3}
+      propertyPath: m_Name
+      value: Sombrero
+      objectReference: {fileID: 0}
+    - target: {fileID: 7981231682338171307, guid: 51b197986cdaa4c21a9bb2479df5a871,
+        type: 3}
+      propertyPath: m_Name
+      value: Pink Floppy Hat
+      objectReference: {fileID: 0}
+    - target: {fileID: 7981231682430917715, guid: 51b197986cdaa4c21a9bb2479df5a871,
+        type: 3}
+      propertyPath: m_Name
+      value: Santa Hat
+      objectReference: {fileID: 0}
+    - target: {fileID: 7981231682592038929, guid: 51b197986cdaa4c21a9bb2479df5a871,
+        type: 3}
+      propertyPath: m_Name
+      value: Wizard Hat
+      objectReference: {fileID: 0}
+    - target: {fileID: 7981231682739960095, guid: 51b197986cdaa4c21a9bb2479df5a871,
+        type: 3}
+      propertyPath: m_Name
+      value: Beret
+      objectReference: {fileID: 0}
+    - target: {fileID: 7981231682868081260, guid: 51b197986cdaa4c21a9bb2479df5a871,
+        type: 3}
+      propertyPath: m_Name
+      value: Chef Hat
       objectReference: {fileID: 0}
     - target: {fileID: 8450330283072167706, guid: 51b197986cdaa4c21a9bb2479df5a871,
         type: 3}

@@ -19,6 +19,7 @@ TagManager:
   - Water
   - FxTemporaire
   - camera
+  - hatSpot
   layers:
   - Default
   - TransparentFX

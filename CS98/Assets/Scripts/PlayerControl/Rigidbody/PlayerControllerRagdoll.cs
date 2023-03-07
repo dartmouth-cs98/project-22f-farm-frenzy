@@ -30,6 +30,8 @@ public class PlayerControllerRagdoll : MonoBehaviour
     public int knockouts = 0, scored_fruits = 0, seed_planted = 0, fruit_trade = 0;
     public bool onPlanting = false;
 
+    public GameObject hatSpot;
+
 
     public void OnMove(InputAction.CallbackContext context)
     {
