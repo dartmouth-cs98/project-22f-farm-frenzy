@@ -26801,7 +26801,7 @@ PrefabInstance:
     - target: {fileID: 2668947817267822750, guid: c27ab6392195e49788384590ebe27b31,
         type: 3}
       propertyPath: interval
-      value: 100
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 2668947817267822750, guid: c27ab6392195e49788384590ebe27b31,
         type: 3}
