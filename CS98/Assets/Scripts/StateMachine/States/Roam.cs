@@ -31,12 +31,7 @@ internal class Roam : IState
         if (_navMeshAgent.remainingDistance <= 0.8f)
         {
             _navMeshAgent.SetDestination(RandomNavMeshLocation());
-        }
-        //else if (_playerDetector._detectedPlayer != null && _playerDetector._detectedFruit == null)
-        //{
-        //    Debug.Log("player doesnt have fruit. walk away");
-        //    _navMeshAgent.SetDestination(RandomNavMeshLocation());
-        //}
+        }        
     }
 
     public void OnEnter()
@@ -53,7 +48,7 @@ internal class Roam : IState
         {
             int r = Random.Range(1, 3)-1;
             _shopper.fruit_wanted = fruits[r]; // set to a random new fruit
-            Debug.Log("roam, set fruit to: " + _shopper.fruit_wanted);
+            //Debug.Log("roam, set fruit to: " + _shopper.fruit_wanted);
             _chatBubble.Create(_shopper.fruit_wanted);
         }
     }

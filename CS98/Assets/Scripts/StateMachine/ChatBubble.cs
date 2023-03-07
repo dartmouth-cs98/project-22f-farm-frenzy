@@ -15,6 +15,7 @@ public class ChatBubble : MonoBehaviour
     public void DestroySprite()
     {
         Destroy(gameObject);
+        //Destroy(gameObject.GetComponent<Sprite>());
     }
 
     //private void Setup(FruitType fruitType)

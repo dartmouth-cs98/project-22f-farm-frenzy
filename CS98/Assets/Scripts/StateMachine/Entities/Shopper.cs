@@ -10,9 +10,8 @@ public class Shopper : MonoBehaviour
     public Animator animator;
     public NavMeshAgent navMeshAgent;
     public ChatBubble _chatBubble;
-    public float lifetime;
+    [SerializeField] public GadgetPop gadgetPop;
     public bool lifelimit = false;
-    public bool timeToDie = false;
     [SerializeField] private GameObject dieFX;
 
     // to change
@@ -30,8 +29,8 @@ public class Shopper : MonoBehaviour
 
         // state inits
         var roam = new Roam(this, navMeshAgent, animator, playerDetector, _chatBubble);
-        var seePlayer = new SeePlayer(this, navMeshAgent, playerDetector, animator, this);
-        var exit = new Exit(this, navMeshAgent, animator, dieFX);
+        var seePlayer = new SeePlayer(this, navMeshAgent, playerDetector, animator, this, gadgetPop);
+        var exit = new Exit(this, navMeshAgent);
         var die = new Die(this);
 
         // transitions
@@ -41,7 +40,7 @@ public class Shopper : MonoBehaviour
         // transit from roam to see player
         At(seePlayer, roam, LostTarget());
         At(exit, die, ReachedBirthPlace());
-        At(die, exit, ReachedBirthPlace2());
+        //At(die, exit, ReachedBirthPlace2());
 
         _stateMachine.AddAnyTransition(exit, () => lifelimit);
 
@@ -52,7 +51,6 @@ public class Shopper : MonoBehaviour
         Func<bool> TradeComplete() => () => seePlayer.tradeComplete;
         Func<bool> LostTarget() => () => playerDetector.playerInRange == false;
         Func<bool> ReachedBirthPlace() => () => exit.finished;
-        Func<bool> ReachedBirthPlace2() => () => navMeshAgent.remainingDistance == 0;
 
         // start state
         _stateMachine.SetState(roam);
@@ -72,8 +70,8 @@ public class Shopper : MonoBehaviour
         //dieFX.GetComponent<ParticleSystem>().Stop();
         //dieFX.GetComponent<ParticleSystem>().Play();
         //StartCoroutine(testFunction());
-        Debug.Log("in shopper: die");
-        Destroy(gameObject);
+        //Debug.Log("in shopper: die");
+        //Destroy(gameObject);
         //StartCoroutine("testFunction");
 
         //Destroy(gameObject);
@@ -87,20 +85,15 @@ public class Shopper : MonoBehaviour
 
     private IEnumerator testFunction()
     {
-        playFX();
-        dieFX.transform.localScale = new Vector3(0f, -1f, 0f);
-        dieFX.GetComponent<ParticleSystem>().Stop();
-        dieFX.GetComponent<ParticleSystem>().Play();
-        Debug.Log("here");
+        //playFX();
+        //dieFX.transform.localScale = new Vector3(0f, -1f, 0f);
+        //dieFX.GetComponent<ParticleSystem>().Stop();
+        //dieFX.GetComponent<ParticleSystem>().Play();
+        //Debug.Log("here");
         yield return new WaitForSeconds(1f);
-        Debug.Log("herehereherehere");
-      
-        Destroy(gameObject);
+        //Debug.Log("herehereherehere");
+
+        //Destroy(gameObject);
     }
 
-    public void playFX(){
-        dieFX.transform.localScale = new Vector3(0f, -1f, 0f);
-        dieFX.GetComponent<ParticleSystem>().Stop();
-        dieFX.GetComponent<ParticleSystem>().Play();
-    }
 }

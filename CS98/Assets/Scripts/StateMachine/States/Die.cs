@@ -21,7 +21,7 @@ public class Die : IState
     public void OnEnter()
     {
         Debug.Log("die state!");
-        _shopper.GetComponent<ChatBubble>().DestroySprite();
+        //_shopper.GetComponent<ChatBubble>().DestroySprite();
     }
 
     public void OnExit()
