@@ -90,24 +90,6 @@ internal class SeePlayer : IState
             }
         }
         tradeComplete = true;
-        //mono.StopCoroutine(testFunction());
-    }
-
-    public void monoParser(MonoBehaviour mono)
-    {
-        //We can now use StartCoroutine from MonoBehaviour in a non MonoBehaviour script
-        //mono.StartCoroutine(testFunction());
-        //Debug.Log("Test! stop!!!");
-        ////And also use StopCoroutine function
-        //mono.StopCoroutine(testFunction());
-    }
-
-    IEnumerator testFunction()
-    {
-        yield return new WaitForSeconds(3f);
-        Debug.Log("stop here.........");
-        _shopper.GetComponentInChildren<ChatBubble>().Create("happy");
-        //_navMeshAgent.enabled = false;
     }
 
 }
