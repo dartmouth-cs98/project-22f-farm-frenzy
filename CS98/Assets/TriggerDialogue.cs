@@ -185,7 +185,6 @@ public class TriggerDialogue : MonoBehaviour
             button2.SetActive(false);
             coconutImg.SetActive(false);
             kingImg.SetActive(false);
-            Debug.Log("GAME STARTED");
             isGameStarted = true;
             coconutMonster.SetActive(false);
             seedSpawner.SetActive(true);

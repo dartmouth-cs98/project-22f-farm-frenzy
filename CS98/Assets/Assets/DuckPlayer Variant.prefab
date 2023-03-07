@@ -2320,6 +2320,7 @@ MonoBehaviour:
   - Passive
   currentPlayer: {fileID: 3305878299095668804}
   gadgetTimer: 10
+  current_Gadet: 
 --- !u!114 &6363299206953787135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6930,6 +6931,7 @@ GameObject:
   - component: {fileID: 1497069250320055647}
   - component: {fileID: 4023446672834940341}
   - component: {fileID: -3691257511029656559}
+  - component: {fileID: 5368986090415651642}
   m_Layer: 7
   m_Name: DuckPlayer Variant
   m_TagString: PlayerParent
@@ -7152,6 +7154,22 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 7817e61e-fab5-4ea9-a2bb-9b6a8f2198f3
     m_ActionName: UI/NavigateRight[/Keyboard/rightArrow,/DualShock4GamepadHID/dpad/right,/SwitchProControllerHID/dpad/right,/SwitchProControllerHID1/dpad/right]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5368986090415651642}
+        m_TargetAssemblyTypeName: PlayerPause, Assembly-CSharp
+        m_MethodName: playerPause
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: a558e5a4-cac3-4240-b435-038027005078
+    m_ActionName: Player/Pause[/Keyboard/escape,/DualSenseGamepadHID/start]
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: Keyboard
   m_DefaultActionMap: Player
@@ -7228,6 +7246,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ee6b2e85b08794d5792f11046a4f747c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5368986090415651642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3305878299095668804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b40f235613d8541e58240f703755b627, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &3450879042283000701
