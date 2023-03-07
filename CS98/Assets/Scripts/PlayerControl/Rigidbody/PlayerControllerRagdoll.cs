@@ -95,7 +95,12 @@ public class PlayerControllerRagdoll : MonoBehaviour
 
     public void OnJump(InputAction.CallbackContext context)
     {
-        Jump();
+        try {
+            Jump();
+        }       
+        catch (NullReferenceException ex) {
+            Debug.Log("Exception");
+        }
     }
 
     public void OnDash(InputAction.CallbackContext context)

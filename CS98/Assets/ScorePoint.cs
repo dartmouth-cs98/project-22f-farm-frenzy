@@ -33,7 +33,6 @@ public class ScorePoint : MonoBehaviour
         }
 
         if (timerStarted) {
-            Debug.Log("YESSIR IT STARTED");
             currentTime -= Time.deltaTime;
             timer.text = currentTime.ToString("f1");
         }

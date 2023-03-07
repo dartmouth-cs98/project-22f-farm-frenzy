@@ -8,6 +8,8 @@ public class PauseMenuScript : MonoBehaviour
     public GameObject pauseMenu;
     public static bool isPaused;
     public GameObject scoreMenu;
+    
+    private bool pausePressed = false;
 
     // Start is called before the first frame update
     void Start()
@@ -19,8 +21,9 @@ public class PauseMenuScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (pausePressed)
         {
+            pausePressed = false;
             if (isPaused) {
                 ResumeGame();
             } else {
@@ -29,12 +32,17 @@ public class PauseMenuScript : MonoBehaviour
         }
     }
 
+    public void playerPause() {
+        pausePressed = !pausePressed;
+    }
+
     public void PauseGame() 
     {
         scoreMenu.SetActive(false);
         pauseMenu.SetActive(true);
         Time.timeScale = 0f;
         isPaused = true;
+
     }
 
     public void ResumeGame() 
