@@ -9,27 +9,29 @@ public class Shopper : MonoBehaviour
     private StateMachine _stateMachine;
     public Animator animator;
     public NavMeshAgent navMeshAgent;
-    public float lifetime;
+    public ChatBubble _chatBubble;
+    [SerializeField] public GadgetPop gadgetPop;
     public bool lifelimit = false;
-    public bool timeToDie = false;
+    [SerializeField] private GameObject dieFX;
 
     // to change
     public String fruit_wanted;
-    public Vector3 birthplace = new Vector3(0,0,1);
+    public Vector3 birthplace = new Vector3(0, 0, 1);
 
     private void Awake()
     {
+        
         var playerDetector = gameObject.AddComponent<PlayerDetector>();
-        //var playerDetector = gameObject.AddComponent<PlayerDetector>();
+        var _chatBubble = gameObject.GetComponent<ChatBubble>();
         fruit_wanted = null;
 
         _stateMachine = new StateMachine();
 
         // state inits
-        var roam = new Roam(this, navMeshAgent, animator, playerDetector);
-        var seePlayer = new SeePlayer(this, playerDetector, animator);
-        var exit = new Exit(this, navMeshAgent, animator);
-
+        var roam = new Roam(this, navMeshAgent, animator, playerDetector, _chatBubble);
+        var seePlayer = new SeePlayer(this, navMeshAgent, playerDetector, animator, this, gadgetPop);
+        var exit = new Exit(this, navMeshAgent);
+        var die = new Die(this);
 
         // transitions
         At(roam, seePlayer, HasTarget());
@@ -37,6 +39,8 @@ public class Shopper : MonoBehaviour
         At(seePlayer, roam, TradeComplete());
         // transit from roam to see player
         At(seePlayer, roam, LostTarget());
+        At(exit, die, ReachedBirthPlace());
+        //At(die, exit, ReachedBirthPlace2());
 
         _stateMachine.AddAnyTransition(exit, () => lifelimit);
 
@@ -46,11 +50,11 @@ public class Shopper : MonoBehaviour
         Func<bool> NoFruit() => () => playerDetector._detectedPlayer != null && playerDetector._detectedFruit == null;
         Func<bool> TradeComplete() => () => seePlayer.tradeComplete;
         Func<bool> LostTarget() => () => playerDetector.playerInRange == false;
+        Func<bool> ReachedBirthPlace() => () => exit.finished;
 
         // start state
         _stateMachine.SetState(roam);
-        Debug.Log("state " + _stateMachine._currentState);
-        //StartCoroutine(waiter());
+        
     }
 
     // Update is called once per frame
@@ -61,13 +65,35 @@ public class Shopper : MonoBehaviour
 
     public void Die()
     {
-        Destroy(gameObject);
+        //playFX();
+        //dieFX.transform.localScale = new Vector3(0f, -1f, 0f);
+        //dieFX.GetComponent<ParticleSystem>().Stop();
+        //dieFX.GetComponent<ParticleSystem>().Play();
+        //StartCoroutine(testFunction());
+        //Debug.Log("in shopper: die");
+        //Destroy(gameObject);
+        //StartCoroutine("testFunction");
+
+        //Destroy(gameObject);
     }
 
-
-    IEnumerator Waiter()
+    public IEnumerator DoCoroutine(IEnumerator cor)
     {
-        yield return new WaitForSeconds(10);
-        _stateMachine._currentState.OnExit();
+        while (cor.MoveNext())
+            yield return cor.Current;
     }
+
+    private IEnumerator testFunction()
+    {
+        //playFX();
+        //dieFX.transform.localScale = new Vector3(0f, -1f, 0f);
+        //dieFX.GetComponent<ParticleSystem>().Stop();
+        //dieFX.GetComponent<ParticleSystem>().Play();
+        //Debug.Log("here");
+        yield return new WaitForSeconds(1f);
+        //Debug.Log("herehereherehere");
+
+        //Destroy(gameObject);
+    }
+
 }

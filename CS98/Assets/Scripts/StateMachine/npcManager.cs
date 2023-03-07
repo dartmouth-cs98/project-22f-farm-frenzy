@@ -14,35 +14,46 @@ public class npcManager : MonoBehaviour
     public float timer_destroy = 8;
     private GameObject shopper_created = null;
 
-    void Awake()
-    {
-
-    }
+    [SerializeField] private GameObject dieFX;
+    private Vector3 offset = new Vector3(0f, -4.5f, 0f);
 
 
     void StartShopper()
     {
         shopper_created = Instantiate(shopper, new Vector3(pos_x, pos_y, pos_z), Quaternion.identity);
-        //new_shopper.transform.position = new Vector3()
     }
 
     void Update()
     {
         timer_create -= Time.deltaTime;
+        // check count down for shopper creation
         if (timer_create <= 0) {
             StartShopper();
-            //Debug.Log("new shopper!!");
+            
             timer_create = interval;
         }
+        // check within each shopper's life time
         if (shopper_created != null)
         {
-            //Debug.Log("counting down on this shopper's time -1-1-1-1-1 oop");
             timer_destroy -= Time.deltaTime;
-            if (timer_destroy <= 0)
+
+            if (timer_destroy <= 1.5)
             {
+                shopper_created.GetComponentInChildren<ChatBubble>().Create("sleep");
                 shopper_created.GetComponent<Shopper>().lifelimit = true;
-                timer_destroy = lifetimeOfEach;
-                shopper_created = null;
+                shopper_created.GetComponentInChildren<ChatBubble>().DestroySprite();
+                // play fx effect
+                shopper_created.GetComponent<dieDuck>().playFx();
+                GameObject fx = Instantiate(dieFX, shopper_created.GetComponent<dieDuck>().transform.position + offset, Quaternion.identity);
+                Destroy(fx, 1.3f);
+                if (timer_destroy <= 0)
+                {
+                // refresh for next shopper
+                    timer_destroy = lifetimeOfEach;
+                    shopper_created = null;
+                        
+                }
+                   
             }
         }
 
