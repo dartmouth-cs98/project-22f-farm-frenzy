@@ -2124,9 +2124,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba107ff1e9c7740d4adaa86859bcf1ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed_buff: {fileID: 1513733557162353996, guid: a4a72b105a91042689507a28bb7fe7a2,
+  speed_buff: {fileID: 8547867254204328264, guid: a30cc93bab0384e55a5d3711dfed61a9,
     type: 3}
-  jump_buff: {fileID: 774594130536964683, guid: 1fdc7572c2df04c44b9b6fa1bf69f408,
+  jump_buff: {fileID: 5339739117810204693, guid: d0c105185ae1e41fe99e01110e06b49e,
     type: 3}
 --- !u!1 &4522664681476816259
 GameObject:
