@@ -37,19 +37,23 @@ public class npcManager : MonoBehaviour
         if (shopper_created != null)
         {
             timer_destroy -= Time.deltaTime;
-            if (timer_destroy <= 0)
-            {
+            //if (timer_destroy <= 2)
+            //{
+                //Debug.Log("duck shopper disable:  "+ shopper_created.GetComponent<Shopper>().enabled);
+                //shopper_created.GetComponentInChildren<Shopper>().navMeshAgent.enabled = false;
+                //shopper_created.GetComponentInChildren<Shopper>().enabled = false;
+                //shopper_created.GetComponent<dieDuck>().playFx();
                 //shopper_created.GetComponent<Shopper>().lifelimit = true;
-                shopper_created.GetComponent<Shopper>().lifelimit = true;
-                Destroy(shopper_created.GetComponent<Shopper>());
-                Destroy(shopper_created.GetComponent<ChatBubble>());
-                //Destroy(shopper_created.GetComponent<NavMeshAgent>());
-                shopper_created.GetComponent<dieDuck>().playFx();
-                shopper_created.GetComponent<dieDuck>().die = true;
+                if (timer_destroy <= 0)
+                {
+                    //shopper_created.GetComponent<dieDuck>().playFx();
+                    shopper_created.GetComponent<dieDuck>().die = true;
+                    //Destroy(shopper_created);
 
-                timer_destroy = lifetimeOfEach;
-                shopper_created = null;
-            }
+                    timer_destroy = lifetimeOfEach;
+                    shopper_created = null;
+                }
+            //}
         }
 
     }

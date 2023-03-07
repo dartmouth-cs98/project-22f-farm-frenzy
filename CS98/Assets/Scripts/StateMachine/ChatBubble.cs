@@ -7,19 +7,14 @@ public class ChatBubble : MonoBehaviour
 
     public void Create(string fruit)
     {
-        // TODO: try "setActive"
-        //chatBubbleTrans = Instantiate(sprite_popup, parent);
-        //backgroundRenderer = sprite_popup.transform.Find("background").GetComponent<SpriteRenderer>();
         //fruitRenderer = sprite_popup.GetComponent<SpriteRenderer>();
         spriteSwitch fruit_swtich = GetComponentInChildren<spriteSwitch>();
         fruit_swtich.Create(fruit);
-
-        //chatBubbleTrans.transform.rotation = Quaternion.LookRotation(chatBubbleTrans.transform.position - cameraTransform.position);
     }
 
-    private void Awake()
+    public void DestroySprite()
     {
-        //backgroundRenderer = transform.Find("background").GetComponent<SpriteRenderer>();
+        Destroy(gameObject);
     }
 
     //private void Setup(FruitType fruitType)
@@ -37,10 +32,5 @@ public class ChatBubble : MonoBehaviour
     //            break;
     //    }
     //}
-
-    private void Update()
-    {
-        //if (chatBubbleTrans) chatBubbleTrans.transform.rotation = Quaternion.LookRotation(chatBubbleTrans.transform.position - cameraTransform.position);
-    }
 
 }

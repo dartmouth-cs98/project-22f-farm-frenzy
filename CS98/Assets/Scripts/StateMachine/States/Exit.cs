@@ -10,54 +10,46 @@ public class Exit : IState
     private readonly NavMeshAgent _navMeshAgent;
     private readonly Animator _animator;
     private static readonly int Speed = Animator.StringToHash("Speed");
-    private MonoBehaviour mono;
-    GameObject _dieFX;
+    public bool finished = false;
+    private Vector3 dieplace = new Vector3(-22.6f, 6.13f, -4.5f);
+    //private Vector3 final = new Vector3(1f,1f,0f);
 
-    public Exit(Shopper shopper, NavMeshAgent navMeshAgent, Animator animator, GameObject dieFX, MonoBehaviour monob)
+    public Exit(Shopper shopper, NavMeshAgent navMeshAgent, Animator animator, GameObject dieFX)
     {
         _shopper = shopper;
         _navMeshAgent = navMeshAgent;
         _animator = animator;
-        _dieFX = dieFX;
-        mono = monob;
     }
 
     public void Tick()
     {
-        if (_navMeshAgent.remainingDistance < 0.05f)
+        Debug.Log(_navMeshAgent.remainingDistance);
+        if (_navMeshAgent.remainingDistance == 0)
         {
-            // die!
-            //    //_shopper.timeToDie = true;
-            //    Debug.Log(_navMeshAgent.remainingDistance);
-            //    Debug.Log(_navMeshAgent.destination);
-                Debug.Log("back to birthplace");
-            //_dieFX.transform.localScale = new Vector3(0f, -1f, 0f);
-            //_dieFX.GetComponent<ParticleSystem>().Stop();
-            //_dieFX.GetComponent<ParticleSystem>().Play();
-            _shopper.Die();
+            finished = true;
         }
+        Debug.Log(finished);
     }
 
     public void OnEnter()
     {
-        //TimeStuck = 0f;
+        Debug.Log("exit state!");
         _navMeshAgent.enabled = true;
-        _navMeshAgent.destination = _shopper.birthplace;
-        _animator.SetFloat(Speed, 1f);
-        _animator.SetBool("walk", true);
+        finished = false;
+        _navMeshAgent.SetDestination(dieplace);
+        _animator.SetFloat(Speed, .8f);
         _animator.SetBool("idle", false);
-        Debug.Log("state exiting.");
-        _shopper.Die();
-        //Debug.Log(_navMeshAgent.remainingDistance);
-
-        //_dieFX.transform.localScale = new Vector3(.15f, .15f, .15f);
-        //_dieFX.GetComponent<ParticleSystem>().Stop();
-        //_dieFX.GetComponent<ParticleSystem>().Play();
+        _animator.SetBool("walk", true);
+        //_shopper.GetComponent<ChatBubble>().DestroySprite();
     }
 
     public void OnExit()
     {
         Debug.Log("exit out of exit to birthplave");
+        _animator.SetBool("idle", true);
+        _animator.SetBool("walk", false);
+        _navMeshAgent.enabled = false;
+        finished = false;
     }
 
 }

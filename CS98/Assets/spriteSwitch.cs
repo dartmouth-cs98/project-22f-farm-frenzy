@@ -8,7 +8,7 @@ public class spriteSwitch : MonoBehaviour
     [SerializeField] private Sprite appleSprite;
     [SerializeField] private Sprite carrotSprite;
     [SerializeField] private SpriteRenderer fruitRenderer;
-
+    private GameObject camera;
     //private SpriteRenderer fruitRenderer;
 
     public enum FruitType
@@ -19,7 +19,9 @@ public class spriteSwitch : MonoBehaviour
 
     void Awake()
     {
-       // fruitRenderer = transform.Find("fruit").GetComponent<SpriteRenderer>();
+        if (GameObject.FindGameObjectsWithTag("camera").Length != 0)
+            camera = GameObject.FindGameObjectsWithTag("camera")[0];
+        Debug.Log(camera);
     }
 
     // Update is called once per frame
@@ -35,11 +37,13 @@ public class spriteSwitch : MonoBehaviour
             fruitRenderer.size -= new Vector2(1000f, 2000f);
             fruitRenderer.sprite = carrotSprite;
         }
+        
     }
 
     private void Update()
     {
         //Camera myCamera = Camera.main;
-        //transform.rotation = Quaternion.Euler(0f, myCamera.rotation.y, 0f);
+        //transform.rotation = Quaternion.Euler(0f, camera.transform.rotation.y, 0f);
+        transform.rotation = Quaternion.LookRotation(transform.position - camera.transform.position);
     }
 }

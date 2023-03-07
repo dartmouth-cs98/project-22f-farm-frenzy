@@ -31,8 +31,8 @@ public class Shopper : MonoBehaviour
         // state inits
         var roam = new Roam(this, navMeshAgent, animator, playerDetector, _chatBubble);
         var seePlayer = new SeePlayer(this, navMeshAgent, playerDetector, animator, this);
-        var exit = new Exit(this, navMeshAgent, animator, dieFX, this);
-
+        var exit = new Exit(this, navMeshAgent, animator, dieFX);
+        var die = new Die(this);
 
         // transitions
         At(roam, seePlayer, HasTarget());
@@ -40,6 +40,8 @@ public class Shopper : MonoBehaviour
         At(seePlayer, roam, TradeComplete());
         // transit from roam to see player
         At(seePlayer, roam, LostTarget());
+        At(exit, die, ReachedBirthPlace());
+        At(die, exit, ReachedBirthPlace2());
 
         _stateMachine.AddAnyTransition(exit, () => lifelimit);
 
@@ -49,6 +51,8 @@ public class Shopper : MonoBehaviour
         Func<bool> NoFruit() => () => playerDetector._detectedPlayer != null && playerDetector._detectedFruit == null;
         Func<bool> TradeComplete() => () => seePlayer.tradeComplete;
         Func<bool> LostTarget() => () => playerDetector.playerInRange == false;
+        Func<bool> ReachedBirthPlace() => () => exit.finished;
+        Func<bool> ReachedBirthPlace2() => () => navMeshAgent.remainingDistance == 0;
 
         // start state
         _stateMachine.SetState(roam);
@@ -69,7 +73,7 @@ public class Shopper : MonoBehaviour
         //dieFX.GetComponent<ParticleSystem>().Play();
         //StartCoroutine(testFunction());
         Debug.Log("in shopper: die");
-        Destroy(this);
+        Destroy(gameObject);
         //StartCoroutine("testFunction");
 
         //Destroy(gameObject);

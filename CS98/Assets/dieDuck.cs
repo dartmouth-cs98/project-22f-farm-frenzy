@@ -1,4 +1,4 @@
-    using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,30 +11,23 @@ public class dieDuck : MonoBehaviour
     {
         //StartCoroutine("MyCoroutine");
     }
-    IEnumerator MyCoroutine()
-    {
-        Debug.Log("here");
-        yield return new WaitForSeconds(7f);
-        dieFX.transform.localScale = new Vector3(0f, -1f, 0f);
-        dieFX.GetComponent<ParticleSystem>().Stop();
-        dieFX.GetComponent<ParticleSystem>().Play();
-        yield return new WaitForSeconds(1f);
-        Debug.Log("herehereherehere");
 
-        Destroy(gameObject);
-    }
     // Update is called once per frame
     void LateUpdate()
     {
-        //if (die) {
-        //    Debug.Log("in dieduck: die");
-        //    Destroy(gameObject);
-        //    //StartCoroutine("testFunction2");
-        //}
+        if (die)
+        {   
+            Debug.Log("in dieduck: die");
+            Destroy(gameObject);
+            playFx();
+            //StartCoroutine("testFunction2");
+        }
     }
 
     public void playFx()
     {
+        Debug.Log("here");
+        Instantiate(dieFX, transform.position, Quaternion.identity);
         dieFX.transform.localScale = new Vector3(0f, -1f, 0f);
         dieFX.GetComponent<ParticleSystem>().Stop();
         dieFX.GetComponent<ParticleSystem>().Play();
@@ -44,13 +37,13 @@ public class dieDuck : MonoBehaviour
 
     private IEnumerator testFunction2()
     {
-        
+        //this.GetComponent<Shopper>().lifelimit = true;
+        Debug.Log("hereeeeeeeeeetestFunction2");
         dieFX.transform.localScale = new Vector3(0f, -1f, 0f);
         dieFX.GetComponent<ParticleSystem>().Stop();
         dieFX.GetComponent<ParticleSystem>().Play();
-        Debug.Log("here");
-        yield return new WaitForSeconds(1f);
-        Debug.Log("herehereherehere");
+        yield return new WaitForSeconds(1.5f);
+        Debug.Log("herehereherehere testFunction2");
 
         Destroy(gameObject);
     }

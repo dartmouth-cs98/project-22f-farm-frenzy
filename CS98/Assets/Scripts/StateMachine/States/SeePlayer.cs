@@ -107,16 +107,4 @@ internal class SeePlayer : IState
         _navMeshAgent.enabled = false;
     }
 
-    //private Vector3 RandomNavMeshLocation()
-    //{
-    //    Vector3 finalPos = Vector3.zero;
-    //    Vector3 randomPos = Random.insideUnitSphere * walkRadius;
-    //    randomPos += _shopper.transform.position;
-    //    if (NavMesh.SamplePosition(randomPos, out NavMeshHit hit, walkRadius, 1))
-    //    {
-    //        finalPos = hit.position;
-    //    }
-
-    //    return finalPos;
-    //}
 }
