@@ -8,7 +8,7 @@ public class dieDuck : MonoBehaviour
     {
         
         // destroy duck shopper
-        Destroy(this.gameObject, 1f);
+        Destroy(this.gameObject, 2.2f);
     }
 
 }
