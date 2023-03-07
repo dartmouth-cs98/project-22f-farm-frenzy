@@ -6,10 +6,10 @@ public class SceneManagerScript : MonoBehaviour
 {
     public string StartSceneName = "hubworld";
     public string GameSceneName = "integrated_map";
-    public string AwardSceneName = "";
+    private string AwardSceneName = "end_screen_boilerplate";
     public string TestSceneName = "hatTesting";
 
-    public int timeToEnd = 2;
+    private int timeToEnd = 300;
     public Color loadToColor = Color.black;
 
     public float sceneTransitionTime = 3f;
@@ -30,8 +30,13 @@ void Update()
         else if (Input.GetKeyDown(KeyCode.Backslash))
         {
             LoadGameScene();
+
+        } else if (Input.GetKeyDown(KeyCode.Escape)) {
+            Debug.Log(AwardSceneName);
+            LoadAwardScene();
         }
         startTimer();
+        awardTimer();
     }
 
     public void LoadGameScene()
@@ -53,6 +58,7 @@ void Update()
     public void LoadAwardScene()
     {
         timerStarted = false;
+        Debug.Log(AwardSceneName);
         Initiate.Fade(AwardSceneName, loadToColor, sceneTransitionTime);
 
         //SceneManager.LoadScene(AwardSceneName);
@@ -87,7 +93,16 @@ void Update()
         if (SceneManager.GetActiveScene().name == GameSceneName && TriggerDialogue.isGameStarted && !timerStarted)
         {
             timerStarted = true;
-            Invoke("LoadStartScene", timeToEnd);
+            Invoke("LoadAwardScene", timeToEnd);
+        }
+ 
+    }
+    public void awardTimer()
+    {
+        if (SceneManager.GetActiveScene().name == AwardSceneName && !timerStarted)
+        {
+            timerStarted = true;
+            Invoke("LoadStartScene", 10);
         }
     }
 }

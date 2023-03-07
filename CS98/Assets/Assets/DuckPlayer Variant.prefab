@@ -7016,6 +7016,7 @@ MonoBehaviour:
   seed_planted: 0
   fruit_trade: 0
   onPlanting: 0
+  hatSpot: {fileID: 1019192727977482102}
 --- !u!114 &7846451179594071148
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -210,5 +210,9 @@ public class TriggerDialogue : MonoBehaviour
         NextLine();
     }
 
+    void OnDestroy(){
+        isGameStarted = false;
+    }
+
 
 }

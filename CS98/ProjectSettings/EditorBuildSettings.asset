@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/integrated_map.unity
     guid: f0836a2f056726e42a9198552fad8ea1
+  - enabled: 1
+    path: Assets/Scenes/end_screen_boilerplate.unity
+    guid: 6397c2719230748c8972cf4b7af9e032
   m_configObjects: {}
