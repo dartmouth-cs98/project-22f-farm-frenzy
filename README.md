@@ -12,11 +12,21 @@ Tech Stack:
 
 ## Setup
 
-Pull branch integration-testing-michael (TODO: Merge with main)
+Pull branch main
 
 Open the CS98 folder through Unity, with the specified Unity version.
 
 Either press play in the editor to test, or build the project through Unity.
+
+# Medium Post
+
+# Itch.io page with Download
+
+https://cs98-farm.itch.io/farm-frenzy
+
+Password: cs98
+
+Note: The preferred way to play is to download the game. Performance and bugs are not guarenteed to be fixed in the web version, as it is mainly for showcasing/testing purposes.
 
 ## Authors
 
