@@ -18,7 +18,9 @@ Open the CS98 folder through Unity, with the specified Unity version.
 
 Either press play in the editor to test, or build the project through Unity.
 
-# Medium Post
+# Medium Post (Draft)
+
+https://medium.com/@michael.i.canche.23/looking-for-a-game-to-bring-the-family-together-come-participate-in-the-farm-frenzy-9b20e6789f9c
 
 # Itch.io page with Download
 
