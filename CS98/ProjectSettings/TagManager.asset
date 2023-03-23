@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Enemy
+  - object
+  - Planter
+  - Hand
+  - Scorable
+  - PlayerParent
+  - CinemachineTarget
+  - Red
+  - Blue
+  - Bush
+  - Dialogue
+  - bodyCollider
+  - Water
+  - FxTemporaire
+  - camera
+  - hatSpot
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - KingCamera
+  - Water
+  - UI
+  - CoconutCamera
+  - Character
+  - 
+  - Duck Body
+  - Punchable
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: background
+    uniqueID: 3460130351
+    locked: 0
+  - name: fruit
+    uniqueID: 12598549
+    locked: 0

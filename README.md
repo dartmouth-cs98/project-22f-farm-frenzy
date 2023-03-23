@@ -1,24 +1,41 @@
-# Project Name
+# Farm Frenzy
 
-![Team Photo](Insert a Team Photo URL here)
-[*how?*](https://help.github.com/articles/about-readmes/#relative-links-and-image-paths-in-readme-files)
+This is a fun, goofy physics based local co-op game made for general audiences.
 
-TODO: short project description, some sample screenshots or mockups
+Farm Frenzy will turn you into little duck farmers with funky movements. Players will be in teams, and their goal is earn the most points by grabbing and planting seeds and selling the produce. More than that, you can push and knock other duckies out for funsies (or for their fruits ).
 
 ## Architecture
 
-TODO:  descriptions of code organization and tools and libraries used
+Tech Stack:
+- Modeling and design: Maya
+- Game Engine: Unity (Version LTS Release 2021.3.11f1)
 
 ## Setup
 
-TODO: how to get the project dev environment up and running, npm install etc
+Pull branch main
 
-## Deployment
+Open the CS98 folder through Unity, with the specified Unity version.
 
-TODO: how to deploy the project
+Either press play in the editor to test, or build the project through Unity.
+
+# Medium Post
+
+https://medium.com/dartmouth-cs98/looking-for-a-game-to-bring-the-family-together-come-participate-in-the-farm-frenzy-9b20e6789f9c
+
+# Itch.io page with Download (for online play as well)
+
+https://cs98-farm.itch.io/farm-frenzy
+
+Password: cs98
+
+Note: The preferred way to play is to download the game. Performance and bugs are not guarenteed to be fixed in the web version, as it is mainly for showcasing/testing purposes.
 
 ## Authors
 
-TODO: list of authors
+* Avi Dixit
+* Kewen Huang
+* Kaihao Tian
+* Yuchuan Ma
+* Michael Canche
 
-## Acknowledgments
+![Team_Selfie](https://user-images.githubusercontent.com/59535829/192889399-115d7143-0f5a-488e-93a6-5884dcd9c3d0.jpg)
